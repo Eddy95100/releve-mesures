@@ -1,0 +1,3108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<link rel="manifest" href="manifest.json">
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Relevé de mesures - Plomb</title>
+
+<style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: #f2f4f6;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  color: #202a33;
+
+  overflow-x: hidden;
+
+  -webkit-text-size-adjust: 100%;
+}
+
+
+/* =====================================================
+   APPLICATION IPHONE
+===================================================== */
+
+.app {
+  width: 100%;
+  max-width: 430px;
+
+  margin: 0 auto;
+
+  padding:
+    12px
+    10px
+    30px
+    10px;
+}
+
+
+/* =====================================================
+   TITRES
+===================================================== */
+
+h1 {
+  font-size: 24px;
+  line-height: 1.2;
+
+  margin:
+    5px
+    0
+    5px
+    0;
+}
+
+h2 {
+  font-size: 18px;
+
+  margin:
+    0
+    0
+    12px
+    0;
+}
+
+h3 {
+  font-size: 15px;
+
+  margin:
+    0
+    0
+    8px
+    0;
+}
+
+.sous-titre {
+  color: #687680;
+
+  font-size: 13px;
+
+  margin-bottom: 12px;
+}
+
+
+/* =====================================================
+   BLOCS
+===================================================== */
+
+.boite {
+  width: 100%;
+
+  background: white;
+
+  padding: 14px;
+
+  margin-bottom: 12px;
+
+  border-radius: 15px;
+
+  border: 1px solid #dfe4e8;
+}
+
+
+/* =====================================================
+   BOUTONS
+===================================================== */
+
+button {
+  display: block;
+
+  width: 100%;
+
+  min-height: 44px;
+
+  padding:
+    9px
+    8px;
+
+  margin-top: 9px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  background: #e8edf1;
+
+  color: #263640;
+
+  -webkit-appearance: none;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+
+/* =====================================================
+   CHOIX APPAREIL
+===================================================== */
+
+.bouton-appareil {
+  background: #111111;
+
+  color: white;
+
+  min-height: 48px;
+
+  font-size: 15px;
+
+  margin-top: 0;
+}
+
+.zone-appareil {
+  display: none;
+
+  margin-top: 12px;
+
+  padding-top: 12px;
+
+  border-top:
+    1px
+    solid
+    #e1e5e8;
+}
+
+.zone-appareil.visible {
+  display: block;
+}
+
+
+/* =====================================================
+   ETALONNAGE
+===================================================== */
+
+.bouton-etalonnage {
+  background: #111111;
+
+  color: white;
+
+  min-height: 48px;
+
+  font-size: 15px;
+}
+
+.etalonnage {
+  display: none;
+
+  margin-top: 12px;
+
+  padding-top: 12px;
+
+  border-top:
+    1px
+    solid
+    #e1e5e8;
+}
+
+.etalonnage.visible {
+  display: block;
+}
+
+
+.ligne-etalonnage {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 130px);
+
+  gap: 8px;
+
+  align-items: center;
+
+  margin-bottom: 9px;
+}
+
+
+.libelle-etalonnage {
+  font-size: 13px;
+
+  font-weight: 700;
+
+  color: #374650;
+
+  line-height: 1.25;
+}
+
+
+.valeur-etalonnage {
+  font-weight: 400;
+
+  color: #111111;
+}
+
+
+.ligne-etalonnage input {
+  width: 100%;
+
+  height: 42px;
+
+  border:
+    2px
+    solid
+    #111111;
+
+  border-radius: 9px;
+
+  padding:
+    0
+    9px;
+
+  font-size: 16px;
+
+  font-family: inherit;
+
+  outline: none;
+}
+
+.ligne-etalonnage input:focus {
+  border-color: #e00000;
+}
+
+
+.info-etalonnage {
+  font-size: 11px;
+
+  color: #687680;
+
+  margin-top: 8px;
+
+  line-height: 1.4;
+}
+
+
+/* =====================================================
+   FORMULAIRE
+===================================================== */
+
+label {
+  display: block;
+
+  margin-top: 10px;
+
+  margin-bottom: 5px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  color: #4e5b65;
+}
+
+
+input,
+select {
+  display: block;
+
+  width: 100%;
+
+  height: 46px;
+
+  padding:
+    0
+    10px;
+
+  border:
+    1px
+    solid
+    #cbd4da;
+
+  border-radius: 10px;
+
+  background: white;
+
+  font-family: inherit;
+
+  font-size: 16px;
+
+  color: #202a33;
+
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: #111111;
+}
+
+
+/* =====================================================
+   SURFACE
+===================================================== */
+
+.grille {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 95px);
+
+  gap: 8px;
+}
+
+.indication-surface {
+  font-size: 11px;
+
+  color: #111111;
+
+  margin-top: 4px;
+
+  min-height: 15px;
+}
+
+
+/* =====================================================
+   BOUTON AJOUT
+===================================================== */
+
+.bouton-principal {
+  background: #e00000;
+
+  color: white;
+
+  margin-top: 14px;
+
+  min-height: 48px;
+
+  font-size: 15px;
+}
+
+
+/* =====================================================
+   PARAMETRES
+===================================================== */
+
+.bouton-parametres {
+  background: #111111;
+
+  color: white;
+
+  font-size: 13px;
+}
+
+.parametres {
+  display: none;
+
+  margin-top: 12px;
+
+  padding-top: 12px;
+
+  border-top:
+    1px
+    solid
+    #e1e5e8;
+}
+
+.parametres.visible {
+  display: block;
+}
+
+.parametre-ligne {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    80px;
+
+  gap: 8px;
+
+  align-items: center;
+
+  margin-bottom: 7px;
+}
+
+.parametre-ligne span {
+  font-size: 12px;
+
+  color: #45525b;
+}
+
+.parametre-ligne input {
+  height: 38px;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   INFORMATIONS
+===================================================== */
+
+.informations-tableau {
+  background: #f7f9fa;
+
+  border:
+    1px
+    solid
+    #dce3e7;
+
+  border-radius: 10px;
+
+  padding: 10px;
+
+  margin-bottom: 12px;
+}
+
+
+.info-ligne {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  padding: 4px 0;
+
+  font-size: 12px;
+
+  border-bottom:
+    1px
+    solid
+    #e8ecef;
+}
+
+
+.info-ligne:last-child {
+  border-bottom: none;
+}
+
+
+.info-titre {
+  font-weight: 700;
+
+  color: #5a6871;
+}
+
+
+.info-valeur {
+  font-weight: 700;
+
+  color: #202a33;
+
+  text-align: right;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =====================================================
+   TABLEAU
+===================================================== */
+
+.tableau-wrapper {
+  width: 100%;
+
+  overflow: visible;
+}
+
+
+table {
+  width: 100%;
+
+  table-layout: fixed;
+
+  border-collapse: collapse;
+
+  font-size: 10px;
+}
+
+
+th:nth-child(1),
+td:nth-child(1) {
+  width: 17%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 14%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 17%;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+  width: 11%;
+}
+
+th:nth-child(5),
+td:nth-child(5) {
+  width: 28%;
+}
+
+th:nth-child(6),
+td:nth-child(6) {
+  width: 13%;
+}
+
+
+th,
+td {
+  padding:
+    6px
+    3px;
+
+  border-bottom:
+    1px
+    solid
+    #dde3e7;
+
+  text-align: left;
+
+  vertical-align: top;
+
+  overflow-wrap: anywhere;
+}
+
+
+th {
+  background: #111111;
+
+  color: white;
+
+  font-size: 8px;
+
+  line-height: 1.2;
+
+  text-transform: uppercase;
+}
+
+
+.numero {
+  font-weight: 800;
+
+  line-height: 1.2;
+}
+
+
+.vide {
+  text-align: center;
+
+  color: #7a868e;
+
+  padding:
+    25px
+    5px;
+
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   POSITIF / NEGATIF
+===================================================== */
+
+.plomb {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  width: 100%;
+}
+
+
+.plomb button {
+  width: 100%;
+
+  min-height: 34px;
+
+  margin: 0;
+
+  padding:
+    5px
+    3px;
+
+  border-radius: 7px;
+
+  font-size: 9px;
+
+  line-height: 1.15;
+}
+
+
+/* POSITIF = ROUGE */
+
+.plomb .selection-positif {
+  background: #e00000;
+
+  color: white;
+
+  font-weight: 800;
+}
+
+
+/* NEGATIF = BLEU */
+
+.plomb .selection-negatif {
+  background: #1769aa;
+
+  color: white;
+
+  font-weight: 800;
+}
+
+
+/* boutons non sélectionnés */
+
+.plomb .bouton-positif {
+  background: #ffdede;
+
+  color: #a71919;
+}
+
+.plomb .bouton-negatif {
+  background: #dceeff;
+
+  color: #14588e;
+}
+
+
+/* =====================================================
+   PHOTO
+===================================================== */
+
+.photo-zone {
+  width: 100%;
+
+  margin-top: 5px;
+}
+
+
+.photo-button {
+  display: block;
+
+  width: 100%;
+
+  background: #111111;
+
+  color: white;
+
+  border:
+    1px
+    solid
+    #111111;
+
+  padding:
+    6px
+    3px;
+
+  border-radius: 7px;
+
+  text-align: center;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  line-height: 1.15;
+
+  cursor: pointer;
+}
+
+
+.photo-preview {
+  margin-top: 5px;
+
+  text-align: center;
+}
+
+
+.photo-preview img {
+  width: 48px;
+
+  height: 48px;
+
+  object-fit: cover;
+
+  border-radius: 6px;
+
+  border:
+    1px
+    solid
+    #ccc;
+}
+
+
+.photo-ajoutee {
+  font-size: 9px;
+
+  text-align: center;
+}
+
+
+/* =====================================================
+   PDF
+===================================================== */
+
+.pdf-info {
+  font-size: 12px;
+
+  line-height: 1.4;
+
+  color: #687680;
+
+  margin:
+    0
+    0
+    10px
+    0;
+}
+
+
+.bouton-pdf {
+  background: #111111;
+
+  color: white;
+
+  min-height: 48px;
+
+  font-size: 15px;
+}
+
+
+/* =====================================================
+   PETIT IPHONE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .app {
+    padding-left: 7px;
+
+    padding-right: 7px;
+  }
+
+  .boite {
+    padding: 11px;
+  }
+
+  table {
+    font-size: 9px;
+  }
+
+  th {
+    font-size: 7px;
+  }
+
+  .plomb button {
+    font-size: 8px;
+  }
+
+  .ligne-etalonnage {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 115px);
+  }
+
+}
+
+
+/* =====================================================
+   IMPRESSION
+===================================================== */
+
+@media print {
+
+  body {
+    background: white !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+  }
+
+  .formulaire,
+  .zone-pdf,
+  .bloc-etalonnage,
+  .bloc-appareil {
+    display: none !important;
+  }
+
+  .app {
+    max-width: none;
+
+    padding: 0;
+  }
+
+  table {
+    width: 100%;
+
+    font-size: 10px;
+  }
+
+  th,
+  td {
+    border:
+      1px
+      solid
+      #777;
+
+    padding: 6px;
+  }
+
+  .plomb button,
+  .photo-button {
+    display: none !important;
+  }
+
+  .photo-pdf {
+    display: block;
+
+    width: 45px !important;
+
+    height: 45px !important;
+
+    max-width: 45px !important;
+
+    max-height: 45px !important;
+
+    object-fit: cover;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+<!-- =====================================================
+     TITRE
+===================================================== -->
+
+<h1>
+📋 Relevé de mesures
+</h1>
+
+<div class="sous-titre">
+Démonstration de relevé de présence de plomb
+</div>
+
+
+<!-- =====================================================
+     CHOIX APPAREIL
+===================================================== -->
+
+<div class="boite bloc-appareil">
+
+<button
+class="bouton-appareil"
+onclick="afficherAppareil()">
+
+🔬 Choix de l'appareil
+
+</button>
+
+
+<div
+id="zoneAppareil"
+class="zone-appareil">
+
+
+<label for="appareil">
+Appareil à fluorescence X
+</label>
+
+
+<select
+id="appareil"
+onchange="mettreAJourInformations()">
+
+<option value="">
+Choisir un appareil
+</option>
+
+<option value="Appareil à fluorescence X Numéro 1">
+Appareil à fluorescence X Numéro 1
+</option>
+
+<option value="Appareil à fluorescence X Numéro 1Bis">
+Appareil à fluorescence X Numéro 1Bis
+</option>
+
+<option value="Appareil à fluorescence X Numéro 2">
+Appareil à fluorescence X Numéro 2
+</option>
+
+<option value="Appareil à fluorescence X Numéro 3">
+Appareil à fluorescence X Numéro 3
+</option>
+
+</select>
+
+
+<button
+onclick="fermerAppareil()">
+
+✓ Valider l'appareil
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     ETALONNAGE
+===================================================== -->
+
+<div class="boite bloc-etalonnage">
+
+<button
+class="bouton-etalonnage"
+onclick="afficherEtalonnage()">
+
+⚙️ Étalonnage
+
+</button>
+
+
+<div
+id="etalonnage"
+class="etalonnage">
+
+
+<h3>
+Mesures d'étalonnage du spectromètre
+</h3>
+
+
+<!-- MESURE A -->
+
+<div class="ligne-etalonnage">
+
+<div class="libelle-etalonnage">
+
+Mesure A
+
+<span class="valeur-etalonnage">
+— 0 mg/kg
+</span>
+
+</div>
+
+<input
+id="etalonnageA"
+type="text"
+inputmode="numeric"
+maxlength="4"
+placeholder="N° spectromètre"
+oninput="gererEtalonnage(this, 'etalonnageB')"
+onkeydown="entreeEtalonnage(event, 'etalonnageB')">
+
+</div>
+
+
+<!-- MESURE B -->
+
+<div class="ligne-etalonnage">
+
+<div class="libelle-etalonnage">
+
+Mesure B
+
+<span class="valeur-etalonnage">
+— 0,5 mg/kg
+</span>
+
+</div>
+
+<input
+id="etalonnageB"
+type="text"
+inputmode="numeric"
+maxlength="4"
+placeholder="N° spectromètre"
+oninput="gererEtalonnage(this, 'etalonnageC')"
+onkeydown="entreeEtalonnage(event, 'etalonnageC')">
+
+</div>
+
+
+<!-- MESURE C -->
+
+<div class="ligne-etalonnage">
+
+<div class="libelle-etalonnage">
+
+Mesure C
+
+<span class="valeur-etalonnage">
+— 1 mg/kg
+</span>
+
+</div>
+
+<input
+id="etalonnageC"
+type="text"
+inputmode="numeric"
+maxlength="4"
+placeholder="N° spectromètre"
+oninput="gererEtalonnage(this, null)"
+onkeydown="entreeEtalonnage(event, null)">
+
+</div>
+
+
+<div class="info-etalonnage">
+
+Saisissez jusqu'à 4 chiffres. Le passage à la mesure suivante
+se fait automatiquement au 4ᵉ chiffre ou avec la touche Entrée.
+
+</div>
+
+
+<button
+onclick="fermerEtalonnage()">
+
+✓ Terminer l'étalonnage
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     AJOUT MESURE
+===================================================== -->
+
+<div class="boite formulaire">
+
+
+<h2>
+➕ Ajouter une mesure
+</h2>
+
+
+<label for="piece">
+Pièce
+</label>
+
+
+<select
+id="piece"
+onchange="passerAuMateriau()">
+
+<option value="">
+Choisir une pièce
+</option>
+
+<option value="Cuisine">
+Cuisine
+</option>
+
+<option value="SDB">
+SDB
+</option>
+
+<option value="WC">
+WC
+</option>
+
+<option value="Entrée">
+Entrée
+</option>
+
+<option value="Salon">
+Salon
+</option>
+
+<option value="Chambre 1">
+Chambre 1
+</option>
+
+<option value="Chambre 2">
+Chambre 2
+</option>
+
+<option value="Couloir">
+Couloir
+</option>
+
+</select>
+
+
+<label for="materiau">
+Matériau
+</label>
+
+
+<select
+id="materiau"
+onchange="surfaceAutomatiqueEtFocus()">
+
+<option value="">
+Choisir un matériau
+</option>
+
+<option value="Cadre de porte">
+Cadre de porte
+</option>
+
+<option value="Porte">
+Porte
+</option>
+
+<option value="Mur">
+Mur
+</option>
+
+<option value="Peinture">
+Peinture
+</option>
+
+<option value="Cadre de placard">
+Cadre de placard
+</option>
+
+<option value="Placard">
+Placard
+</option>
+
+<option value="Cadre de fenêtre">
+Cadre de fenêtre
+</option>
+
+<option value="Fenêtre">
+Fenêtre
+</option>
+
+<option value="Plafond">
+Plafond
+</option>
+
+</select>
+
+
+<div class="grille">
+
+
+<div>
+
+<label for="surface">
+Surface
+</label>
+
+<input
+id="surface"
+type="number"
+min="0"
+step="0.01"
+inputmode="decimal"
+placeholder="Ex. 4"
+onkeydown="passerAuChampSuivant(event, 'unite')">
+
+<div
+id="indicationSurface"
+class="indication-surface">
+</div>
+
+</div>
+
+
+<div>
+
+<label for="unite">
+Unité
+</label>
+
+<select
+id="unite"
+onchange="focusAjouter()">
+
+<option value="m²">
+m²
+</option>
+
+<option value="m">
+m
+</option>
+
+<option value="cm">
+cm
+</option>
+
+<option value="mm">
+mm
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<button
+id="boutonAjouter"
+class="bouton-principal"
+onclick="ajouterMesure()">
+
+➕ Ajouter au tableau
+
+</button>
+
+
+<!-- PARAMETRES -->
+
+<button
+class="bouton-parametres"
+onclick="afficherParametres()">
+
+⚙️ Modifier les surfaces par défaut
+
+</button>
+
+
+<div
+id="parametres"
+class="parametres">
+
+
+<h3>
+Surfaces automatiques
+</h3>
+
+
+<div class="parametre-ligne">
+
+<span>
+Cadre de porte
+</span>
+
+<input
+id="def-Cadre-de-porte"
+type="number"
+step="0.1"
+value="1.5">
+
+</div>
+
+
+<div class="parametre-ligne">
+
+<span>
+Porte
+</span>
+
+<input
+id="def-Porte"
+type="number"
+step="0.1"
+value="3">
+
+</div>
+
+
+<div class="parametre-ligne">
+
+<span>
+Cadre de placard
+</span>
+
+<input
+id="def-Cadre-de-placard"
+type="number"
+step="0.1"
+value="1">
+
+</div>
+
+
+<div class="parametre-ligne">
+
+<span>
+Placard
+</span>
+
+<input
+id="def-Placard"
+type="number"
+step="0.1"
+value="2">
+
+</div>
+
+
+<div class="parametre-ligne">
+
+<span>
+Cadre de fenêtre
+</span>
+
+<input
+id="def-Cadre-de-fenêtre"
+type="number"
+step="0.1"
+value="1.5">
+
+</div>
+
+
+<div class="parametre-ligne">
+
+<span>
+Fenêtre
+</span>
+
+<input
+id="def-Fenêtre"
+type="number"
+step="0.1"
+value="2">
+
+</div>
+
+
+<button
+onclick="fermerParametres()">
+
+✓ Terminer
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     TABLEAU
+===================================================== -->
+
+<div class="boite">
+
+
+<h2>
+📊 Mesures enregistrées
+</h2>
+
+
+<div
+id="informationsTableau"
+class="informations-tableau">
+
+
+<div class="info-ligne">
+
+<span class="info-titre">
+Appareil
+</span>
+
+<span
+id="infoAppareil"
+class="info-valeur">
+
+Non sélectionné
+
+</span>
+
+</div>
+
+
+<div class="info-ligne">
+
+<span class="info-titre">
+Mesure A — 0 mg/kg
+</span>
+
+<span
+id="infoA"
+class="info-valeur">
+
+—
+
+</span>
+
+</div>
+
+
+<div class="info-ligne">
+
+<span class="info-titre">
+Mesure B — 0,5 mg/kg
+</span>
+
+<span
+id="infoB"
+class="info-valeur">
+
+—
+
+</span>
+
+</div>
+
+
+<div class="info-ligne">
+
+<span class="info-titre">
+Mesure C — 1 mg/kg
+</span>
+
+<span
+id="infoC"
+class="info-valeur">
+
+—
+
+</span>
+
+</div>
+
+
+</div>
+
+
+<div class="tableau-wrapper">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>
+Mesure
+</th>
+
+<th>
+Pièce
+</th>
+
+<th>
+Matériau
+</th>
+
+<th>
+Surface
+</th>
+
+<th>
+Résultat
+</th>
+
+<th>
+Photo
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="tableau">
+
+
+<tr>
+
+<td
+colspan="6"
+class="vide">
+
+Aucune mesure enregistrée.
+
+</td>
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     PDF
+===================================================== -->
+
+<div class="boite zone-pdf">
+
+
+<h2>
+🧾 Document
+</h2>
+
+
+<div class="pdf-info">
+
+Toutes les mesures enregistrées, l'appareil,
+l'étalonnage et les photos associées seront
+repris dans le document.
+
+</div>
+
+
+<button
+class="bouton-pdf"
+onclick="genererPDF()">
+
+🧾 Générer la feuille PDF
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =====================================================
+   SURFACES PAR DEFAUT
+===================================================== */
+
+const surfacesDefaut = {
+
+  "Cadre de porte": 1.5,
+
+  "Porte": 3,
+
+  "Mur": "",
+
+  "Peinture": "",
+
+  "Cadre de placard": 1,
+
+  "Placard": 2,
+
+  "Cadre de fenêtre": 1.5,
+
+  "Fenêtre": 2,
+
+  "Plafond": ""
+
+};
+
+
+/* =====================================================
+   DONNEES
+===================================================== */
+
+let mesures = [];
+
+let numeroMesure = 0;
+
+
+/* =====================================================
+   FONCTIONS DE NAVIGATION RAPIDE
+===================================================== */
+
+function focusElement(id) {
+
+  const element =
+    document.getElementById(id);
+
+  if (!element) {
+    return;
+  }
+
+  setTimeout(function() {
+
+    element.focus();
+
+  }, 50);
+
+}
+
+
+function passerAuMateriau() {
+
+  const piece =
+    document.getElementById("piece").value;
+
+  if (piece !== "") {
+
+    focusElement("materiau");
+
+  }
+
+}
+
+
+function surfaceAutomatiqueEtFocus() {
+
+  surfaceAutomatique();
+
+  const materiau =
+    document.getElementById("materiau").value;
+
+  if (materiau === "") {
+    return;
+  }
+
+  const champSurface =
+    document.getElementById("surface");
+
+  /*
+   * Même si une surface est automatiquement proposée,
+   * on place le curseur directement dedans.
+   * L'utilisateur peut donc la modifier immédiatement.
+   */
+
+  focusElement("surface");
+
+}
+
+
+function passerAuChampSuivant(
+  event,
+  idSuivant
+) {
+
+  if (
+    event.key === "Enter" &&
+    idSuivant
+  ) {
+
+    event.preventDefault();
+
+    focusElement(idSuivant);
+
+  }
+
+}
+
+
+function focusAjouter() {
+
+  focusElement("boutonAjouter");
+
+}
+
+
+/* =====================================================
+   ETALONNAGE RAPIDE
+===================================================== */
+
+function gererEtalonnage(
+  champ,
+  idSuivant
+) {
+
+  /*
+   * On autorise uniquement les chiffres.
+   */
+
+  champ.value =
+    champ.value.replace(/\D/g, "");
+
+
+  /*
+   * Passage automatique UNIQUEMENT
+   * lorsqu'il y a exactement 4 chiffres.
+   */
+
+  if (
+    champ.value.length === 4 &&
+    idSuivant
+  ) {
+
+    focusElement(idSuivant);
+
+  }
+
+
+  mettreAJourInformations();
+
+}
+
+
+function entreeEtalonnage(
+  event,
+  idSuivant
+) {
+
+  if (
+    event.key === "Enter"
+  ) {
+
+    event.preventDefault();
+
+    if (idSuivant) {
+
+      focusElement(idSuivant);
+
+    }
+
+    else {
+
+      /*
+       * Pour C, Entrée termine simplement
+       * la saisie sans chercher un champ suivant.
+       */
+
+      event.target.blur();
+
+    }
+
+    mettreAJourInformations();
+
+  }
+
+}
+
+
+/* =====================================================
+   CHOIX APPAREIL
+===================================================== */
+
+function afficherAppareil() {
+
+  document
+    .getElementById("zoneAppareil")
+    .classList.add("visible");
+
+}
+
+
+function fermerAppareil() {
+
+  document
+    .getElementById("zoneAppareil")
+    .classList.remove("visible");
+
+  mettreAJourInformations();
+
+}
+
+
+/* =====================================================
+   ETALONNAGE
+===================================================== */
+
+function afficherEtalonnage() {
+
+  document
+    .getElementById("etalonnage")
+    .classList.add("visible");
+
+  focusElement("etalonnageA");
+
+}
+
+
+function fermerEtalonnage() {
+
+  document
+    .getElementById("etalonnage")
+    .classList.remove("visible");
+
+  mettreAJourInformations();
+
+}
+
+
+/* =====================================================
+   MISE A JOUR INFORMATIONS
+===================================================== */
+
+function mettreAJourInformations() {
+
+
+  const appareil =
+    document.getElementById("appareil").value;
+
+
+  const A =
+    document.getElementById("etalonnageA").value;
+
+
+  const B =
+    document.getElementById("etalonnageB").value;
+
+
+  const C =
+    document.getElementById("etalonnageC").value;
+
+
+  document.getElementById(
+    "infoAppareil"
+  ).textContent =
+    appareil || "Non sélectionné";
+
+
+  document.getElementById(
+    "infoA"
+  ).textContent =
+    A || "—";
+
+
+  document.getElementById(
+    "infoB"
+  ).textContent =
+    B || "—";
+
+
+  document.getElementById(
+    "infoC"
+  ).textContent =
+    C || "—";
+
+}
+
+
+/* =====================================================
+   SURFACE AUTOMATIQUE
+===================================================== */
+
+function surfaceAutomatique() {
+
+
+  const materiau =
+    document.getElementById("materiau").value;
+
+
+  const champ =
+    document.getElementById("surface");
+
+
+  const indication =
+    document.getElementById("indicationSurface");
+
+
+  if (materiau === "") {
+
+    champ.value = "";
+
+    indication.innerHTML = "";
+
+    return;
+
+  }
+
+
+  let valeur =
+    surfacesDefaut[materiau];
+
+
+  const id =
+    "def-" +
+    materiau.replaceAll(" ", "-");
+
+
+  const champDefaut =
+    document.getElementById(id);
+
+
+  if (champDefaut) {
+
+    valeur =
+      champDefaut.value;
+
+  }
+
+
+  if (
+    valeur !== "" &&
+    valeur !== undefined
+  ) {
+
+    champ.value =
+      valeur;
+
+    indication.innerHTML =
+      "✓ Surface proposée automatiquement";
+
+  }
+
+  else {
+
+    champ.value = "";
+
+    indication.innerHTML =
+      "Surface à renseigner";
+
+  }
+
+}
+
+
+/* =====================================================
+   PARAMETRES
+===================================================== */
+
+function afficherParametres() {
+
+  document
+    .getElementById("parametres")
+    .classList.add("visible");
+
+}
+
+
+function fermerParametres() {
+
+
+  Object.keys(
+    surfacesDefaut
+  ).forEach(
+    function(materiau) {
+
+
+      const id =
+        "def-" +
+        materiau.replaceAll(" ", "-");
+
+
+      const champ =
+        document.getElementById(id);
+
+
+      if (
+        champ &&
+        champ.value !== ""
+      ) {
+
+        surfacesDefaut[materiau] =
+          parseFloat(champ.value);
+
+      }
+
+    }
+  );
+
+
+  document
+    .getElementById("parametres")
+    .classList.remove("visible");
+
+
+  surfaceAutomatique();
+
+}
+
+
+/* =====================================================
+   AJOUTER UNE MESURE
+===================================================== */
+
+function ajouterMesure() {
+
+
+  const piece =
+    document.getElementById("piece").value;
+
+
+  const materiau =
+    document.getElementById("materiau").value;
+
+
+  const surface =
+    document.getElementById("surface").value;
+
+
+  const unite =
+    document.getElementById("unite").value;
+
+
+  if (piece === "") {
+
+    alert(
+      "Choisissez une pièce."
+    );
+
+    focusElement("piece");
+
+    return;
+
+  }
+
+
+  if (materiau === "") {
+
+    alert(
+      "Choisissez un matériau."
+    );
+
+    focusElement("materiau");
+
+    return;
+
+  }
+
+
+  if (surface === "") {
+
+    alert(
+      "Indiquez une surface."
+    );
+
+    focusElement("surface");
+
+    return;
+
+  }
+
+
+  numeroMesure++;
+
+
+  mesures.push({
+
+    numero: numeroMesure,
+
+    piece: piece,
+
+    materiau: materiau,
+
+    surface: surface,
+
+    unite: unite,
+
+    plomb: "",
+
+    photo: ""
+
+  });
+
+
+  /*
+   * Après ajout :
+   * on revient immédiatement à la pièce
+   * pour permettre un nouveau relevé très rapidement.
+   */
+
+  document.getElementById(
+    "piece"
+  ).value = "";
+
+
+  document.getElementById(
+    "materiau"
+  ).value = "";
+
+
+  document.getElementById(
+    "surface"
+  ).value = "";
+
+
+  document.getElementById(
+    "indicationSurface"
+  ).innerHTML = "";
+
+
+  afficherTableau();
+
+  focusElement("piece");
+
+}
+
+
+/* =====================================================
+   TABLEAU
+===================================================== */
+
+function afficherTableau() {
+
+
+  const tableau =
+    document.getElementById("tableau");
+
+
+  tableau.innerHTML = "";
+
+
+  if (mesures.length === 0) {
+
+    tableau.innerHTML = `
+
+      <tr>
+
+        <td
+        colspan="6"
+        class="vide">
+
+          Aucune mesure enregistrée.
+
+        </td>
+
+      </tr>
+
+    `;
+
+    return;
+
+  }
+
+
+  mesures.forEach(
+    function(mesure, index) {
+
+
+      let plombHTML = "";
+
+
+      /*
+       * Aucun résultat choisi
+       */
+
+      if (mesure.plomb === "") {
+
+
+        plombHTML = `
+
+          <div class="plomb">
+
+            <button
+            class="bouton-positif"
+            onclick="choisirPlomb(
+              ${index},
+              'Positif'
+            )">
+
+              🔴 Positif
+
+            </button>
+
+
+            <button
+            class="bouton-negatif"
+            onclick="choisirPlomb(
+              ${index},
+              'Négatif'
+            )">
+
+              🔵 Négatif
+
+            </button>
+
+          </div>
+
+        `;
+
+      }
+
+
+      /*
+       * Négatif sélectionné
+       */
+
+      else if (
+        mesure.plomb ===
+        "Négatif"
+      ) {
+
+
+        plombHTML = `
+
+          <div class="plomb">
+
+            <button
+            class="selection-negatif"
+            onclick="choisirPlomb(
+              ${index},
+              'Négatif'
+            )">
+
+              🔵 Négatif
+
+            </button>
+
+
+            <button
+            class="bouton-positif"
+            onclick="choisirPlomb(
+              ${index},
+              'Positif'
+            )">
+
+              🔴 Positif
+
+            </button>
+
+          </div>
+
+        `;
+
+      }
+
+
+      /*
+       * Positif sélectionné
+       */
+
+      else {
+
+
+        plombHTML = `
+
+          <div class="plomb">
+
+            <button
+            class="selection-positif"
+            onclick="choisirPlomb(
+              ${index},
+              'Positif'
+            )">
+
+              🔴 Positif
+
+            </button>
+
+
+            <button
+            class="bouton-negatif"
+            onclick="choisirPlomb(
+              ${index},
+              'Négatif'
+            )">
+
+              🔵 Négatif
+
+            </button>
+
+
+            <div class="photo-zone">
+
+
+              <label
+              for="photo-${index}"
+              class="photo-button">
+
+                📷 Photo
+
+              </label>
+
+
+              <input
+
+              id="photo-${index}"
+
+              type="file"
+
+              accept="image/*"
+
+              capture="environment"
+
+              style="display:none"
+
+              onchange="ajouterPhoto(
+                ${index},
+                this
+              )">
+
+
+              ${
+                mesure.photo
+                ?
+
+                `
+                <div class="photo-preview">
+
+                  <img
+                  src="${mesure.photo}"
+                  alt="Photo">
+
+                </div>
+                `
+
+                :
+
+                ""
+
+              }
+
+
+            </div>
+
+          </div>
+
+        `;
+
+      }
+
+
+      let photoCellule = "—";
+
+
+      if (mesure.photo) {
+
+        photoCellule = `
+
+          <div class="photo-ajoutee">
+
+            📷 Oui
+
+          </div>
+
+        `;
+
+      }
+
+
+      const tr =
+        document.createElement("tr");
+
+
+      tr.innerHTML = `
+
+        <td>
+
+          <div class="numero">
+
+            Mesure n°${mesure.numero}
+
+          </div>
+
+        </td>
+
+
+        <td>
+
+          ${mesure.piece}
+
+        </td>
+
+
+        <td>
+
+          ${mesure.materiau}
+
+        </td>
+
+
+        <td>
+
+          ${mesure.surface}${mesure.unite}
+
+        </td>
+
+
+        <td>
+
+          ${plombHTML}
+
+        </td>
+
+
+        <td>
+
+          ${photoCellule}
+
+        </td>
+
+      `;
+
+
+      tableau.appendChild(tr);
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   CHOIX POSITIF / NEGATIF
+===================================================== */
+
+function choisirPlomb(
+  index,
+  resultat
+) {
+
+
+  mesures[index].plomb =
+    resultat;
+
+
+  /*
+   * Une photo n'est disponible
+   * que pour un résultat positif.
+   */
+
+  if (
+    resultat ===
+    "Négatif"
+  ) {
+
+    mesures[index].photo =
+      "";
+
+  }
+
+
+  afficherTableau();
+
+}
+
+
+/* =====================================================
+   PHOTO
+===================================================== */
+
+function ajouterPhoto(
+  index,
+  input
+) {
+
+
+  if (
+    !input.files ||
+    !input.files[0]
+  ) {
+
+    return;
+
+  }
+
+
+  const fichier =
+    input.files[0];
+
+
+  const lecteur =
+    new FileReader();
+
+
+  lecteur.onload =
+    function(e) {
+
+
+      mesures[index].photo =
+        e.target.result;
+
+
+      afficherTableau();
+
+    };
+
+
+  lecteur.readAsDataURL(fichier);
+
+}
+
+
+/* =====================================================
+   GENERATION PDF
+===================================================== */
+
+function genererPDF() {
+
+
+  if (mesures.length === 0) {
+
+    alert(
+      "Il n'y a aucune mesure à mettre dans le PDF."
+    );
+
+    return;
+
+  }
+
+
+  const appareil =
+    document.getElementById("appareil").value
+    || "Non sélectionné";
+
+
+  const A =
+    document.getElementById("etalonnageA").value
+    || "Non renseigné";
+
+
+  const B =
+    document.getElementById("etalonnageB").value
+    || "Non renseigné";
+
+
+  const C =
+    document.getElementById("etalonnageC").value
+    || "Non renseigné";
+
+
+  let lignes = "";
+
+
+  mesures.forEach(
+    function(mesure) {
+
+
+      let resultat =
+        "Non renseigné";
+
+
+      let classe = "";
+
+
+      if (
+        mesure.plomb ===
+        "Positif"
+      ) {
+
+        resultat =
+          "POSITIF";
+
+        classe =
+          "presence";
+
+      }
+
+
+      else if (
+        mesure.plomb ===
+        "Négatif"
+      ) {
+
+        resultat =
+          "NÉGATIF";
+
+        classe =
+          "absence";
+
+      }
+
+
+      let photo = "";
+
+
+      if (mesure.photo) {
+
+        photo = `
+
+          <img
+          class="photo-pdf"
+          src="${mesure.photo}"
+          alt="Photo">
+
+        `;
+
+      }
+
+
+      lignes += `
+
+        <tr>
+
+          <td>
+            Mesure n°${mesure.numero}
+          </td>
+
+          <td>
+            ${mesure.piece}
+          </td>
+
+          <td>
+            ${mesure.materiau}
+          </td>
+
+          <td>
+            ${mesure.surface} ${mesure.unite}
+          </td>
+
+          <td class="${classe}">
+            ${resultat}
+          </td>
+
+          <td class="cellule-photo-pdf">
+            ${photo}
+          </td>
+
+        </tr>
+
+      `;
+
+    }
+  );
+
+
+  const contenuApplication =
+    document.body.innerHTML;
+
+
+  document.body.innerHTML = `
+
+    <div id="documentPDF">
+
+
+      <h1>
+        RELEVÉ DES MESURES
+      </h1>
+
+
+      <div class="date-pdf">
+
+        Relevé de présence de plomb
+
+        <br><br>
+
+        Date :
+        ${new Date().toLocaleDateString("fr-FR")}
+
+      </div>
+
+
+      <div class="bloc-info-pdf">
+
+        <strong>
+          APPAREIL
+        </strong>
+
+        <br>
+
+        ${appareil}
+
+      </div>
+
+
+      <div class="bloc-info-pdf">
+
+        <strong>
+          ÉTALONNAGE
+        </strong>
+
+        <br>
+
+        Mesure A — 0 mg/kg :
+        ${A}
+
+        <br>
+
+        Mesure B — 0,5 mg/kg :
+        ${B}
+
+        <br>
+
+        Mesure C — 1 mg/kg :
+        ${C}
+
+      </div>
+
+
+      <table class="table-pdf">
+
+
+        <thead>
+
+          <tr>
+
+            <th>
+              Mesure
+            </th>
+
+            <th>
+              Pièce
+            </th>
+
+            <th>
+              Matériau
+            </th>
+
+            <th>
+              Surface
+            </th>
+
+            <th>
+              Résultat
+            </th>
+
+            <th>
+              Photo
+            </th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody>
+
+          ${lignes}
+
+        </tbody>
+
+
+      </table>
+
+
+      <div class="total-pdf">
+
+        Nombre total de mesures :
+
+        <strong>
+          ${mesures.length}
+        </strong>
+
+      </div>
+
+
+    </div>
+
+  `;
+
+
+  const stylePDF =
+    document.createElement("style");
+
+
+  stylePDF.id =
+    "stylePDF";
+
+
+  stylePDF.innerHTML = `
+
+    body {
+
+      background: white !important;
+
+      margin: 0 !important;
+
+      padding: 15px !important;
+
+      font-family: Arial, sans-serif;
+
+      color: #222;
+
+    }
+
+
+    #documentPDF {
+
+      width: 100%;
+
+    }
+
+
+    #documentPDF h1 {
+
+      font-size: 22px;
+
+      margin:
+        0
+        0
+        6px
+        0;
+
+    }
+
+
+    .date-pdf {
+
+      font-size: 11px;
+
+      color: #666;
+
+      margin-bottom: 15px;
+
+    }
+
+
+    .bloc-info-pdf {
+
+      border:
+        1px
+        solid
+        #999;
+
+      padding: 7px;
+
+      margin-bottom: 8px;
+
+      font-size: 10px;
+
+      line-height: 1.5;
+
+    }
+
+
+    .table-pdf {
+
+      width: 100%;
+
+      border-collapse: collapse;
+
+      font-size: 10px;
+
+      table-layout: fixed;
+
+    }
+
+
+    .table-pdf th {
+
+      background: #111111;
+
+      color: white;
+
+      font-weight: bold;
+
+    }
+
+
+    .table-pdf th,
+    .table-pdf td {
+
+      border:
+        1px
+        solid
+        #777;
+
+      padding: 5px;
+
+      text-align: left;
+
+      vertical-align: middle;
+
+      overflow-wrap: anywhere;
+
+    }
+
+
+    .table-pdf th:nth-child(1),
+    .table-pdf td:nth-child(1) {
+
+      width: 17%;
+
+    }
+
+
+    .table-pdf th:nth-child(2),
+    .table-pdf td:nth-child(2) {
+
+      width: 14%;
+
+    }
+
+
+    .table-pdf th:nth-child(3),
+    .table-pdf td:nth-child(3) {
+
+      width: 17%;
+
+    }
+
+
+    .table-pdf th:nth-child(4),
+    .table-pdf td:nth-child(4) {
+
+      width: 11%;
+
+    }
+
+
+    .table-pdf th:nth-child(5),
+    .table-pdf td:nth-child(5) {
+
+      width: 28%;
+
+    }
+
+
+    .table-pdf th:nth-child(6),
+    .table-pdf td:nth-child(6) {
+
+      width: 13%;
+
+    }
+
+
+    .cellule-photo-pdf {
+
+      text-align: center !important;
+
+      padding: 3px !important;
+
+      overflow: hidden !important;
+
+    }
+
+
+    .photo-pdf {
+
+      display: block;
+
+      width: 45px !important;
+
+      height: 45px !important;
+
+      max-width: 45px !important;
+
+      max-height: 45px !important;
+
+      object-fit: cover;
+
+      margin: 0 auto;
+
+      border:
+        1px
+        solid
+        #999;
+
+    }
+
+
+    .presence {
+
+      color: #e00000;
+
+      font-weight: bold;
+
+    }
+
+
+    .absence {
+
+      color: #1769aa;
+
+      font-weight: bold;
+
+    }
+
+
+    .total-pdf {
+
+      margin-top: 15px;
+
+      font-size: 11px;
+
+    }
+
+
+    @media print {
+
+      body {
+
+        padding: 10mm !important;
+
+      }
+
+
+      .photo-pdf {
+
+        width: 45px !important;
+
+        height: 45px !important;
+
+        max-width: 45px !important;
+
+        max-height: 45px !important;
+
+      }
+
+    }
+
+  `;
+
+
+  document.head.appendChild(
+    stylePDF
+  );
+
+
+  setTimeout(
+    function() {
+
+      window.print();
+
+    },
+    400
+  );
+
+
+  setTimeout(
+    function() {
+
+      if (
+        document.head.contains(stylePDF)
+      ) {
+
+        document.head.removeChild(
+          stylePDF
+        );
+
+      }
+
+
+      document.body.innerHTML =
+        contenuApplication;
+
+
+      afficherTableau();
+
+      mettreAJourInformations();
+
+
+    },
+    2500
+  );
+
+}
+
+
+/* =====================================================
+   INITIALISATION
+===================================================== */
+
+mettreAJourInformations();
+
+</script>
+
+</body>
+
+</html>
