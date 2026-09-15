@@ -3,14 +3,15 @@
 
 <head>
 
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icons/icon.png">
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
 
-<title>Relevé de mesures - Plomb</title>
+<title>EddyApp</title>
 
 <style>
 
@@ -49,20 +50,114 @@ body {
 
 
 /* =====================================================
-   APPLICATION IPHONE
+   BARRE EDDYAPP
+===================================================== */
+
+.barre-eddyapp {
+
+  height: 72px;
+
+  background: #ff0000;
+
+  border-bottom:
+    2px solid #e00000;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 15px;
+
+  color: white;
+
+}
+
+.icone-recherche {
+
+  width: 42px;
+  height: 42px;
+
+  border: 2px solid white;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: white;
+
+  font-size: 25px;
+
+}
+
+.logo-eddyapp {
+
+  font-family:
+    ui-rounded,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Arial Rounded MT Bold",
+    "Helvetica Neue",
+    sans-serif;
+
+  font-size: 21px;
+
+  font-weight: 700;
+
+  color: white;
+
+  letter-spacing: -0.3px;
+
+}
+
+.icone-menu {
+
+  font-size: 28px;
+
+  color: white;
+
+}
+
+
+/* =====================================================
+   PAGES
+===================================================== */
+
+.page-eddy {
+
+  display: none;
+
+  width: 100%;
+
+}
+
+.page-eddy.active {
+
+  display: block;
+
+}
+
+
+/* =====================================================
+   APPLICATION
 ===================================================== */
 
 .app {
+
   width: 100%;
+
   max-width: 430px;
 
   margin: 0 auto;
 
   padding:
-    12px
-    10px
-    30px
-    10px;
+    12px 10px 30px;
+
 }
 
 
@@ -71,50 +166,51 @@ body {
 ===================================================== */
 
 h1 {
+
   font-size: 24px;
+
   line-height: 1.2;
 
   margin:
-    5px
-    0
-    5px
-    0;
+    5px 0;
+
 }
 
 h2 {
+
   font-size: 18px;
 
   margin:
-    0
-    0
-    12px
-    0;
+    0 0 12px;
+
 }
 
 h3 {
+
   font-size: 15px;
 
   margin:
-    0
-    0
-    8px
-    0;
+    0 0 8px;
+
 }
 
 .sous-titre {
+
   color: #687680;
 
   font-size: 13px;
 
   margin-bottom: 12px;
+
 }
 
 
 /* =====================================================
-   BLOCS
+   BOITES
 ===================================================== */
 
 .boite {
+
   width: 100%;
 
   background: white;
@@ -125,7 +221,9 @@ h3 {
 
   border-radius: 15px;
 
-  border: 1px solid #dfe4e8;
+  border:
+    1px solid #dfe4e8;
+
 }
 
 
@@ -134,6 +232,7 @@ h3 {
 ===================================================== */
 
 button {
+
   display: block;
 
   width: 100%;
@@ -141,8 +240,7 @@ button {
   min-height: 44px;
 
   padding:
-    9px
-    8px;
+    9px 8px;
 
   margin-top: 9px;
 
@@ -163,18 +261,313 @@ button {
   color: #263640;
 
   -webkit-appearance: none;
+
 }
 
 button:active {
-  transform: scale(0.98);
+
+  transform: scale(.98);
+
 }
 
 
 /* =====================================================
-   CHOIX APPAREIL
+   ACCUEIL
 ===================================================== */
 
+.eddy-contenu {
+
+  width: 100%;
+
+  max-width: 430px;
+
+  margin: 0 auto;
+
+  padding:
+    18px 14px 35px;
+
+}
+
+.eddy-titre {
+
+  font-size: 27px;
+
+  font-weight: 800;
+
+  margin:
+    5px 0 17px;
+
+}
+
+.eddy-recherche {
+
+  width: 100%;
+
+  height: 48px;
+
+  border:
+    1px solid #cbd4da;
+
+  border-radius: 13px;
+
+  background: white;
+
+  padding:
+    0 14px;
+
+  font-family: inherit;
+
+  font-size: 16px;
+
+  outline: none;
+
+  margin-bottom: 18px;
+
+}
+
+.eddy-recherche:focus {
+
+  border-color: #ff0000;
+
+}
+
+.eddy-section {
+
+  font-size: 19px;
+
+  font-weight: 800;
+
+  margin-bottom: 12px;
+
+}
+
+.dossier-card {
+
+  width: 100%;
+
+  background: white;
+
+  border:
+    1px solid #dfe4e8;
+
+  border-radius: 15px;
+
+  padding: 15px;
+
+  margin-bottom: 10px;
+
+  box-shadow:
+    0 2px 7px rgba(0,0,0,.06);
+
+}
+
+.dossier-numero {
+
+  font-size: 21px;
+
+  font-weight: 800;
+
+}
+
+.dossier-designation {
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  margin-top: 4px;
+
+}
+
+.dossier-details {
+
+  color: #687680;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  margin-top: 7px;
+
+}
+
+.dossier-statut {
+
+  display: inline-block;
+
+  padding:
+    5px 9px;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  margin-top: 8px;
+
+}
+
+.dossier-en-cours {
+
+  background: #fff0b3;
+
+  color: #765900;
+
+}
+
+.dossier-termine {
+
+  background: #c9f3d5;
+
+  color: #126329;
+
+}
+
+.aucun-dossier {
+
+  text-align: center;
+
+  color: #7a868e;
+
+  padding:
+    30px 10px;
+
+}
+
+
+/* =====================================================
+   NOUVEAU DOSSIER
+===================================================== */
+
+.eddy-page {
+
+  width: 100%;
+
+  max-width: 430px;
+
+  margin: 0 auto;
+
+  padding:
+    18px 14px 35px;
+
+}
+
+.numero-prochain {
+
+  background: #f7f9fa;
+
+  border:
+    1px solid #dce3e7;
+
+  border-radius: 12px;
+
+  padding: 14px;
+
+  font-size: 17px;
+
+  font-weight: 800;
+
+  margin-bottom: 15px;
+
+}
+
+.champ-eddy {
+
+  display: block;
+
+  width: 100%;
+
+  height: 48px;
+
+  padding:
+    0 12px;
+
+  border:
+    1px solid #cbd4da;
+
+  border-radius: 11px;
+
+  background: white;
+
+  font-family: inherit;
+
+  font-size: 16px;
+
+  color: #202a33;
+
+  outline: none;
+
+}
+
+.champ-eddy:focus {
+
+  border-color: #ff0000;
+
+}
+
+
+/* =====================================================
+   DOSSIER
+===================================================== */
+
+.detail-card {
+
+  background: white;
+
+  border:
+    1px solid #dfe4e8;
+
+  border-radius: 15px;
+
+  padding: 16px;
+
+  margin-bottom: 13px;
+
+}
+
+.detail-numero {
+
+  font-size: 25px;
+
+  font-weight: 800;
+
+}
+
+.detail-designation {
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  margin:
+    5px 0 10px;
+
+}
+
+.detail-info {
+
+  font-size: 13px;
+
+  color: #687680;
+
+  line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   RELEVE
+===================================================== */
+
+.bloc-appareil {
+
+  width: 100%;
+
+}
+
 .bouton-appareil {
+
   background: #111111;
 
   color: white;
@@ -184,9 +577,11 @@ button:active {
   font-size: 15px;
 
   margin-top: 0;
+
 }
 
 .zone-appareil {
+
   display: none;
 
   margin-top: 12px;
@@ -194,21 +589,18 @@ button:active {
   padding-top: 12px;
 
   border-top:
-    1px
-    solid
-    #e1e5e8;
+    1px solid #e1e5e8;
+
 }
 
 .zone-appareil.visible {
+
   display: block;
+
 }
 
-
-/* =====================================================
-   ETALONNAGE
-===================================================== */
-
 .bouton-etalonnage {
+
   background: #111111;
 
   color: white;
@@ -216,9 +608,11 @@ button:active {
   min-height: 48px;
 
   font-size: 15px;
+
 }
 
 .etalonnage {
+
   display: none;
 
   margin-top: 12px;
@@ -226,32 +620,34 @@ button:active {
   padding-top: 12px;
 
   border-top:
-    1px
-    solid
-    #e1e5e8;
+    1px solid #e1e5e8;
+
 }
 
 .etalonnage.visible {
+
   display: block;
+
 }
 
-
 .ligne-etalonnage {
+
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 130px);
+    minmax(0,1fr)
+    minmax(0,130px);
 
   gap: 8px;
 
   align-items: center;
 
   margin-bottom: 9px;
+
 }
 
-
 .libelle-etalonnage {
+
   font-size: 13px;
 
   font-weight: 700;
@@ -259,45 +655,47 @@ button:active {
   color: #374650;
 
   line-height: 1.25;
+
 }
 
-
 .valeur-etalonnage {
+
   font-weight: 400;
 
   color: #111111;
+
 }
 
-
 .ligne-etalonnage input {
+
   width: 100%;
 
   height: 42px;
 
   border:
-    2px
-    solid
-    #111111;
+    2px solid #111111;
 
   border-radius: 9px;
 
   padding:
-    0
-    9px;
+    0 9px;
 
   font-size: 16px;
 
   font-family: inherit;
 
   outline: none;
+
 }
 
 .ligne-etalonnage input:focus {
+
   border-color: #e00000;
+
 }
 
-
 .info-etalonnage {
+
   font-size: 11px;
 
   color: #687680;
@@ -305,14 +703,11 @@ button:active {
   margin-top: 8px;
 
   line-height: 1.4;
+
 }
 
-
-/* =====================================================
-   FORMULAIRE
-===================================================== */
-
 label {
+
   display: block;
 
   margin-top: 10px;
@@ -324,11 +719,12 @@ label {
   font-weight: 700;
 
   color: #4e5b65;
-}
 
+}
 
 input,
 select {
+
   display: block;
 
   width: 100%;
@@ -336,13 +732,10 @@ select {
   height: 46px;
 
   padding:
-    0
-    10px;
+    0 10px;
 
   border:
-    1px
-    solid
-    #cbd4da;
+    1px solid #cbd4da;
 
   border-radius: 10px;
 
@@ -355,29 +748,30 @@ select {
   color: #202a33;
 
   outline: none;
+
 }
 
 input:focus,
 select:focus {
+
   border-color: #111111;
+
 }
 
-
-/* =====================================================
-   SURFACE
-===================================================== */
-
 .grille {
+
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 95px);
+    minmax(0,1fr)
+    minmax(0,95px);
 
   gap: 8px;
+
 }
 
 .indication-surface {
+
   font-size: 11px;
 
   color: #111111;
@@ -385,14 +779,11 @@ select:focus {
   margin-top: 4px;
 
   min-height: 15px;
+
 }
 
-
-/* =====================================================
-   BOUTON AJOUT
-===================================================== */
-
 .bouton-principal {
+
   background: #e00000;
 
   color: white;
@@ -402,22 +793,21 @@ select:focus {
   min-height: 48px;
 
   font-size: 15px;
+
 }
 
-
-/* =====================================================
-   PARAMETRES
-===================================================== */
-
 .bouton-parametres {
+
   background: #111111;
 
   color: white;
 
   font-size: 13px;
+
 }
 
 .parametres {
+
   display: none;
 
   margin-top: 12px;
@@ -425,20 +815,22 @@ select:focus {
   padding-top: 12px;
 
   border-top:
-    1px
-    solid
-    #e1e5e8;
+    1px solid #e1e5e8;
+
 }
 
 .parametres.visible {
+
   display: block;
+
 }
 
 .parametre-ligne {
+
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1fr)
+    minmax(0,1fr)
     80px;
 
   gap: 8px;
@@ -446,42 +838,42 @@ select:focus {
   align-items: center;
 
   margin-bottom: 7px;
+
 }
 
 .parametre-ligne span {
+
   font-size: 12px;
 
   color: #45525b;
+
 }
 
 .parametre-ligne input {
+
   height: 38px;
 
   font-size: 14px;
+
 }
 
-
-/* =====================================================
-   INFORMATIONS
-===================================================== */
-
 .informations-tableau {
+
   background: #f7f9fa;
 
   border:
-    1px
-    solid
-    #dce3e7;
+    1px solid #dce3e7;
 
   border-radius: 10px;
 
   padding: 10px;
 
   margin-bottom: 12px;
+
 }
 
-
 .info-ligne {
+
   display: flex;
 
   justify-content: space-between;
@@ -493,25 +885,26 @@ select:focus {
   font-size: 12px;
 
   border-bottom:
-    1px
-    solid
-    #e8ecef;
-}
+    1px solid #e8ecef;
 
+}
 
 .info-ligne:last-child {
+
   border-bottom: none;
+
 }
 
-
 .info-titre {
+
   font-weight: 700;
 
   color: #5a6871;
+
 }
 
-
 .info-valeur {
+
   font-weight: 700;
 
   color: #202a33;
@@ -519,21 +912,19 @@ select:focus {
   text-align: right;
 
   overflow-wrap: anywhere;
+
 }
 
-
-/* =====================================================
-   TABLEAU
-===================================================== */
-
 .tableau-wrapper {
+
   width: 100%;
 
   overflow: visible;
+
 }
 
-
 table {
+
   width: 100%;
 
   table-layout: fixed;
@@ -541,8 +932,8 @@ table {
   border-collapse: collapse;
 
   font-size: 10px;
-}
 
+}
 
 th:nth-child(1),
 td:nth-child(1) {
@@ -574,27 +965,25 @@ td:nth-child(6) {
   width: 13%;
 }
 
-
 th,
 td {
+
   padding:
-    6px
-    3px;
+    6px 3px;
 
   border-bottom:
-    1px
-    solid
-    #dde3e7;
+    1px solid #dde3e7;
 
   text-align: left;
 
   vertical-align: top;
 
   overflow-wrap: anywhere;
+
 }
 
-
 th {
+
   background: #111111;
 
   color: white;
@@ -604,34 +993,32 @@ th {
   line-height: 1.2;
 
   text-transform: uppercase;
+
 }
 
-
 .numero {
+
   font-weight: 800;
 
   line-height: 1.2;
+
 }
 
-
 .vide {
+
   text-align: center;
 
   color: #7a868e;
 
   padding:
-    25px
-    5px;
+    25px 5px;
 
   font-size: 12px;
+
 }
 
-
-/* =====================================================
-   POSITIF / NEGATIF
-===================================================== */
-
 .plomb {
+
   display: flex;
 
   flex-direction: column;
@@ -639,10 +1026,11 @@ th {
   gap: 4px;
 
   width: 100%;
+
 }
 
-
 .plomb button {
+
   width: 100%;
 
   min-height: 34px;
@@ -650,66 +1038,58 @@ th {
   margin: 0;
 
   padding:
-    5px
-    3px;
+    5px 3px;
 
   border-radius: 7px;
 
   font-size: 9px;
 
   line-height: 1.15;
+
 }
 
-
-/* POSITIF = ROUGE */
-
 .plomb .selection-positif {
+
   background: #e00000;
 
   color: white;
 
-  font-weight: 800;
 }
 
-
-/* NEGATIF = BLEU */
-
 .plomb .selection-negatif {
+
   background: #1769aa;
 
   color: white;
 
-  font-weight: 800;
 }
 
-
-/* boutons non sélectionnés */
-
 .plomb .bouton-positif {
+
   background: #ffdede;
 
   color: #a71919;
+
 }
 
 .plomb .bouton-negatif {
+
   background: #dceeff;
 
   color: #14588e;
+
 }
 
-
-/* =====================================================
-   PHOTO
-===================================================== */
-
 .photo-zone {
+
   width: 100%;
 
   margin-top: 5px;
+
 }
 
-
 .photo-button {
+
   display: block;
 
   width: 100%;
@@ -719,13 +1099,10 @@ th {
   color: white;
 
   border:
-    1px
-    solid
-    #111111;
+    1px solid #111111;
 
   padding:
-    6px
-    3px;
+    6px 3px;
 
   border-radius: 7px;
 
@@ -738,17 +1115,19 @@ th {
   line-height: 1.15;
 
   cursor: pointer;
+
 }
 
-
 .photo-preview {
+
   margin-top: 5px;
 
   text-align: center;
+
 }
 
-
 .photo-preview img {
+
   width: 48px;
 
   height: 48px;
@@ -758,39 +1137,12 @@ th {
   border-radius: 6px;
 
   border:
-    1px
-    solid
-    #ccc;
+    1px solid #ccc;
+
 }
-
-
-.photo-ajoutee {
-  font-size: 9px;
-
-  text-align: center;
-}
-
-
-/* =====================================================
-   PDF
-===================================================== */
-
-.pdf-info {
-  font-size: 12px;
-
-  line-height: 1.4;
-
-  color: #687680;
-
-  margin:
-    0
-    0
-    10px
-    0;
-}
-
 
 .bouton-pdf {
+
   background: #111111;
 
   color: white;
@@ -798,6 +1150,858 @@ th {
   min-height: 48px;
 
   font-size: 15px;
+
+}
+
+
+/* =====================================================
+   PLAN APPLICATION
+===================================================== */
+
+.plan-page {
+
+  width: 100%;
+
+  height:
+    calc(100vh - 72px);
+
+  max-width: 430px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: #f2f4f6;
+
+  overflow: hidden;
+
+}
+
+.plan-commandes {
+
+  background: white;
+
+  padding:
+    8px 10px 7px;
+
+  box-shadow:
+    0 2px 7px rgba(0,0,0,.10);
+
+  position: relative;
+
+  z-index: 10;
+
+}
+
+.plan-retour {
+
+  background: #e8edf1;
+
+  color: #263640;
+
+  margin:
+    0 0 8px;
+
+  min-height: 40px;
+
+}
+
+.plan-ligne-boutons {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    48px;
+
+  gap: 7px;
+
+}
+
+
+/* =====================================================
+   IMPORT PLAN
+===================================================== */
+
+.plan-import {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 46px;
+
+  margin: 0;
+
+  border-radius: 10px;
+
+  background: #111111;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+}
+
+.plan-import input[type="file"] {
+
+  position: absolute;
+
+  width: 1px;
+
+  height: 1px;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+}
+
+.plan-reset {
+
+  width: 48px;
+
+  min-height: 46px;
+
+  margin: 0;
+
+  padding: 0;
+
+  background: #e8edf1;
+
+  color: #263640;
+
+  font-size: 22px;
+
+}
+
+.plan-status {
+
+  min-height: 25px;
+
+  margin-top: 7px;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+}
+
+.plan-legende {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+}
+
+.plan-legende-item {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+}
+
+.plan-point-legende {
+
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+}
+
+.plan-point-bleu {
+
+  background: #0066ff;
+
+}
+
+.plan-point-rouge {
+
+  background: #ff0000;
+
+}
+
+
+/* =====================================================
+   ZONE PLAN
+===================================================== */
+
+.plan-zone {
+
+  flex: 1;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #e7eaed;
+
+  touch-action: none;
+
+}
+
+#planCanvas {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  touch-action: none;
+
+  display: block;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+
+}
+
+.plan-vide {
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  transform:
+    translate(-50%,-50%);
+
+  width: 82%;
+
+  padding:
+    22px 15px;
+
+  background:
+    rgba(255,255,255,.96);
+
+  border-radius: 17px;
+
+  text-align: center;
+
+  box-shadow:
+    0 4px 20px rgba(0,0,0,.12);
+
+  pointer-events: none;
+
+}
+
+.plan-vide-icon {
+
+  font-size: 40px;
+
+  margin-bottom: 7px;
+
+}
+
+.plan-vide strong {
+
+  display: block;
+
+  font-size: 17px;
+
+  margin-bottom: 5px;
+
+}
+
+.plan-vide span {
+
+  display: block;
+
+  color: #687680;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+
+}
+
+.plan-bas {
+
+  background: white;
+
+  border-top:
+    1px solid #dfe4e8;
+
+  padding:
+    7px 10px;
+
+  text-align: center;
+
+  font-size: 11px;
+
+  color: #687680;
+
+}
+
+.plan-popup {
+
+  display: none;
+
+  position: absolute;
+
+  z-index: 30;
+
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 6px;
+
+  box-shadow:
+    0 4px 18px rgba(0,0,0,.25);
+
+}
+
+.plan-popup button {
+
+  width: auto;
+
+  min-height: 38px;
+
+  margin: 0;
+
+  padding:
+    7px 12px;
+
+  background: #e00000;
+
+  color: white;
+
+  font-size: 12px;
+
+}
+
+
+/* =====================================================
+   APERCU PDF
+===================================================== */
+
+#pagePDF {
+
+  background: #747a7f;
+
+  min-height:
+    calc(100vh - 72px);
+
+  padding-bottom: 25px;
+
+}
+
+.pdf-preview-toolbar {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+  display: flex;
+
+  gap: 7px;
+
+  padding:
+    8px;
+
+  background: #111111;
+
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.25);
+
+}
+
+.pdf-preview-toolbar button {
+
+  flex: 1;
+
+  width: auto;
+
+  min-height: 43px;
+
+  margin: 0;
+
+  background: white;
+
+  color: #111111;
+
+  font-size: 12px;
+
+}
+
+.pdf-preview-toolbar .pdf-imprimer {
+
+  background: #e00000;
+
+  color: white;
+
+}
+
+.pdf-preview-zone {
+
+  padding:
+    10px 0 30px;
+
+}
+
+
+/* =====================================================
+   PDF PAGE 1
+===================================================== */
+
+.pdf-page {
+
+  position: relative;
+
+  width:
+    calc(100% - 18px);
+
+  max-width: 720px;
+
+  margin:
+    0 auto 15px;
+
+  background: white;
+
+  box-shadow:
+    0 3px 16px rgba(0,0,0,.22);
+
+  overflow: hidden;
+
+}
+
+.pdf-page-1 {
+
+  min-height: 720px;
+
+  padding:
+    24px 18px;
+
+}
+
+.pdf-document-titre {
+
+  font-family: Arial, sans-serif;
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+  line-height: 1.15;
+
+  margin-bottom: 3px;
+
+}
+
+.pdf-document-sous-titre {
+
+  font-size: 9px;
+
+  color: #666;
+
+  margin-bottom: 10px;
+
+}
+
+.pdf-info-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 6px;
+
+  margin-bottom: 8px;
+
+}
+
+.pdf-info-box {
+
+  border:
+    1px solid #888;
+
+  padding:
+    6px 7px;
+
+  min-height: 42px;
+
+  font-size: 9px;
+
+  line-height: 1.35;
+
+}
+
+.pdf-info-box.large {
+
+  grid-column:
+    1 / -1;
+
+}
+
+.pdf-info-titre {
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  font-size: 7px;
+
+  color: #555;
+
+  margin-bottom: 2px;
+
+}
+
+.pdf-table {
+
+  width: 100%;
+
+  table-layout: fixed;
+
+  border-collapse: collapse;
+
+  font-size: 7px;
+
+}
+
+.pdf-table th {
+
+  background: #111111;
+
+  color: white;
+
+  font-size: 6.5px;
+
+  text-transform: uppercase;
+
+}
+
+.pdf-table th,
+.pdf-table td {
+
+  border:
+    1px solid #777;
+
+  padding:
+    3px 2px;
+
+  vertical-align: middle;
+
+  overflow-wrap: anywhere;
+
+}
+
+.pdf-table th:nth-child(1),
+.pdf-table td:nth-child(1) {
+  width: 16%;
+}
+
+.pdf-table th:nth-child(2),
+.pdf-table td:nth-child(2) {
+  width: 14%;
+}
+
+.pdf-table th:nth-child(3),
+.pdf-table td:nth-child(3) {
+  width: 18%;
+}
+
+.pdf-table th:nth-child(4),
+.pdf-table td:nth-child(4) {
+  width: 11%;
+}
+
+.pdf-table th:nth-child(5),
+.pdf-table td:nth-child(5) {
+  width: 27%;
+}
+
+.pdf-table th:nth-child(6),
+.pdf-table td:nth-child(6) {
+  width: 14%;
+}
+
+.pdf-table tr {
+
+  page-break-inside: avoid;
+
+  break-inside: avoid;
+
+}
+
+.pdf-presence {
+
+  color: #e00000;
+
+  font-weight: 800;
+
+}
+
+.pdf-absence {
+
+  color: #1769aa;
+
+  font-weight: 800;
+
+}
+
+.photo-pdf {
+
+  display: block;
+
+  width: 32px !important;
+
+  height: 32px !important;
+
+  max-width: 32px !important;
+
+  max-height: 32px !important;
+
+  object-fit: cover;
+
+  margin: 0 auto;
+
+  border:
+    1px solid #888;
+
+}
+
+.total-pdf {
+
+  font-size: 8px;
+
+  margin-top: 7px;
+
+}
+
+
+/* =====================================================
+   PDF PAGE 2 - CROQUIS
+===================================================== */
+
+.pdf-page-plan {
+
+  min-height: 720px;
+
+  padding:
+    18px;
+
+  page-break-before: always;
+
+  break-before: page;
+
+}
+
+.pdf-plan-entete {
+
+  border:
+    1px solid #333;
+
+  border-bottom:
+    0;
+
+  padding:
+    8px 10px;
+
+  text-align: center;
+
+}
+
+.pdf-plan-titre {
+
+  font-family: Arial, sans-serif;
+
+  font-size: 18px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: .2px;
+
+}
+
+.pdf-plan-sous-titre {
+
+  font-size: 8px;
+
+  color: #555;
+
+  margin-top: 2px;
+
+}
+
+.pdf-croquis-cartouche {
+
+  width: 100%;
+
+  border:
+    1px solid #333;
+
+  padding: 8px;
+
+}
+
+.pdf-plan-zone {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 580px;
+
+  border:
+    1px solid #777;
+
+  background: white;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+.pdf-plan-image-wrap {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+.pdf-plan-svg {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+}
+
+.pdf-cartouche-bas {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 8px;
+
+  margin-top: 8px;
+
+}
+
+.pdf-legende {
+
+  border:
+    1px solid #777;
+
+  padding:
+    7px;
+
+  font-size: 8px;
+
+}
+
+.pdf-legende-titre {
+
+  font-weight: 800;
+
+  margin-bottom: 5px;
+
+}
+
+.pdf-legende-ligne {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  margin-bottom: 3px;
+
+}
+
+.pdf-rond-rouge {
+
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #ff0000;
+
+}
+
+.pdf-rond-bleu {
+
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #0066ff;
+
+}
+
+.pdf-cartouche-infos {
+
+  border:
+    1px solid #777;
+
+  padding:
+    7px;
+
+  font-size: 8px;
+
+  line-height: 1.45;
+
 }
 
 
@@ -805,34 +2009,38 @@ th {
    PETIT IPHONE
 ===================================================== */
 
-@media (max-width: 360px) {
+@media screen and (max-width:430px) {
 
-  .app {
-    padding-left: 7px;
+  .pdf-page {
 
-    padding-right: 7px;
+    width:
+      calc(100% - 12px);
+
   }
 
-  .boite {
-    padding: 11px;
+  .pdf-page-1 {
+
+    padding:
+      18px 12px;
+
+    min-height: 650px;
+
   }
 
-  table {
-    font-size: 9px;
+  .pdf-page-plan {
+
+    padding:
+      12px;
+
+    min-height: 650px;
+
   }
 
-  th {
-    font-size: 7px;
-  }
+  .pdf-plan-zone {
 
-  .plomb button {
-    font-size: 8px;
-  }
+    height:
+      500px;
 
-  .ligne-etalonnage {
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(0, 115px);
   }
 
 }
@@ -844,60 +2052,138 @@ th {
 
 @media print {
 
+  @page {
+
+    size: A4 portrait;
+
+    margin: 10mm;
+
+  }
+
+  html,
   body {
+
+    width: 100% !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
     background: white !important;
+
+  }
+
+  .barre-eddyapp {
+
+    display: none !important;
+
+  }
+
+  .page-eddy {
+
+    display: none !important;
+
+  }
+
+  #pagePDF {
+
+    display: block !important;
+
+    width: 100% !important;
+
+    min-height: auto !important;
 
     padding: 0 !important;
 
     margin: 0 !important;
+
+    background: white !important;
+
   }
 
-  .formulaire,
-  .zone-pdf,
-  .bloc-etalonnage,
-  .bloc-appareil {
+  .pdf-preview-toolbar {
+
     display: none !important;
+
   }
 
-  .app {
-    max-width: none;
+  .pdf-preview-zone {
 
-    padding: 0;
+    padding: 0 !important;
+
   }
 
-  table {
-    width: 100%;
+  .pdf-page {
 
-    font-size: 10px;
+    width: 190mm !important;
+
+    max-width: none !important;
+
+    min-height: 277mm !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    box-shadow: none !important;
+
+    overflow: hidden !important;
+
   }
 
-  th,
-  td {
-    border:
-      1px
-      solid
-      #777;
+  .pdf-page-1 {
 
-    padding: 6px;
+    min-height: 277mm !important;
+
+    padding:
+      5mm !important;
+
   }
 
-  .plomb button,
-  .photo-button {
-    display: none !important;
+  .pdf-page-plan {
+
+    min-height: 277mm !important;
+
+    padding: 0 !important;
+
+    page-break-before: always !important;
+
+    break-before: page !important;
+
   }
 
-  .photo-pdf {
-    display: block;
+  .pdf-plan-entete {
 
-    width: 45px !important;
+    padding:
+      4mm !important;
 
-    height: 45px !important;
+  }
 
-    max-width: 45px !important;
+  .pdf-plan-titre {
 
-    max-height: 45px !important;
+    font-size: 16px !important;
 
-    object-fit: cover;
+  }
+
+  .pdf-croquis-cartouche {
+
+    padding:
+      3mm !important;
+
+  }
+
+  .pdf-plan-zone {
+
+    height:
+      225mm !important;
+
+  }
+
+  .pdf-cartouche-bas {
+
+    margin-top:
+      3mm !important;
+
   }
 
 }
@@ -909,739 +2195,908 @@ th {
 
 <body>
 
-<div class="app">
-
 
 <!-- =====================================================
-     TITRE
+     BARRE
 ===================================================== -->
 
-<h1>
-📋 Relevé de mesures
-</h1>
+<div class="barre-eddyapp">
 
-<div class="sous-titre">
-Démonstration de relevé de présence de plomb
+  <div class="icone-recherche">
+    ⌕
+  </div>
+
+  <div class="logo-eddyapp">
+    EddyApp
+  </div>
+
+  <div class="icone-menu">
+    ☰
+  </div>
+
 </div>
 
 
 <!-- =====================================================
-     CHOIX APPAREIL
+     ACCUEIL
 ===================================================== -->
-
-<div class="boite bloc-appareil">
-
-<button
-class="bouton-appareil"
-onclick="afficherAppareil()">
-
-🔬 Choix de l'appareil
-
-</button>
-
 
 <div
-id="zoneAppareil"
-class="zone-appareil">
+id="pageAccueil"
+class="page-eddy active">
 
+  <div class="eddy-contenu">
 
-<label for="appareil">
-Appareil à fluorescence X
-</label>
+    <div class="eddy-titre">
+      Mes dossiers
+    </div>
 
+    <input
+      id="rechercheDossier"
+      class="eddy-recherche"
+      type="search"
+      placeholder="Rechercher un dossier"
+      oninput="afficherDossiers()">
 
-<select
-id="appareil"
-onchange="mettreAJourInformations()">
+    <div class="eddy-section">
+      📂 Mes dossiers
+    </div>
 
-<option value="">
-Choisir un appareil
-</option>
+    <div id="listeDossiers"></div>
 
-<option value="Appareil à fluorescence X Numéro 1">
-Appareil à fluorescence X Numéro 1
-</option>
+    <button
+      class="bouton-principal"
+      onclick="nouveauDossier()">
 
-<option value="Appareil à fluorescence X Numéro 1Bis">
-Appareil à fluorescence X Numéro 1Bis
-</option>
+      ➕ Nouveau dossier
 
-<option value="Appareil à fluorescence X Numéro 2">
-Appareil à fluorescence X Numéro 2
-</option>
+    </button>
 
-<option value="Appareil à fluorescence X Numéro 3">
-Appareil à fluorescence X Numéro 3
-</option>
-
-</select>
-
-
-<button
-onclick="fermerAppareil()">
-
-✓ Valider l'appareil
-
-</button>
-
-
-</div>
+  </div>
 
 </div>
 
 
 <!-- =====================================================
-     ETALONNAGE
+     NOUVEAU DOSSIER
 ===================================================== -->
 
-<div class="boite bloc-etalonnage">
-
-<button
-class="bouton-etalonnage"
-onclick="afficherEtalonnage()">
-
-⚙️ Étalonnage
-
-</button>
-
-
 <div
-id="etalonnage"
-class="etalonnage">
+id="pageNouveau"
+class="page-eddy">
 
+  <div class="eddy-page">
 
-<h3>
-Mesures d'étalonnage du spectromètre
-</h3>
+    <button
+      onclick="afficherAccueil()">
 
+      ← Retour
 
-<!-- MESURE A -->
+    </button>
 
-<div class="ligne-etalonnage">
+    <h1>
+      Nouveau dossier
+    </h1>
 
-<div class="libelle-etalonnage">
+    <div class="boite">
 
-Mesure A
+      <div class="numero-prochain">
 
-<span class="valeur-etalonnage">
-— 0 mg/kg
-</span>
+        Dossier n°
+        <span id="prochainNumero">
+          001
+        </span>
 
-</div>
+      </div>
 
-<input
-id="etalonnageA"
-type="text"
-inputmode="numeric"
-maxlength="4"
-placeholder="N° spectromètre"
-oninput="gererEtalonnage(this, 'etalonnageB')"
-onkeydown="entreeEtalonnage(event, 'etalonnageB')">
+      <label for="designationDossier">
+        Désignation du dossier
+      </label>
 
-</div>
+      <input
+        id="designationDossier"
+        class="champ-eddy"
+        type="text"
+        placeholder="Ex. Appartement Dupont">
 
+      <button
+        class="bouton-principal"
+        onclick="creerDossier()">
 
-<!-- MESURE B -->
+        Créer le dossier
 
-<div class="ligne-etalonnage">
+      </button>
 
-<div class="libelle-etalonnage">
+    </div>
 
-Mesure B
-
-<span class="valeur-etalonnage">
-— 0,5 mg/kg
-</span>
-
-</div>
-
-<input
-id="etalonnageB"
-type="text"
-inputmode="numeric"
-maxlength="4"
-placeholder="N° spectromètre"
-oninput="gererEtalonnage(this, 'etalonnageC')"
-onkeydown="entreeEtalonnage(event, 'etalonnageC')">
-
-</div>
-
-
-<!-- MESURE C -->
-
-<div class="ligne-etalonnage">
-
-<div class="libelle-etalonnage">
-
-Mesure C
-
-<span class="valeur-etalonnage">
-— 1 mg/kg
-</span>
-
-</div>
-
-<input
-id="etalonnageC"
-type="text"
-inputmode="numeric"
-maxlength="4"
-placeholder="N° spectromètre"
-oninput="gererEtalonnage(this, null)"
-onkeydown="entreeEtalonnage(event, null)">
-
-</div>
-
-
-<div class="info-etalonnage">
-
-Saisissez jusqu'à 4 chiffres. Le passage à la mesure suivante
-se fait automatiquement au 4ᵉ chiffre ou avec la touche Entrée.
-
-</div>
-
-
-<button
-onclick="fermerEtalonnage()">
-
-✓ Terminer l'étalonnage
-
-</button>
-
-
-</div>
+  </div>
 
 </div>
 
 
 <!-- =====================================================
-     AJOUT MESURE
+     DOSSIER
 ===================================================== -->
 
-<div class="boite formulaire">
-
-
-<h2>
-➕ Ajouter une mesure
-</h2>
-
-
-<label for="piece">
-Pièce
-</label>
-
-
-<select
-id="piece"
-onchange="passerAuMateriau()">
-
-<option value="">
-Choisir une pièce
-</option>
-
-<option value="Cuisine">
-Cuisine
-</option>
-
-<option value="SDB">
-SDB
-</option>
-
-<option value="WC">
-WC
-</option>
-
-<option value="Entrée">
-Entrée
-</option>
-
-<option value="Salon">
-Salon
-</option>
-
-<option value="Chambre 1">
-Chambre 1
-</option>
-
-<option value="Chambre 2">
-Chambre 2
-</option>
-
-<option value="Couloir">
-Couloir
-</option>
-
-</select>
-
-
-<label for="materiau">
-Matériau
-</label>
-
-
-<select
-id="materiau"
-onchange="surfaceAutomatiqueEtFocus()">
-
-<option value="">
-Choisir un matériau
-</option>
-
-<option value="Cadre de porte">
-Cadre de porte
-</option>
-
-<option value="Porte">
-Porte
-</option>
-
-<option value="Mur">
-Mur
-</option>
-
-<option value="Peinture">
-Peinture
-</option>
-
-<option value="Cadre de placard">
-Cadre de placard
-</option>
-
-<option value="Placard">
-Placard
-</option>
-
-<option value="Cadre de fenêtre">
-Cadre de fenêtre
-</option>
-
-<option value="Fenêtre">
-Fenêtre
-</option>
-
-<option value="Plafond">
-Plafond
-</option>
-
-</select>
-
-
-<div class="grille">
-
-
-<div>
-
-<label for="surface">
-Surface
-</label>
-
-<input
-id="surface"
-type="number"
-min="0"
-step="0.01"
-inputmode="decimal"
-placeholder="Ex. 4"
-onkeydown="passerAuChampSuivant(event, 'unite')">
-
 <div
-id="indicationSurface"
-class="indication-surface">
-</div>
+id="pageDossier"
+class="page-eddy">
 
-</div>
+  <div class="eddy-page">
 
+    <button
+      onclick="afficherAccueil()">
 
-<div>
+      ← Mes dossiers
 
-<label for="unite">
-Unité
-</label>
+    </button>
 
-<select
-id="unite"
-onchange="focusAjouter()">
+    <div id="detailDossier"></div>
 
-<option value="m²">
-m²
-</option>
-
-<option value="m">
-m
-</option>
-
-<option value="cm">
-cm
-</option>
-
-<option value="mm">
-mm
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-
-<button
-id="boutonAjouter"
-class="bouton-principal"
-onclick="ajouterMesure()">
-
-➕ Ajouter au tableau
-
-</button>
-
-
-<!-- PARAMETRES -->
-
-<button
-class="bouton-parametres"
-onclick="afficherParametres()">
-
-⚙️ Modifier les surfaces par défaut
-
-</button>
-
-
-<div
-id="parametres"
-class="parametres">
-
-
-<h3>
-Surfaces automatiques
-</h3>
-
-
-<div class="parametre-ligne">
-
-<span>
-Cadre de porte
-</span>
-
-<input
-id="def-Cadre-de-porte"
-type="number"
-step="0.1"
-value="1.5">
-
-</div>
-
-
-<div class="parametre-ligne">
-
-<span>
-Porte
-</span>
-
-<input
-id="def-Porte"
-type="number"
-step="0.1"
-value="3">
-
-</div>
-
-
-<div class="parametre-ligne">
-
-<span>
-Cadre de placard
-</span>
-
-<input
-id="def-Cadre-de-placard"
-type="number"
-step="0.1"
-value="1">
-
-</div>
-
-
-<div class="parametre-ligne">
-
-<span>
-Placard
-</span>
-
-<input
-id="def-Placard"
-type="number"
-step="0.1"
-value="2">
-
-</div>
-
-
-<div class="parametre-ligne">
-
-<span>
-Cadre de fenêtre
-</span>
-
-<input
-id="def-Cadre-de-fenêtre"
-type="number"
-step="0.1"
-value="1.5">
-
-</div>
-
-
-<div class="parametre-ligne">
-
-<span>
-Fenêtre
-</span>
-
-<input
-id="def-Fenêtre"
-type="number"
-step="0.1"
-value="2">
-
-</div>
-
-
-<button
-onclick="fermerParametres()">
-
-✓ Terminer
-
-</button>
-
-
-</div>
+  </div>
 
 </div>
 
 
 <!-- =====================================================
-     TABLEAU
+     RELEVE
 ===================================================== -->
 
-<div class="boite">
-
-
-<h2>
-📊 Mesures enregistrées
-</h2>
-
-
 <div
-id="informationsTableau"
-class="informations-tableau">
+id="pageReleve"
+class="page-eddy">
+
+  <div class="app">
+
+    <button
+      onclick="retourDossier()">
+
+      ← Retour au dossier
+
+    </button>
+
+    <h1>
+      📋 Relevé de mesures
+    </h1>
+
+    <div class="sous-titre">
+
+      Relevé de présence de plomb
+
+    </div>
 
 
-<div class="info-ligne">
+    <div class="boite bloc-appareil">
 
-<span class="info-titre">
-Appareil
-</span>
+      <button
+        class="bouton-appareil"
+        onclick="afficherAppareil()">
 
-<span
-id="infoAppareil"
-class="info-valeur">
+        🔬 Choix de l'appareil
 
-Non sélectionné
+      </button>
 
-</span>
+      <div
+        id="zoneAppareil"
+        class="zone-appareil">
 
-</div>
+        <label for="appareil">
+          Appareil à fluorescence X
+        </label>
 
+        <select
+          id="appareil"
+          onchange="mettreAJourInformations()">
 
-<div class="info-ligne">
+          <option value="">
+            Choisir un appareil
+          </option>
 
-<span class="info-titre">
-Mesure A — 0 mg/kg
-</span>
+          <option value="Appareil à fluorescence X Numéro 1">
+            Appareil à fluorescence X Numéro 1
+          </option>
 
-<span
-id="infoA"
-class="info-valeur">
+          <option value="Appareil à fluorescence X Numéro 1Bis">
+            Appareil à fluorescence X Numéro 1Bis
+          </option>
 
-—
+          <option value="Appareil à fluorescence X Numéro 2">
+            Appareil à fluorescence X Numéro 2
+          </option>
 
-</span>
+          <option value="Appareil à fluorescence X Numéro 3">
+            Appareil à fluorescence X Numéro 3
+          </option>
 
-</div>
+        </select>
 
+        <button
+          onclick="fermerAppareil()">
 
-<div class="info-ligne">
+          ✓ Valider l'appareil
 
-<span class="info-titre">
-Mesure B — 0,5 mg/kg
-</span>
+        </button>
 
-<span
-id="infoB"
-class="info-valeur">
+      </div>
 
-—
-
-</span>
-
-</div>
-
-
-<div class="info-ligne">
-
-<span class="info-titre">
-Mesure C — 1 mg/kg
-</span>
-
-<span
-id="infoC"
-class="info-valeur">
-
-—
-
-</span>
-
-</div>
+    </div>
 
 
-</div>
+    <div class="boite">
+
+      <button
+        class="bouton-etalonnage"
+        onclick="afficherEtalonnage()">
+
+        ⚙️ Étalonnage
+
+      </button>
+
+      <div
+        id="etalonnage"
+        class="etalonnage">
+
+        <h3>
+          Mesures d'étalonnage du spectromètre
+        </h3>
+
+        <div class="ligne-etalonnage">
+
+          <div class="libelle-etalonnage">
+
+            Mesure A
+            <span class="valeur-etalonnage">
+              — 0 mg/kg
+            </span>
+
+          </div>
+
+          <input
+            id="etalonnageA"
+            type="text"
+            inputmode="numeric"
+            maxlength="4"
+            placeholder="N° spectromètre"
+            oninput="gererEtalonnage(this,'etalonnageB')"
+            onkeydown="entreeEtalonnage(event,'etalonnageB')">
+
+        </div>
+
+        <div class="ligne-etalonnage">
+
+          <div class="libelle-etalonnage">
+
+            Mesure B
+            <span class="valeur-etalonnage">
+              — 0,5 mg/kg
+            </span>
+
+          </div>
+
+          <input
+            id="etalonnageB"
+            type="text"
+            inputmode="numeric"
+            maxlength="4"
+            placeholder="N° spectromètre"
+            oninput="gererEtalonnage(this,'etalonnageC')"
+            onkeydown="entreeEtalonnage(event,'etalonnageC')">
+
+        </div>
+
+        <div class="ligne-etalonnage">
+
+          <div class="libelle-etalonnage">
+
+            Mesure C
+            <span class="valeur-etalonnage">
+              — 1 mg/kg
+            </span>
+
+          </div>
+
+          <input
+            id="etalonnageC"
+            type="text"
+            inputmode="numeric"
+            maxlength="4"
+            placeholder="N° spectromètre"
+            oninput="gererEtalonnage(this,null)"
+            onkeydown="entreeEtalonnage(event,null)">
+
+        </div>
+
+        <div class="info-etalonnage">
+
+          Saisissez jusqu'à 4 chiffres.
+
+        </div>
+
+        <button
+          onclick="fermerEtalonnage()">
+
+          ✓ Terminer l'étalonnage
+
+        </button>
+
+      </div>
+
+    </div>
 
 
-<div class="tableau-wrapper">
+    <div class="boite">
+
+      <h2>
+        ➕ Ajouter une mesure
+      </h2>
+
+      <label for="piece">
+        Pièce
+      </label>
+
+      <select
+        id="piece"
+        onchange="passerAuMateriau()">
+
+        <option value="">
+          Choisir une pièce
+        </option>
+
+        <option value="Cuisine">
+          Cuisine
+        </option>
+
+        <option value="SDB">
+          SDB
+        </option>
+
+        <option value="WC">
+          WC
+        </option>
+
+        <option value="Entrée">
+          Entrée
+        </option>
+
+        <option value="Salon">
+          Salon
+        </option>
+
+        <option value="Chambre 1">
+          Chambre 1
+        </option>
+
+        <option value="Chambre 2">
+          Chambre 2
+        </option>
+
+        <option value="Couloir">
+          Couloir
+        </option>
+
+      </select>
 
 
-<table>
+      <label for="materiau">
+        Matériau
+      </label>
+
+      <select
+        id="materiau"
+        onchange="surfaceAutomatiqueEtFocus()">
+
+        <option value="">
+          Choisir un matériau
+        </option>
+
+        <option value="Cadre de porte">
+          Cadre de porte
+        </option>
+
+        <option value="Porte">
+          Porte
+        </option>
+
+        <option value="Mur">
+          Mur
+        </option>
+
+        <option value="Peinture">
+          Peinture
+        </option>
+
+        <option value="Cadre de placard">
+          Cadre de placard
+        </option>
+
+        <option value="Placard">
+          Placard
+        </option>
+
+        <option value="Cadre de fenêtre">
+          Cadre de fenêtre
+        </option>
+
+        <option value="Fenêtre">
+          Fenêtre
+        </option>
+
+        <option value="Plafond">
+          Plafond
+        </option>
+
+      </select>
 
 
-<thead>
+      <div class="grille">
 
-<tr>
+        <div>
 
-<th>
-Mesure
-</th>
+          <label for="surface">
+            Surface
+          </label>
 
-<th>
-Pièce
-</th>
+          <input
+            id="surface"
+            type="number"
+            min="0"
+            step="0.01"
+            inputmode="decimal"
+            placeholder="Ex. 4"
+            onkeydown="passerAuChampSuivant(event,'unite')">
 
-<th>
-Matériau
-</th>
+          <div
+            id="indicationSurface"
+            class="indication-surface">
+          </div>
 
-<th>
-Surface
-</th>
-
-<th>
-Résultat
-</th>
-
-<th>
-Photo
-</th>
-
-</tr>
-
-</thead>
+        </div>
 
 
-<tbody id="tableau">
+        <div>
+
+          <label for="unite">
+            Unité
+          </label>
+
+          <select
+            id="unite"
+            onchange="focusAjouter()">
+
+            <option value="m²">
+              m²
+            </option>
+
+            <option value="m">
+              m
+            </option>
+
+            <option value="cm">
+              cm
+            </option>
+
+            <option value="mm">
+              mm
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
 
 
-<tr>
+      <button
+        id="boutonAjouter"
+        class="bouton-principal"
+        onclick="ajouterMesure()">
 
-<td
-colspan="6"
-class="vide">
+        ➕ Ajouter au tableau
 
-Aucune mesure enregistrée.
-
-</td>
-
-</tr>
+      </button>
 
 
-</tbody>
+      <button
+        class="bouton-parametres"
+        onclick="afficherParametres()">
+
+        ⚙️ Modifier les surfaces par défaut
+
+      </button>
 
 
-</table>
+      <div
+        id="parametres"
+        class="parametres">
 
-</div>
+        <h3>
+          Surfaces automatiques
+        </h3>
+
+        <div class="parametre-ligne">
+          <span>Cadre de porte</span>
+          <input
+            id="def-Cadre-de-porte"
+            type="number"
+            step="0.1"
+            value="1.5">
+        </div>
+
+        <div class="parametre-ligne">
+          <span>Porte</span>
+          <input
+            id="def-Porte"
+            type="number"
+            step="0.1"
+            value="3">
+        </div>
+
+        <div class="parametre-ligne">
+          <span>Cadre de placard</span>
+          <input
+            id="def-Cadre-de-placard"
+            type="number"
+            step="0.1"
+            value="1">
+        </div>
+
+        <div class="parametre-ligne">
+          <span>Placard</span>
+          <input
+            id="def-Placard"
+            type="number"
+            step="0.1"
+            value="2">
+        </div>
+
+        <div class="parametre-ligne">
+          <span>Cadre de fenêtre</span>
+          <input
+            id="def-Cadre-de-fenêtre"
+            type="number"
+            step="0.1"
+            value="1.5">
+        </div>
+
+        <div class="parametre-ligne">
+          <span>Fenêtre</span>
+          <input
+            id="def-Fenêtre"
+            type="number"
+            step="0.1"
+            value="2">
+        </div>
+
+        <button
+          onclick="fermerParametres()">
+
+          ✓ Terminer
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="boite">
+
+      <h2>
+        📊 Mesures enregistrées
+      </h2>
+
+      <div class="informations-tableau">
+
+        <div class="info-ligne">
+
+          <span class="info-titre">
+            Appareil
+          </span>
+
+          <span
+            id="infoAppareil"
+            class="info-valeur">
+            Non sélectionné
+          </span>
+
+        </div>
+
+        <div class="info-ligne">
+
+          <span class="info-titre">
+            Mesure A — 0 mg/kg
+          </span>
+
+          <span
+            id="infoA"
+            class="info-valeur">
+            —
+          </span>
+
+        </div>
+
+        <div class="info-ligne">
+
+          <span class="info-titre">
+            Mesure B — 0,5 mg/kg
+          </span>
+
+          <span
+            id="infoB"
+            class="info-valeur">
+            —
+          </span>
+
+        </div>
+
+        <div class="info-ligne">
+
+          <span class="info-titre">
+            Mesure C — 1 mg/kg
+          </span>
+
+          <span
+            id="infoC"
+            class="info-valeur">
+            —
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="tableau-wrapper">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Mesure</th>
+              <th>Pièce</th>
+              <th>Matériau</th>
+              <th>Surface</th>
+              <th>Résultat</th>
+              <th>Photo</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody id="tableau"></tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+    <div class="boite">
+
+      <h2>
+        🧾 Document
+      </h2>
+
+      <button
+        class="bouton-pdf"
+        onclick="genererPDF()">
+
+        🧾 Aperçu du document PDF
+
+      </button>
+
+    </div>
+
+  </div>
 
 </div>
 
 
 <!-- =====================================================
-     PDF
+     PLAN
 ===================================================== -->
 
-<div class="boite zone-pdf">
+<div
+id="pagePlan"
+class="page-eddy">
+
+  <div class="plan-page">
+
+    <div class="plan-commandes">
+
+      <button
+        class="plan-retour"
+        onclick="retourDossier()">
+
+        ← Retour au dossier
+
+      </button>
 
 
-<h2>
-🧾 Document
-</h2>
+      <div class="plan-ligne-boutons">
+
+        <label
+          class="plan-import">
+
+          📐 Importer un plan
+
+          <input
+            id="planFileInput"
+            type="file"
+            accept="image/*">
+
+        </label>
 
 
-<div class="pdf-info">
+        <button
+          class="plan-reset"
+          onclick="reinitialiserPlan()">
 
-Toutes les mesures enregistrées, l'appareil,
-l'étalonnage et les photos associées seront
-repris dans le document.
+          ↻
+
+        </button>
+
+      </div>
+
+
+      <div
+        id="planStatus"
+        class="plan-status">
+
+        Aucune mesure à placer.
+
+      </div>
+
+
+      <div class="plan-legende">
+
+        <div class="plan-legende-item">
+
+          <span
+            class="plan-point-legende plan-point-bleu">
+          </span>
+
+          Négatif
+
+        </div>
+
+        <div class="plan-legende-item">
+
+          <span
+            class="plan-point-legende plan-point-rouge">
+          </span>
+
+          Positif
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="planZone"
+      class="plan-zone">
+
+      <canvas
+        id="planCanvas">
+      </canvas>
+
+
+      <div
+        id="planVide"
+        class="plan-vide">
+
+        <div class="plan-vide-icon">
+          📐
+        </div>
+
+        <strong>
+          Aucun plan importé
+        </strong>
+
+        <span>
+
+          Appuie sur
+          « Importer un plan »
+          pour choisir une photo
+          depuis l'iPhone.
+
+        </span>
+
+      </div>
+
+
+      <div
+        id="planPopup"
+        class="plan-popup">
+
+        <button
+          onclick="supprimerRepereSelectionne()">
+
+          🗑 Supprimer le repère
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="plan-bas">
+
+      👆 Touche le plan pour placer la prochaine mesure
+
+      ·
+
+      🤏 Pince pour zoomer
+
+    </div>
+
+  </div>
 
 </div>
 
 
-<button
-class="bouton-pdf"
-onclick="genererPDF()">
+<!-- =====================================================
+     APERCU PDF
+===================================================== -->
 
-🧾 Générer la feuille PDF
+<div
+id="pagePDF"
+class="page-eddy">
 
-</button>
+  <div class="pdf-preview-toolbar">
 
+    <button
+      onclick="fermerApercuPDF()">
+
+      ← Fermer
+
+    </button>
+
+    <button
+      class="pdf-imprimer"
+      onclick="imprimerPDF()">
+
+      🖨️ Imprimer / PDF
+
+    </button>
+
+  </div>
+
+
+  <div
+    id="pdfPreviewZone"
+    class="pdf-preview-zone">
+  </div>
 
 </div>
-
-
-</div>
-
 
 
 <script>
 
-
 /* =====================================================
-   SURFACES PAR DEFAUT
+   STOCKAGE
 ===================================================== */
 
-const surfacesDefaut = {
-
-  "Cadre de porte": 1.5,
-
-  "Porte": 3,
-
-  "Mur": "",
-
-  "Peinture": "",
-
-  "Cadre de placard": 1,
-
-  "Placard": 2,
-
-  "Cadre de fenêtre": 1.5,
-
-  "Fenêtre": 2,
-
-  "Plafond": ""
-
-};
+const CLE_DOSSIERS =
+  "eddy_app_dossiers_v3";
 
 
-/* =====================================================
-   DONNEES
-===================================================== */
+let dossiers =
+  JSON.parse(
+    localStorage.getItem(
+      CLE_DOSSIERS
+    ) || "[]"
+  );
+
+
+let dossierActuel = null;
 
 let mesures = [];
 
@@ -1649,173 +3104,1094 @@ let numeroMesure = 0;
 
 
 /* =====================================================
-   FONCTIONS DE NAVIGATION RAPIDE
+   SURFACES
 ===================================================== */
 
-function focusElement(id) {
+const surfacesDefaut = {
 
-  const element =
-    document.getElementById(id);
+  "Cadre de porte": 1.5,
+  "Porte": 3,
+  "Mur": "",
+  "Peinture": "",
+  "Cadre de placard": 1,
+  "Placard": 2,
+  "Cadre de fenêtre": 1.5,
+  "Fenêtre": 2,
+  "Plafond": ""
 
-  if (!element) {
-    return;
+};
+
+
+/* =====================================================
+   VARIABLES PLAN
+===================================================== */
+
+let planImageData = "";
+
+let planImage = null;
+
+let planReperes = [];
+
+let planSelectedMarker = null;
+
+let planLastSelectedMarker = null;
+
+let planScale = 1;
+
+let planOffsetX = 0;
+
+let planOffsetY = 0;
+
+let planImageWidth = 0;
+
+let planImageHeight = 0;
+
+let planPointers = new Map();
+
+let planStartX = 0;
+
+let planStartY = 0;
+
+let planStartOffsetX = 0;
+
+let planStartOffsetY = 0;
+
+let planMoved = false;
+
+let planPinchStartDistance = 0;
+
+let planPinchStartScale = 1;
+
+
+/* =====================================================
+   REFERENCES PLAN
+===================================================== */
+
+let planCanvas = null;
+
+let planCtx = null;
+
+let planZone = null;
+
+let planStatus = null;
+
+let planVide = null;
+
+let planPopup = null;
+
+let planFileInput = null;
+
+let planEventsInitialises = false;
+
+
+/* =====================================================
+   INITIALISATION REFERENCES
+===================================================== */
+
+function initialiserReferencesPlan() {
+
+  planCanvas =
+    document.getElementById(
+      "planCanvas"
+    );
+
+  planZone =
+    document.getElementById(
+      "planZone"
+    );
+
+  planStatus =
+    document.getElementById(
+      "planStatus"
+    );
+
+  planVide =
+    document.getElementById(
+      "planVide"
+    );
+
+  planPopup =
+    document.getElementById(
+      "planPopup"
+    );
+
+  planFileInput =
+    document.getElementById(
+      "planFileInput"
+    );
+
+
+  if (planCanvas) {
+
+    planCtx =
+      planCanvas.getContext(
+        "2d"
+      );
+
   }
 
-  setTimeout(function() {
-
-    element.focus();
-
-  }, 50);
-
-}
-
-
-function passerAuMateriau() {
-
-  const piece =
-    document.getElementById("piece").value;
-
-  if (piece !== "") {
-
-    focusElement("materiau");
-
-  }
-
-}
-
-
-function surfaceAutomatiqueEtFocus() {
-
-  surfaceAutomatique();
-
-  const materiau =
-    document.getElementById("materiau").value;
-
-  if (materiau === "") {
-    return;
-  }
-
-  const champSurface =
-    document.getElementById("surface");
 
   /*
-   * Même si une surface est automatiquement proposée,
-   * on place le curseur directement dedans.
-   * L'utilisateur peut donc la modifier immédiatement.
-   */
+     =================================================
+     CORRECTION PRINCIPALE
+     =================================================
 
-  focusElement("surface");
+     Les événements du canvas sont maintenant
+     réellement raccordés.
 
-}
-
-
-function passerAuChampSuivant(
-  event,
-  idSuivant
-) {
+     Avant, les fonctions existaient mais le canvas
+     ne recevait pas correctement les événements.
+  */
 
   if (
-    event.key === "Enter" &&
-    idSuivant
+    planCanvas &&
+    !planEventsInitialises
   ) {
 
-    event.preventDefault();
+    planCanvas.addEventListener(
+      "pointerdown",
+      planPointerDown
+    );
 
-    focusElement(idSuivant);
+    planCanvas.addEventListener(
+      "pointermove",
+      planPointerMove
+    );
+
+    planCanvas.addEventListener(
+      "pointerup",
+      planPointerUp
+    );
+
+    planCanvas.addEventListener(
+      "pointercancel",
+      planPointerCancel
+    );
+
+    planCanvas.addEventListener(
+      "pointerleave",
+      planPointerLeave
+    );
+
+
+    planEventsInitialises = true;
 
   }
 
-}
+
+  if (
+    planFileInput &&
+    !planFileInput.dataset.initialized
+  ) {
+
+    planFileInput.addEventListener(
+      "change",
+      gererImportPlan
+    );
 
 
-function focusAjouter() {
+    planFileInput.dataset.initialized =
+      "1";
 
-  focusElement("boutonAjouter");
+  }
 
 }
 
 
 /* =====================================================
-   ETALONNAGE RAPIDE
+   SAUVEGARDE
 ===================================================== */
 
-function gererEtalonnage(
-  champ,
-  idSuivant
-) {
+function sauvegarderDossiers() {
 
-  /*
-   * On autorise uniquement les chiffres.
-   */
+  localStorage.setItem(
+    CLE_DOSSIERS,
+    JSON.stringify(
+      dossiers
+    )
+  );
 
-  champ.value =
-    champ.value.replace(/\D/g, "");
+}
 
 
-  /*
-   * Passage automatique UNIQUEMENT
-   * lorsqu'il y a exactement 4 chiffres.
-   */
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function cacherPages() {
+
+  document
+    .querySelectorAll(
+      ".page-eddy"
+    )
+    .forEach(
+      function(page) {
+
+        page.classList.remove(
+          "active"
+        );
+
+      }
+    );
+
+}
+
+
+function afficherAccueil() {
+
+  cacherPages();
+
+  document
+    .getElementById(
+      "pageAccueil"
+    )
+    .classList.add(
+      "active"
+    );
+
+  afficherDossiers();
+
+}
+
+
+function nouveauDossier() {
+
+  cacherPages();
+
+  document
+    .getElementById(
+      "pageNouveau"
+    )
+    .classList.add(
+      "active"
+    );
+
+  document
+    .getElementById(
+      "designationDossier"
+    )
+    .value = "";
+
+  document
+    .getElementById(
+      "prochainNumero"
+    )
+    .textContent =
+      prochainNumero();
+
+}
+
+
+function retourDossier() {
+
+  sauvegarderReleveDansDossier();
+
+  sauvegarderPlanDansDossier();
+
+  afficherDetailDossier();
+
+}
+
+
+/* =====================================================
+   NUMERO
+===================================================== */
+
+function prochainNumero() {
 
   if (
-    champ.value.length === 4 &&
-    idSuivant
+    dossiers.length === 0
   ) {
 
-    focusElement(idSuivant);
+    return "001";
 
   }
 
+
+  let plusGrand = 0;
+
+
+  dossiers.forEach(
+    function(dossier) {
+
+      const n =
+        parseInt(
+          dossier.numero,
+          10
+        ) || 0;
+
+
+      plusGrand =
+        Math.max(
+          plusGrand,
+          n
+        );
+
+    }
+  );
+
+
+  return String(
+    plusGrand + 1
+  ).padStart(
+    3,
+    "0"
+  );
+
+}
+
+
+/* =====================================================
+   CREER DOSSIER
+===================================================== */
+
+function creerDossier() {
+
+  const designation =
+    document
+      .getElementById(
+        "designationDossier"
+      )
+      .value
+      .trim();
+
+
+  if (!designation) {
+
+    alert(
+      "Merci de renseigner la désignation du dossier."
+    );
+
+    return;
+
+  }
+
+
+  const dossier = {
+
+    id:
+      Date.now().toString(),
+
+    numero:
+      prochainNumero(),
+
+    designation:
+      designation,
+
+    statut:
+      "EN COURS",
+
+    dateCreation:
+      new Date().toLocaleDateString(
+        "fr-FR"
+      ),
+
+    appareil:
+      "",
+
+    etalonnage: {
+
+      A: "",
+      B: "",
+      C: ""
+
+    },
+
+    mesures: [],
+
+    plan: {
+
+      image: "",
+
+      reperes: []
+
+    }
+
+  };
+
+
+  dossiers.push(
+    dossier
+  );
+
+
+  sauvegarderDossiers();
+
+
+  dossierActuel =
+    dossier;
+
+
+  chargerDossierDansReleve();
+
+  chargerPlanDansDossier();
+
+  ouvrirReleve();
+
+}
+
+
+/* =====================================================
+   DOSSIERS
+===================================================== */
+
+function afficherDossiers() {
+
+  const zone =
+    document.getElementById(
+      "listeDossiers"
+    );
+
+
+  const recherche =
+    (
+      document
+        .getElementById(
+          "rechercheDossier"
+        )
+        ?.value
+      ||
+      ""
+    )
+    .trim()
+    .toLowerCase();
+
+
+  const resultats =
+    dossiers
+      .filter(
+        function(dossier) {
+
+          return (
+
+            dossier.numero
+              .toLowerCase()
+              .includes(
+                recherche
+              )
+
+            ||
+
+            dossier.designation
+              .toLowerCase()
+              .includes(
+                recherche
+              )
+
+          );
+
+        }
+      )
+      .sort(
+        function(a,b) {
+
+          return (
+
+            parseInt(
+              b.numero,
+              10
+            )
+
+            -
+
+            parseInt(
+              a.numero,
+              10
+            )
+
+          );
+
+        }
+      );
+
+
+  if (
+    resultats.length === 0
+  ) {
+
+    zone.innerHTML = `
+
+      <div class="aucun-dossier">
+
+        Aucun dossier enregistré.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  zone.innerHTML =
+    resultats
+      .map(
+        function(dossier) {
+
+          return `
+
+            <div
+              class="dossier-card"
+              onclick="ouvrirDossier('${dossier.id}')">
+
+              <div class="dossier-numero">
+
+                Dossier n°${dossier.numero}
+
+              </div>
+
+              <div class="dossier-designation">
+
+                ${echapperHTML(
+                  dossier.designation
+                )}
+
+              </div>
+
+              <div class="dossier-details">
+
+                Créé le
+                ${dossier.dateCreation}
+
+                <br>
+
+                ${dossier.mesures.length}
+                mesure(s)
+
+              </div>
+
+              <span
+                class="dossier-statut
+                ${
+                  dossier.statut === "TERMINE"
+                  ?
+                  "dossier-termine"
+                  :
+                  "dossier-en-cours"
+                }">
+
+                ${dossier.statut}
+
+              </span>
+
+            </div>
+
+          `;
+
+        }
+      )
+      .join("");
+
+}
+
+
+/* =====================================================
+   OUVRIR DOSSIER
+===================================================== */
+
+function ouvrirDossier(id) {
+
+  const dossier =
+    dossiers.find(
+      function(d) {
+
+        return d.id === id;
+
+      }
+    );
+
+
+  if (!dossier) {
+    return;
+  }
+
+
+  dossierActuel =
+    dossier;
+
+
+  afficherDetailDossier();
+
+}
+
+
+/* =====================================================
+   DETAIL DOSSIER
+===================================================== */
+
+function afficherDetailDossier() {
+
+  cacherPages();
+
+
+  document
+    .getElementById(
+      "pageDossier"
+    )
+    .classList.add(
+      "active"
+    );
+
+
+  const d =
+    dossierActuel;
+
+
+  if (!d.plan) {
+
+    d.plan = {
+
+      image: "",
+
+      reperes: []
+
+    };
+
+  }
+
+
+  const nombreReperes =
+    d.plan.reperes?.length || 0;
+
+
+  document
+    .getElementById(
+      "detailDossier"
+    )
+    .innerHTML = `
+
+      <div class="detail-card">
+
+        <div class="detail-numero">
+
+          Dossier n°${d.numero}
+
+        </div>
+
+        <div class="detail-designation">
+
+          ${echapperHTML(
+            d.designation
+          )}
+
+        </div>
+
+        <div class="detail-info">
+
+          Créé le :
+          ${d.dateCreation}
+
+          <br>
+
+          Nombre de mesures :
+          ${d.mesures.length}
+
+          <br>
+
+          Repères sur le plan :
+          ${nombreReperes}
+
+          <br>
+
+          Statut :
+          <strong>
+            ${d.statut}
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="bouton-principal"
+        onclick="ouvrirReleve()">
+
+        📋 Ouvrir le relevé
+
+      </button>
+
+
+      <button
+        onclick="ouvrirPlan()">
+
+        📐 Ouvrir le plan / croquis
+
+      </button>
+
+
+      ${
+        d.mesures.length
+        ?
+        `
+        <button
+          onclick="genererPDF()">
+
+          🧾 Aperçu du PDF
+
+        </button>
+        `
+        :
+        ""
+      }
+
+
+      ${
+        d.statut === "EN COURS"
+        ?
+        `
+        <button
+          onclick="terminerDossier()">
+
+          ✓ Terminer le dossier
+
+        </button>
+        `
+        :
+        ""
+      }
+
+
+      <button
+        style="
+          background:#c90000;
+          color:white;
+        "
+        onclick="supprimerDossier()">
+
+        🗑 Supprimer le dossier
+
+      </button>
+
+    `;
+
+}
+
+
+/* =====================================================
+   TERMINER
+===================================================== */
+
+function terminerDossier() {
+
+  if (!dossierActuel) {
+    return;
+  }
+
+
+  if (
+    dossierActuel.mesures.length === 0
+  ) {
+
+    alert(
+      "Impossible de terminer un dossier sans mesure."
+    );
+
+    return;
+
+  }
+
+
+  if (
+    !confirm(
+      "Terminer le dossier n°"
+      +
+      dossierActuel.numero
+      +
+      " ?"
+    )
+  ) {
+
+    return;
+
+  }
+
+
+  sauvegarderReleveDansDossier();
+
+  sauvegarderPlanDansDossier();
+
+
+  dossierActuel.statut =
+    "TERMINE";
+
+
+  sauvegarderDossiers();
+
+  afficherDetailDossier();
+
+}
+
+
+/* =====================================================
+   SUPPRIMER
+===================================================== */
+
+function supprimerDossier() {
+
+  if (!dossierActuel) {
+    return;
+  }
+
+
+  if (
+    !confirm(
+      "Supprimer le dossier n°"
+      +
+      dossierActuel.numero
+      +
+      " ?"
+    )
+  ) {
+
+    return;
+
+  }
+
+
+  dossiers =
+    dossiers.filter(
+      function(d) {
+
+        return (
+          d.id !==
+          dossierActuel.id
+        );
+
+      }
+    );
+
+
+  sauvegarderDossiers();
+
+
+  dossierActuel = null;
+
+
+  afficherAccueil();
+
+}
+
+
+/* =====================================================
+   RELEVE
+===================================================== */
+
+function ouvrirReleve() {
+
+  if (!dossierActuel) {
+    return;
+  }
+
+
+  chargerDossierDansReleve();
+
+
+  cacherPages();
+
+
+  document
+    .getElementById(
+      "pageReleve"
+    )
+    .classList.add(
+      "active"
+    );
+
+
+  afficherTableau();
 
   mettreAJourInformations();
 
 }
 
 
-function entreeEtalonnage(
-  event,
-  idSuivant
-) {
+function chargerDossierDansReleve() {
 
-  if (
-    event.key === "Enter"
-  ) {
+  if (!dossierActuel) {
+    return;
+  }
 
-    event.preventDefault();
 
-    if (idSuivant) {
+  mesures =
+    JSON.parse(
+      JSON.stringify(
+        dossierActuel.mesures || []
+      )
+    );
 
-      focusElement(idSuivant);
 
-    }
+  numeroMesure =
+    mesures.length
+    ?
+    Math.max(
+      ...mesures.map(
+        function(m) {
 
-    else {
+          return (
+            parseInt(
+              m.numero,
+              10
+            ) || 0
+          );
 
-      /*
-       * Pour C, Entrée termine simplement
-       * la saisie sans chercher un champ suivant.
-       */
+        }
+      )
+    )
+    :
+    0;
 
-      event.target.blur();
 
-    }
+  const appareil =
+    document.getElementById(
+      "appareil"
+    );
 
-    mettreAJourInformations();
+
+  const A =
+    document.getElementById(
+      "etalonnageA"
+    );
+
+
+  const B =
+    document.getElementById(
+      "etalonnageB"
+    );
+
+
+  const C =
+    document.getElementById(
+      "etalonnageC"
+    );
+
+
+  if (appareil) {
+
+    appareil.value =
+      dossierActuel.appareil || "";
+
+  }
+
+
+  if (A) {
+
+    A.value =
+      dossierActuel.etalonnage?.A || "";
+
+  }
+
+
+  if (B) {
+
+    B.value =
+      dossierActuel.etalonnage?.B || "";
+
+  }
+
+
+  if (C) {
+
+    C.value =
+      dossierActuel.etalonnage?.C || "";
 
   }
 
 }
 
 
+function sauvegarderReleveDansDossier() {
+
+  if (!dossierActuel) {
+    return;
+  }
+
+
+  const appareil =
+    document.getElementById(
+      "appareil"
+    );
+
+
+  const A =
+    document.getElementById(
+      "etalonnageA"
+    );
+
+
+  const B =
+    document.getElementById(
+      "etalonnageB"
+    );
+
+
+  const C =
+    document.getElementById(
+      "etalonnageC"
+    );
+
+
+  dossierActuel.appareil =
+    appareil
+    ?
+    appareil.value
+    :
+    dossierActuel.appareil || "";
+
+
+  dossierActuel.etalonnage = {
+
+    A:
+      A
+      ?
+      A.value
+      :
+      dossierActuel.etalonnage?.A || "",
+
+    B:
+      B
+      ?
+      B.value
+      :
+      dossierActuel.etalonnage?.B || "",
+
+    C:
+      C
+      ?
+      C.value
+      :
+      dossierActuel.etalonnage?.C || ""
+
+  };
+
+
+  dossierActuel.mesures =
+    JSON.parse(
+      JSON.stringify(
+        mesures
+      )
+    );
+
+
+  sauvegarderDossiers();
+
+}
+
+
 /* =====================================================
-   CHOIX APPAREIL
+   APPAREIL
 ===================================================== */
 
 function afficherAppareil() {
 
   document
-    .getElementById("zoneAppareil")
-    .classList.add("visible");
+    .getElementById(
+      "zoneAppareil"
+    )
+    .classList.add(
+      "visible"
+    );
 
 }
 
@@ -1823,10 +4199,17 @@ function afficherAppareil() {
 function fermerAppareil() {
 
   document
-    .getElementById("zoneAppareil")
-    .classList.remove("visible");
+    .getElementById(
+      "zoneAppareil"
+    )
+    .classList.remove(
+      "visible"
+    );
+
 
   mettreAJourInformations();
+
+  sauvegarderReleveDansDossier();
 
 }
 
@@ -1838,10 +4221,17 @@ function fermerAppareil() {
 function afficherEtalonnage() {
 
   document
-    .getElementById("etalonnage")
-    .classList.add("visible");
+    .getElementById(
+      "etalonnage"
+    )
+    .classList.add(
+      "visible"
+    );
 
-  focusElement("etalonnageA");
+
+  focusElement(
+    "etalonnageA"
+  );
 
 }
 
@@ -1849,83 +4239,306 @@ function afficherEtalonnage() {
 function fermerEtalonnage() {
 
   document
-    .getElementById("etalonnage")
-    .classList.remove("visible");
+    .getElementById(
+      "etalonnage"
+    )
+    .classList.remove(
+      "visible"
+    );
+
+
+  sauvegarderReleveDansDossier();
 
   mettreAJourInformations();
 
 }
 
 
-/* =====================================================
-   MISE A JOUR INFORMATIONS
-===================================================== */
+function gererEtalonnage(
+  champ,
+  suivant
+) {
 
-function mettreAJourInformations() {
-
-
-  const appareil =
-    document.getElementById("appareil").value;
-
-
-  const A =
-    document.getElementById("etalonnageA").value;
+  champ.value =
+    champ.value.replace(
+      /\D/g,
+      ""
+    );
 
 
-  const B =
-    document.getElementById("etalonnageB").value;
+  if (
+    champ.value.length === 4 &&
+    suivant
+  ) {
+
+    focusElement(
+      suivant
+    );
+
+  }
 
 
-  const C =
-    document.getElementById("etalonnageC").value;
+  mettreAJourInformations();
+
+  sauvegarderReleveDansDossier();
+
+}
 
 
-  document.getElementById(
-    "infoAppareil"
-  ).textContent =
-    appareil || "Non sélectionné";
+function entreeEtalonnage(
+  event,
+  suivant
+) {
+
+  if (
+    event.key === "Enter"
+  ) {
+
+    event.preventDefault();
 
 
-  document.getElementById(
-    "infoA"
-  ).textContent =
-    A || "—";
+    if (suivant) {
+
+      focusElement(
+        suivant
+      );
+
+    }
+
+    else {
+
+      event.target.blur();
+
+    }
 
 
-  document.getElementById(
-    "infoB"
-  ).textContent =
-    B || "—";
+    sauvegarderReleveDansDossier();
 
-
-  document.getElementById(
-    "infoC"
-  ).textContent =
-    C || "—";
+  }
 
 }
 
 
 /* =====================================================
-   SURFACE AUTOMATIQUE
+   INFORMATIONS
+===================================================== */
+
+function mettreAJourInformations() {
+
+  const appareil =
+    document
+      .getElementById(
+        "appareil"
+      )
+      ?.value || "";
+
+
+  const A =
+    document
+      .getElementById(
+        "etalonnageA"
+      )
+      ?.value || "";
+
+
+  const B =
+    document
+      .getElementById(
+        "etalonnageB"
+      )
+      ?.value || "";
+
+
+  const C =
+    document
+      .getElementById(
+        "etalonnageC"
+      )
+      ?.value || "";
+
+
+  const ia =
+    document.getElementById(
+      "infoAppareil"
+    );
+
+
+  const iA =
+    document.getElementById(
+      "infoA"
+    );
+
+
+  const iB =
+    document.getElementById(
+      "infoB"
+    );
+
+
+  const iC =
+    document.getElementById(
+      "infoC"
+    );
+
+
+  if (ia) {
+
+    ia.textContent =
+      appareil ||
+      "Non sélectionné";
+
+  }
+
+
+  if (iA) {
+
+    iA.textContent =
+      A || "—";
+
+  }
+
+
+  if (iB) {
+
+    iB.textContent =
+      B || "—";
+
+  }
+
+
+  if (iC) {
+
+    iC.textContent =
+      C || "—";
+
+  }
+
+}
+
+
+/* =====================================================
+   FOCUS
+===================================================== */
+
+function focusElement(id) {
+
+  const element =
+    document.getElementById(
+      id
+    );
+
+
+  if (!element) {
+    return;
+  }
+
+
+  setTimeout(
+    function() {
+
+      element.focus();
+
+    },
+    50
+  );
+
+}
+
+
+function passerAuMateriau() {
+
+  if (
+    document
+      .getElementById(
+        "piece"
+      )
+      .value
+  ) {
+
+    focusElement(
+      "materiau"
+    );
+
+  }
+
+}
+
+
+function surfaceAutomatiqueEtFocus() {
+
+  surfaceAutomatique();
+
+  if (
+    document
+      .getElementById(
+        "materiau"
+      )
+      .value
+  ) {
+
+    focusElement(
+      "surface"
+    );
+
+  }
+
+}
+
+
+function passerAuChampSuivant(
+  event,
+  id
+) {
+
+  if (
+    event.key === "Enter"
+  ) {
+
+    event.preventDefault();
+
+    focusElement(id);
+
+  }
+
+}
+
+
+function focusAjouter() {
+
+  focusElement(
+    "boutonAjouter"
+  );
+
+}
+
+
+/* =====================================================
+   SURFACE
 ===================================================== */
 
 function surfaceAutomatique() {
 
-
   const materiau =
-    document.getElementById("materiau").value;
+    document
+      .getElementById(
+        "materiau"
+      )
+      .value;
 
 
   const champ =
-    document.getElementById("surface");
+    document.getElementById(
+      "surface"
+    );
 
 
   const indication =
-    document.getElementById("indicationSurface");
+    document.getElementById(
+      "indicationSurface"
+    );
 
 
-  if (materiau === "") {
+  if (!materiau) {
 
     champ.value = "";
 
@@ -1937,16 +4550,23 @@ function surfaceAutomatique() {
 
 
   let valeur =
-    surfacesDefaut[materiau];
+    surfacesDefaut[
+      materiau
+    ];
 
 
   const id =
     "def-" +
-    materiau.replaceAll(" ", "-");
+    materiau.replaceAll(
+      " ",
+      "-"
+    );
 
 
   const champDefaut =
-    document.getElementById(id);
+    document.getElementById(
+      id
+    );
 
 
   if (champDefaut) {
@@ -1989,28 +4609,36 @@ function surfaceAutomatique() {
 function afficherParametres() {
 
   document
-    .getElementById("parametres")
-    .classList.add("visible");
+    .getElementById(
+      "parametres"
+    )
+    .classList.add(
+      "visible"
+    );
 
 }
 
 
 function fermerParametres() {
 
-
   Object.keys(
     surfacesDefaut
-  ).forEach(
+  )
+  .forEach(
     function(materiau) {
-
 
       const id =
         "def-" +
-        materiau.replaceAll(" ", "-");
+        materiau.replaceAll(
+          " ",
+          "-"
+        );
 
 
       const champ =
-        document.getElementById(id);
+        document.getElementById(
+          id
+        );
 
 
       if (
@@ -2018,8 +4646,12 @@ function fermerParametres() {
         champ.value !== ""
       ) {
 
-        surfacesDefaut[materiau] =
-          parseFloat(champ.value);
+        surfacesDefaut[
+          materiau
+        ] =
+          parseFloat(
+            champ.value
+          );
 
       }
 
@@ -2028,8 +4660,12 @@ function fermerParametres() {
 
 
   document
-    .getElementById("parametres")
-    .classList.remove("visible");
+    .getElementById(
+      "parametres"
+    )
+    .classList.remove(
+      "visible"
+    );
 
 
   surfaceAutomatique();
@@ -2038,29 +4674,44 @@ function fermerParametres() {
 
 
 /* =====================================================
-   AJOUTER UNE MESURE
+   AJOUT MESURE
 ===================================================== */
 
 function ajouterMesure() {
 
-
   const piece =
-    document.getElementById("piece").value;
+    document
+      .getElementById(
+        "piece"
+      )
+      .value;
 
 
   const materiau =
-    document.getElementById("materiau").value;
+    document
+      .getElementById(
+        "materiau"
+      )
+      .value;
 
 
   const surface =
-    document.getElementById("surface").value;
+    document
+      .getElementById(
+        "surface"
+      )
+      .value;
 
 
   const unite =
-    document.getElementById("unite").value;
+    document
+      .getElementById(
+        "unite"
+      )
+      .value;
 
 
-  if (piece === "") {
+  if (!piece) {
 
     alert(
       "Choisissez une pièce."
@@ -2073,7 +4724,7 @@ function ajouterMesure() {
   }
 
 
-  if (materiau === "") {
+  if (!materiau) {
 
     alert(
       "Choisissez un matériau."
@@ -2086,7 +4737,7 @@ function ajouterMesure() {
   }
 
 
-  if (surface === "") {
+  if (!surface) {
 
     alert(
       "Indiquez une surface."
@@ -2104,52 +4755,66 @@ function ajouterMesure() {
 
   mesures.push({
 
-    numero: numeroMesure,
+    numero:
+      numeroMesure,
 
-    piece: piece,
+    piece:
+      piece,
 
-    materiau: materiau,
+    materiau:
+      materiau,
 
-    surface: surface,
+    surface:
+      surface,
 
-    unite: unite,
+    unite:
+      unite,
 
-    plomb: "",
+    plomb:
+      "",
 
-    photo: ""
+    photo:
+      ""
 
   });
 
 
-  /*
-   * Après ajout :
-   * on revient immédiatement à la pièce
-   * pour permettre un nouveau relevé très rapidement.
-   */
-
-  document.getElementById(
-    "piece"
-  ).value = "";
-
-
-  document.getElementById(
-    "materiau"
-  ).value = "";
-
-
-  document.getElementById(
-    "surface"
-  ).value = "";
-
-
-  document.getElementById(
-    "indicationSurface"
-  ).innerHTML = "";
-
+  sauvegarderReleveDansDossier();
 
   afficherTableau();
 
-  focusElement("piece");
+
+  document
+    .getElementById(
+      "piece"
+    )
+    .value = "";
+
+
+  document
+    .getElementById(
+      "materiau"
+    )
+    .value = "";
+
+
+  document
+    .getElementById(
+      "surface"
+    )
+    .value = "";
+
+
+  document
+    .getElementById(
+      "indicationSurface"
+    )
+    .innerHTML = "";
+
+
+  focusElement(
+    "piece"
+  );
 
 }
 
@@ -2160,23 +4825,28 @@ function ajouterMesure() {
 
 function afficherTableau() {
 
-
   const tableau =
-    document.getElementById("tableau");
+    document.getElementById(
+      "tableau"
+    );
 
 
-  tableau.innerHTML = "";
+  if (!tableau) {
+    return;
+  }
 
 
-  if (mesures.length === 0) {
+  if (
+    mesures.length === 0
+  ) {
 
     tableau.innerHTML = `
 
       <tr>
 
         <td
-        colspan="6"
-        class="vide">
+          colspan="6"
+          class="vide">
 
           Aucune mesure enregistrée.
 
@@ -2191,42 +4861,32 @@ function afficherTableau() {
   }
 
 
+  tableau.innerHTML = "";
+
+
   mesures.forEach(
-    function(mesure, index) {
+    function(m,index) {
+
+      let resultatHTML = "";
 
 
-      let plombHTML = "";
+      if (!m.plomb) {
 
-
-      /*
-       * Aucun résultat choisi
-       */
-
-      if (mesure.plomb === "") {
-
-
-        plombHTML = `
+        resultatHTML = `
 
           <div class="plomb">
 
             <button
-            class="bouton-positif"
-            onclick="choisirPlomb(
-              ${index},
-              'Positif'
-            )">
+              class="bouton-positif"
+              onclick="choisirPlomb(${index},'Positif')">
 
               🔴 Positif
 
             </button>
 
-
             <button
-            class="bouton-negatif"
-            onclick="choisirPlomb(
-              ${index},
-              'Négatif'
-            )">
+              class="bouton-negatif"
+              onclick="choisirPlomb(${index},'Négatif')">
 
               🔵 Négatif
 
@@ -2237,157 +4897,90 @@ function afficherTableau() {
         `;
 
       }
-
-
-      /*
-       * Négatif sélectionné
-       */
-
-      else if (
-        mesure.plomb ===
-        "Négatif"
-      ) {
-
-
-        plombHTML = `
-
-          <div class="plomb">
-
-            <button
-            class="selection-negatif"
-            onclick="choisirPlomb(
-              ${index},
-              'Négatif'
-            )">
-
-              🔵 Négatif
-
-            </button>
-
-
-            <button
-            class="bouton-positif"
-            onclick="choisirPlomb(
-              ${index},
-              'Positif'
-            )">
-
-              🔴 Positif
-
-            </button>
-
-          </div>
-
-        `;
-
-      }
-
-
-      /*
-       * Positif sélectionné
-       */
 
       else {
 
+        const positif =
+          m.plomb === "Positif";
 
-        plombHTML = `
+
+        resultatHTML = `
 
           <div class="plomb">
 
             <button
-            class="selection-positif"
-            onclick="choisirPlomb(
-              ${index},
-              'Positif'
-            )">
+              class="${
+                positif
+                ?
+                "selection-positif"
+                :
+                "bouton-positif"
+              }"
+              onclick="choisirPlomb(${index},'Positif')">
 
               🔴 Positif
 
             </button>
 
-
             <button
-            class="bouton-negatif"
-            onclick="choisirPlomb(
-              ${index},
-              'Négatif'
-            )">
+              class="${
+                !positif
+                ?
+                "selection-negatif"
+                :
+                "bouton-negatif"
+              }"
+              onclick="choisirPlomb(${index},'Négatif')">
 
               🔵 Négatif
 
             </button>
 
+            ${
+              positif
+              ?
+              `
 
-            <div class="photo-zone">
+              <div class="photo-zone">
 
+                <label
+                  for="photo-${index}"
+                  class="photo-button">
 
-              <label
-              for="photo-${index}"
-              class="photo-button">
+                  📷 Photo
 
-                📷 Photo
+                </label>
 
-              </label>
+                <input
+                  id="photo-${index}"
+                  type="file"
+                  accept="image/*"
+                  capture="environment"
+                  style="display:none"
+                  onchange="ajouterPhoto(${index},this)">
 
+                ${
+                  m.photo
+                  ?
+                  `
+                  <div class="photo-preview">
 
-              <input
+                    <img
+                      src="${m.photo}"
+                      alt="Photo">
 
-              id="photo-${index}"
+                  </div>
+                  `
+                  :
+                  ""
+                }
 
-              type="file"
+              </div>
 
-              accept="image/*"
-
-              capture="environment"
-
-              style="display:none"
-
-              onchange="ajouterPhoto(
-                ${index},
-                this
-              )">
-
-
-              ${
-                mesure.photo
-                ?
-
-                `
-                <div class="photo-preview">
-
-                  <img
-                  src="${mesure.photo}"
-                  alt="Photo">
-
-                </div>
-                `
-
-                :
-
-                ""
-
-              }
-
-
-            </div>
-
-          </div>
-
-        `;
-
-      }
-
-
-      let photoCellule = "—";
-
-
-      if (mesure.photo) {
-
-        photoCellule = `
-
-          <div class="photo-ajoutee">
-
-            📷 Oui
+              `
+              :
+              ""
+            }
 
           </div>
 
@@ -2397,7 +4990,9 @@ function afficherTableau() {
 
 
       const tr =
-        document.createElement("tr");
+        document.createElement(
+          "tr"
+        );
 
 
       tr.innerHTML = `
@@ -2406,51 +5001,49 @@ function afficherTableau() {
 
           <div class="numero">
 
-            Mesure n°${mesure.numero}
+            Mesure n°${m.numero}
 
           </div>
 
         </td>
 
+        <td>
+          ${echapperHTML(m.piece)}
+        </td>
+
+        <td>
+          ${echapperHTML(m.materiau)}
+        </td>
+
+        <td>
+          ${echapperHTML(m.surface)}
+          ${echapperHTML(m.unite)}
+        </td>
 
         <td>
 
-          ${mesure.piece}
+          ${resultatHTML}
 
         </td>
 
-
         <td>
 
-          ${mesure.materiau}
-
-        </td>
-
-
-        <td>
-
-          ${mesure.surface}${mesure.unite}
-
-        </td>
-
-
-        <td>
-
-          ${plombHTML}
-
-        </td>
-
-
-        <td>
-
-          ${photoCellule}
+          ${
+            m.photo
+            ?
+            "📷 Oui"
+            :
+            "—"
+          }
 
         </td>
 
       `;
 
 
-      tableau.appendChild(tr);
+      tableau.appendChild(
+        tr
+      );
 
     }
   );
@@ -2459,7 +5052,7 @@ function afficherTableau() {
 
 
 /* =====================================================
-   CHOIX POSITIF / NEGATIF
+   RESULTAT PLOMB
 ===================================================== */
 
 function choisirPlomb(
@@ -2467,19 +5060,12 @@ function choisirPlomb(
   resultat
 ) {
 
-
   mesures[index].plomb =
     resultat;
 
 
-  /*
-   * Une photo n'est disponible
-   * que pour un résultat positif.
-   */
-
   if (
-    resultat ===
-    "Négatif"
+    resultat === "Négatif"
   ) {
 
     mesures[index].photo =
@@ -2488,7 +5074,39 @@ function choisirPlomb(
   }
 
 
+  /*
+     Si un repère existe déjà pour cette mesure,
+     on met également sa couleur à jour.
+  */
+
+  planReperes.forEach(
+    function(rep) {
+
+      if (
+        String(rep.numero) ===
+        String(
+          mesures[index].numero
+        )
+      ) {
+
+        rep.plomb =
+          resultat;
+
+      }
+
+    }
+  );
+
+
+  sauvegarderReleveDansDossier();
+
+  sauvegarderPlanDansDossier();
+
   afficherTableau();
+
+  dessinerPlan();
+
+  mettreAJourPlanStatus();
 
 }
 
@@ -2502,10 +5120,271 @@ function ajouterPhoto(
   input
 ) {
 
-
   if (
     !input.files ||
     !input.files[0]
+  ) {
+
+    return;
+
+  }
+
+
+  const lecteur =
+    new FileReader();
+
+
+  lecteur.onload =
+    function(e) {
+
+      mesures[index].photo =
+        e.target.result;
+
+
+      sauvegarderReleveDansDossier();
+
+      afficherTableau();
+
+    };
+
+
+  lecteur.readAsDataURL(
+    input.files[0]
+  );
+
+}
+
+
+/* =====================================================
+   OUVRIR PLAN
+===================================================== */
+
+function ouvrirPlan() {
+
+  if (!dossierActuel) {
+    return;
+  }
+
+
+  sauvegarderReleveDansDossier();
+
+
+  chargerPlanDansDossier();
+
+
+  cacherPages();
+
+
+  document
+    .getElementById(
+      "pagePlan"
+    )
+    .classList.add(
+      "active"
+    );
+
+
+  setTimeout(
+    function() {
+
+      initialiserReferencesPlan();
+
+      redimensionnerPlanCanvas();
+
+      dessinerPlan();
+
+      mettreAJourPlanStatus();
+
+    },
+    100
+  );
+
+}
+
+
+/* =====================================================
+   CHARGER PLAN
+===================================================== */
+
+function chargerPlanDansDossier() {
+
+  if (!dossierActuel) {
+    return;
+  }
+
+
+  if (!dossierActuel.plan) {
+
+    dossierActuel.plan = {
+
+      image: "",
+
+      reperes: []
+
+    };
+
+  }
+
+
+  planImageData =
+    dossierActuel.plan.image || "";
+
+
+  planReperes =
+    JSON.parse(
+      JSON.stringify(
+        dossierActuel.plan.reperes || []
+      )
+    );
+
+
+  planSelectedMarker = null;
+
+  planLastSelectedMarker = null;
+
+
+  fermerPlanPopup();
+
+
+  if (!planImageData) {
+
+    planImage = null;
+
+
+    if (planVide) {
+
+      planVide.style.display =
+        "block";
+
+    }
+
+
+    redimensionnerPlanCanvas();
+
+    dessinerPlan();
+
+    mettreAJourPlanStatus();
+
+    return;
+
+  }
+
+
+  const img =
+    new Image();
+
+
+  img.onload =
+    function() {
+
+      planImage =
+        img;
+
+
+      if (planVide) {
+
+        planVide.style.display =
+          "none";
+
+      }
+
+
+      setTimeout(
+        function() {
+
+          redimensionnerPlanCanvas();
+
+          centrerPlan();
+
+          redimensionnerPlanCanvas();
+
+          dessinerPlan();
+
+          mettreAJourPlanStatus();
+
+        },
+        30
+      );
+
+    };
+
+
+  img.onerror =
+    function() {
+
+      planImage = null;
+
+
+      if (planVide) {
+
+        planVide.style.display =
+          "block";
+
+      }
+
+
+      alert(
+        "Impossible de charger le plan enregistré."
+      );
+
+    };
+
+
+  img.src =
+    planImageData;
+
+}
+
+
+/* =====================================================
+   SAUVEGARDER PLAN
+===================================================== */
+
+function sauvegarderPlanDansDossier() {
+
+  if (!dossierActuel) {
+    return;
+  }
+
+
+  if (!dossierActuel.plan) {
+
+    dossierActuel.plan = {};
+
+  }
+
+
+  dossierActuel.plan.image =
+    planImageData || "";
+
+
+  dossierActuel.plan.reperes =
+    JSON.parse(
+      JSON.stringify(
+        planReperes
+      )
+    );
+
+
+  sauvegarderDossiers();
+
+}
+
+
+/* =====================================================
+   IMPORT PLAN
+===================================================== */
+
+function gererImportPlan(event) {
+
+  const input =
+    event.target;
+
+
+  if (
+    !input ||
+    !input.files ||
+    !input.files.length
   ) {
 
     return;
@@ -2517,6 +5396,24 @@ function ajouterPhoto(
     input.files[0];
 
 
+  if (
+    !fichier.type ||
+    !fichier.type.startsWith(
+      "image/"
+    )
+  ) {
+
+    alert(
+      "Le fichier sélectionné n'est pas une image."
+    );
+
+    input.value = "";
+
+    return;
+
+  }
+
+
   const lecteur =
     new FileReader();
 
@@ -2524,32 +5421,1153 @@ function ajouterPhoto(
   lecteur.onload =
     function(e) {
 
-
-      mesures[index].photo =
+      const resultat =
         e.target.result;
 
 
-      afficherTableau();
+      if (!resultat) {
+
+        alert(
+          "Impossible de lire le plan."
+        );
+
+        return;
+
+      }
+
+
+      planImageData =
+        resultat;
+
+
+      /*
+         On efface les anciens repères
+         lorsqu'on importe un nouveau plan.
+      */
+
+      planReperes = [];
+
+      planSelectedMarker = null;
+
+      planLastSelectedMarker = null;
+
+
+      const img =
+        new Image();
+
+
+      img.onload =
+        function() {
+
+          planImage =
+            img;
+
+
+          if (planVide) {
+
+            planVide.style.display =
+              "none";
+
+          }
+
+
+          setTimeout(
+            function() {
+
+              redimensionnerPlanCanvas();
+
+              centrerPlan();
+
+              redimensionnerPlanCanvas();
+
+              dessinerPlan();
+
+              mettreAJourPlanStatus();
+
+              sauvegarderPlanDansDossier();
+
+            },
+            50
+          );
+
+        };
+
+
+      img.onerror =
+        function() {
+
+          planImage = null;
+
+          planImageData = "";
+
+
+          if (planVide) {
+
+            planVide.style.display =
+              "block";
+
+          }
+
+
+          alert(
+            "L'image du plan n'a pas pu être chargée."
+          );
+
+        };
+
+
+      img.src =
+        resultat;
 
     };
 
 
-  lecteur.readAsDataURL(fichier);
+  lecteur.onerror =
+    function() {
+
+      alert(
+        "Erreur pendant la lecture de l'image."
+      );
+
+    };
+
+
+  lecteur.readAsDataURL(
+    fichier
+  );
+
+
+  setTimeout(
+    function() {
+
+      input.value = "";
+
+    },
+    100
+  );
 
 }
 
 
 /* =====================================================
-   GENERATION PDF
+   CANVAS
 ===================================================== */
 
-function genererPDF() {
+function redimensionnerPlanCanvas() {
+
+  if (
+    !planCanvas ||
+    !planZone ||
+    !planCtx
+  ) {
+
+    return;
+
+  }
 
 
-  if (mesures.length === 0) {
+  const largeur =
+    planZone.clientWidth;
+
+
+  const hauteur =
+    planZone.clientHeight;
+
+
+  if (
+    largeur <= 0 ||
+    hauteur <= 0
+  ) {
+
+    return;
+
+  }
+
+
+  const dpr =
+    window.devicePixelRatio || 1;
+
+
+  planCanvas.width =
+    Math.round(
+      largeur * dpr
+    );
+
+
+  planCanvas.height =
+    Math.round(
+      hauteur * dpr
+    );
+
+
+  planCanvas.style.width =
+    largeur + "px";
+
+
+  planCanvas.style.height =
+    hauteur + "px";
+
+
+  planCtx.setTransform(
+    dpr,
+    0,
+    0,
+    dpr,
+    0,
+    0
+  );
+
+
+  if (planImage) {
+
+    planImageWidth =
+      planImage.width *
+      planScale;
+
+
+    planImageHeight =
+      planImage.height *
+      planScale;
+
+    limiterDeplacementPlan();
+
+  }
+
+
+  dessinerPlan();
+
+}
+
+
+/* =====================================================
+   CENTRER PLAN
+===================================================== */
+
+function centrerPlan() {
+
+  if (
+    !planImage ||
+    !planZone
+  ) {
+
+    return;
+
+  }
+
+
+  const largeur =
+    planZone.clientWidth;
+
+
+  const hauteur =
+    planZone.clientHeight;
+
+
+  const ratioX =
+    largeur /
+    planImage.width;
+
+
+  const ratioY =
+    hauteur /
+    planImage.height;
+
+
+  planScale =
+    Math.min(
+      ratioX,
+      ratioY
+    );
+
+
+  planImageWidth =
+    planImage.width *
+    planScale;
+
+
+  planImageHeight =
+    planImage.height *
+    planScale;
+
+
+  planOffsetX =
+    (
+      largeur -
+      planImageWidth
+    ) / 2;
+
+
+  planOffsetY =
+    (
+      hauteur -
+      planImageHeight
+    ) / 2;
+
+}
+
+
+/* =====================================================
+   DESSIN
+===================================================== */
+
+function dessinerPlan() {
+
+  if (
+    !planCanvas ||
+    !planCtx ||
+    !planZone
+  ) {
+
+    return;
+
+  }
+
+
+  const largeur =
+    planZone.clientWidth;
+
+
+  const hauteur =
+    planZone.clientHeight;
+
+
+  planCtx.clearRect(
+    0,
+    0,
+    largeur,
+    hauteur
+  );
+
+
+  if (!planImage) {
+    return;
+  }
+
+
+  planImageWidth =
+    planImage.width *
+    planScale;
+
+
+  planImageHeight =
+    planImage.height *
+    planScale;
+
+
+  planCtx.drawImage(
+    planImage,
+    planOffsetX,
+    planOffsetY,
+    planImageWidth,
+    planImageHeight
+  );
+
+
+  planReperes.forEach(
+    function(rep) {
+
+      dessinerReperePlan(
+        rep
+      );
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   DESSIN REPERE
+===================================================== */
+
+function dessinerReperePlan(
+  rep
+) {
+
+  const x =
+    planOffsetX +
+    rep.x *
+    planImageWidth;
+
+
+  const y =
+    planOffsetY +
+    rep.y *
+    planImageHeight;
+
+
+  const rayon =
+    9;
+
+
+  const couleur =
+    rep.plomb === "Positif"
+    ?
+    "#ff0000"
+    :
+    "#0066ff";
+
+
+  planCtx.save();
+
+
+  planCtx.beginPath();
+
+  planCtx.arc(
+    x,
+    y,
+    rayon + 2,
+    0,
+    Math.PI * 2
+  );
+
+  planCtx.fillStyle =
+    "white";
+
+  planCtx.fill();
+
+
+  planCtx.beginPath();
+
+  planCtx.arc(
+    x,
+    y,
+    rayon,
+    0,
+    Math.PI * 2
+  );
+
+  planCtx.fillStyle =
+    couleur;
+
+  planCtx.fill();
+
+
+  if (
+    planSelectedMarker === rep
+  ) {
+
+    planCtx.beginPath();
+
+    planCtx.arc(
+      x,
+      y,
+      rayon + 5,
+      0,
+      Math.PI * 2
+    );
+
+    planCtx.strokeStyle =
+      "#111111";
+
+    planCtx.lineWidth =
+      2;
+
+    planCtx.stroke();
+
+  }
+
+
+  planCtx.restore();
+
+
+  planCtx.fillStyle =
+    "white";
+
+
+  planCtx.font =
+    "700 9px Arial";
+
+
+  planCtx.textAlign =
+    "center";
+
+
+  planCtx.textBaseline =
+    "middle";
+
+
+  planCtx.fillText(
+    rep.numero,
+    x,
+    y
+  );
+
+}
+
+
+/* =====================================================
+   PROCHAINE MESURE
+===================================================== */
+
+function prochaineMesurePlan() {
+
+  for (
+    let i = 0;
+    i < mesures.length;
+    i++
+  ) {
+
+    const mesure =
+      mesures[i];
+
+
+    /*
+       Une mesure doit avoir un résultat
+       pour pouvoir recevoir sa pastille.
+    */
+
+    if (
+      mesure.plomb !== "Positif" &&
+      mesure.plomb !== "Négatif"
+    ) {
+
+      continue;
+
+    }
+
+
+    const deja =
+      planReperes.some(
+        function(rep) {
+
+          return (
+            String(rep.numero) ===
+            String(mesure.numero)
+          );
+
+        }
+      );
+
+
+    if (!deja) {
+
+      return mesure;
+
+    }
+
+  }
+
+
+  return null;
+
+}
+
+
+/* =====================================================
+   STATUS PLAN
+===================================================== */
+
+function mettreAJourPlanStatus() {
+
+  if (!planStatus) {
+    return;
+  }
+
+
+  if (!planImage) {
+
+    planStatus.innerHTML =
+      "Importe d'abord un plan.";
+
+    return;
+
+  }
+
+
+  const prochaine =
+    prochaineMesurePlan();
+
+
+  if (!prochaine) {
+
+    planStatus.innerHTML =
+      "✅ Toutes les mesures sont placées.";
+
+    return;
+
+  }
+
+
+  const couleur =
+    prochaine.plomb === "Positif"
+    ?
+    "#ff0000"
+    :
+    "#0066ff";
+
+
+  planStatus.innerHTML = `
+
+    Prochaine mesure :
+    <strong style="color:${couleur}">
+      n°${prochaine.numero}
+    </strong>
+
+    · ${prochaine.plomb}
+
+    · touche le plan
+
+  `;
+
+}
+
+
+/* =====================================================
+   TOUCH / POINTER DOWN
+===================================================== */
+
+function planPointerDown(event) {
+
+  if (
+    !planCanvas ||
+    !planImage
+  ) {
+
+    return;
+
+  }
+
+
+  event.preventDefault();
+
+
+  try {
+
+    planCanvas.setPointerCapture(
+      event.pointerId
+    );
+
+  }
+
+  catch(e) {}
+
+
+  planPointers.set(
+    event.pointerId,
+    {
+
+      x: event.clientX,
+
+      y: event.clientY
+
+    }
+  );
+
+
+  /*
+     Deux doigts = zoom.
+  */
+
+  if (
+    planPointers.size === 2
+  ) {
+
+    const p =
+      Array.from(
+        planPointers.values()
+      );
+
+
+    planPinchStartDistance =
+      distancePlan(
+        p[0],
+        p[1]
+      );
+
+
+    planPinchStartScale =
+      planScale;
+
+
+    planMoved = true;
+
+    return;
+
+  }
+
+
+  planStartX =
+    event.clientX;
+
+
+  planStartY =
+    event.clientY;
+
+
+  planStartOffsetX =
+    planOffsetX;
+
+
+  planStartOffsetY =
+    planOffsetY;
+
+
+  planMoved = false;
+
+
+  const rect =
+    planCanvas.getBoundingClientRect();
+
+
+  const x =
+    event.clientX -
+    rect.left;
+
+
+  const y =
+    event.clientY -
+    rect.top;
+
+
+  const rep =
+    trouverReperePlan(
+      x,
+      y
+    );
+
+
+  if (rep) {
+
+    /*
+       On a touché une pastille existante :
+       elle devient déplaçable.
+    */
+
+    planSelectedMarker =
+      rep;
+
+    planLastSelectedMarker =
+      rep;
+
+
+    afficherPlanPopup(
+      x,
+      y
+    );
+
+  }
+
+  else {
+
+    /*
+       Très important :
+       aucun repère sélectionné signifie
+       que le doigt pourra servir à placer
+       la prochaine mesure.
+    */
+
+    planSelectedMarker = null;
+
+    planLastSelectedMarker = null;
+
+    fermerPlanPopup();
+
+  }
+
+
+  dessinerPlan();
+
+}
+
+
+/* =====================================================
+   TOUCH / POINTER MOVE
+===================================================== */
+
+function planPointerMove(event) {
+
+  if (
+    !planPointers.has(
+      event.pointerId
+    )
+  ) {
+
+    return;
+
+  }
+
+
+  event.preventDefault();
+
+
+  planPointers.set(
+    event.pointerId,
+    {
+
+      x: event.clientX,
+
+      y: event.clientY
+
+    }
+  );
+
+
+  /*
+     ZOOM DEUX DOIGTS
+  */
+
+  if (
+    planPointers.size === 2
+  ) {
+
+    const p =
+      Array.from(
+        planPointers.values()
+      );
+
+
+    const nouvelleDistance =
+      distancePlan(
+        p[0],
+        p[1]
+      );
+
+
+    if (
+      planPinchStartDistance > 0
+    ) {
+
+      const facteur =
+        nouvelleDistance /
+        planPinchStartDistance;
+
+
+      const ancienne =
+        planScale;
+
+
+      planScale =
+        planPinchStartScale *
+        facteur;
+
+
+      planScale =
+        Math.max(
+          .3,
+          Math.min(
+            6,
+            planScale
+          )
+        );
+
+
+      const cx =
+        (
+          p[0].x +
+          p[1].x
+        ) / 2;
+
+
+      const cy =
+        (
+          p[0].y +
+          p[1].y
+        ) / 2;
+
+
+      const rect =
+        planCanvas.getBoundingClientRect();
+
+
+      const centreX =
+        cx -
+        rect.left;
+
+
+      const centreY =
+        cy -
+        rect.top;
+
+
+      const ratio =
+        planScale /
+        ancienne;
+
+
+      planOffsetX =
+        centreX -
+        (
+          centreX -
+          planOffsetX
+        ) *
+        ratio;
+
+
+      planOffsetY =
+        centreY -
+        (
+          centreY -
+          planOffsetY
+        ) *
+        ratio;
+
+
+      limiterDeplacementPlan();
+
+      dessinerPlan();
+
+    }
+
+
+    return;
+
+  }
+
+
+  const dx =
+    event.clientX -
+    planStartX;
+
+
+  const dy =
+    event.clientY -
+    planStartY;
+
+
+  if (
+    Math.abs(dx) > 5 ||
+    Math.abs(dy) > 5
+  ) {
+
+    planMoved = true;
+
+  }
+
+
+  /*
+     Déplacement d'une pastille.
+  */
+
+  if (
+    planSelectedMarker &&
+    planMoved
+  ) {
+
+    const rect =
+      planCanvas.getBoundingClientRect();
+
+
+    const x =
+      event.clientX -
+      rect.left;
+
+
+    const y =
+      event.clientY -
+      rect.top;
+
+
+    const nx =
+      (
+        x -
+        planOffsetX
+      ) /
+      planImageWidth;
+
+
+    const ny =
+      (
+        y -
+        planOffsetY
+      ) /
+      planImageHeight;
+
+
+    planSelectedMarker.x =
+      Math.max(
+        0,
+        Math.min(
+          1,
+          nx
+        )
+      );
+
+
+    planSelectedMarker.y =
+      Math.max(
+        0,
+        Math.min(
+          1,
+          ny
+        )
+      );
+
+
+    dessinerPlan();
+
+    return;
+
+  }
+
+
+  /*
+     Déplacement du plan.
+  */
+
+  if (planMoved) {
+
+    planOffsetX =
+      planStartOffsetX +
+      dx;
+
+
+    planOffsetY =
+      planStartOffsetY +
+      dy;
+
+
+    limiterDeplacementPlan();
+
+    dessinerPlan();
+
+  }
+
+}
+
+
+/* =====================================================
+   TOUCH / POINTER UP
+===================================================== */
+
+function planPointerUp(event) {
+
+  if (
+    !planPointers.has(
+      event.pointerId
+    )
+  ) {
+
+    return;
+
+  }
+
+
+  event.preventDefault();
+
+
+  planPointers.delete(
+    event.pointerId
+  );
+
+
+  /*
+     Si c'était le déplacement d'une
+     pastille, on sauvegarde sa nouvelle position.
+  */
+
+  if (
+    planSelectedMarker
+  ) {
+
+    sauvegarderPlanDansDossier();
+
+  }
+
+
+  /*
+     =================================================
+     CORRECTION IMPORTANTE
+     =================================================
+
+     Si le doigt n'a pas bougé et qu'aucune
+     pastille n'était sélectionnée, on considère
+     cela comme un TAP sur le plan.
+
+     On place alors automatiquement la prochaine
+     mesure disponible.
+  */
+
+  if (
+    planPointers.size === 0 &&
+    !planMoved &&
+    !planSelectedMarker
+  ) {
+
+    poserProchaineMesurePlan(
+      event
+    );
+
+  }
+
+
+  planLastSelectedMarker =
+    planSelectedMarker;
+
+
+  planSelectedMarker = null;
+
+
+  fermerPlanPopup();
+
+
+  mettreAJourPlanStatus();
+
+  dessinerPlan();
+
+}
+
+
+/* =====================================================
+   POINTER CANCEL
+===================================================== */
+
+function planPointerCancel(event) {
+
+  planPointers.delete(
+    event.pointerId
+  );
+
+
+  planSelectedMarker = null;
+
+  planLastSelectedMarker = null;
+
+
+  fermerPlanPopup();
+
+
+  dessinerPlan();
+
+}
+
+
+/* =====================================================
+   POINTER LEAVE
+===================================================== */
+
+function planPointerLeave(event) {
+
+  /*
+     On ne supprime pas le repère ici.
+     iPhone peut générer un leave pendant
+     certains mouvements tactiles.
+  */
+
+}
+
+
+/* =====================================================
+   POSER MESURE SUR PLAN
+===================================================== */
+
+function poserProchaineMesurePlan(
+  event
+) {
+
+  if (!planImage) {
+    return;
+  }
+
+
+  const prochaine =
+    prochaineMesurePlan();
+
+
+  if (!prochaine) {
 
     alert(
-      "Il n'y a aucune mesure à mettre dans le PDF."
+      "Toutes les mesures avec un résultat ont déjà un repère sur le plan."
     );
 
     return;
@@ -2557,83 +6575,736 @@ function genererPDF() {
   }
 
 
-  const appareil =
-    document.getElementById("appareil").value
-    || "Non sélectionné";
+  const rect =
+    planCanvas.getBoundingClientRect();
 
 
-  const A =
-    document.getElementById("etalonnageA").value
-    || "Non renseigné";
+  const x =
+    event.clientX -
+    rect.left;
 
 
-  const B =
-    document.getElementById("etalonnageB").value
-    || "Non renseigné";
+  const y =
+    event.clientY -
+    rect.top;
 
 
-  const C =
-    document.getElementById("etalonnageC").value
-    || "Non renseigné";
+  if (
+    !pointDansPlan(
+      x,
+      y
+    )
+  ) {
 
+    return;
+
+  }
+
+
+  const nx =
+    (
+      x -
+      planOffsetX
+    ) /
+    planImageWidth;
+
+
+  const ny =
+    (
+      y -
+      planOffsetY
+    ) /
+    planImageHeight;
+
+
+  const repere = {
+
+    numero:
+      prochaine.numero,
+
+    plomb:
+      prochaine.plomb,
+
+    x:
+      Math.max(
+        0,
+        Math.min(
+          1,
+          nx
+        )
+      ),
+
+    y:
+      Math.max(
+        0,
+        Math.min(
+          1,
+          ny
+        )
+      )
+
+  };
+
+
+  planReperes.push(
+    repere
+  );
+
+
+  /*
+     Sauvegarde immédiate.
+  */
+
+  sauvegarderPlanDansDossier();
+
+
+  /*
+     On redessine immédiatement.
+  */
+
+  dessinerPlan();
+
+
+  mettreAJourPlanStatus();
+
+}
+
+
+/* =====================================================
+   POINT DANS PLAN
+===================================================== */
+
+function pointDansPlan(
+  x,
+  y
+) {
+
+  return (
+
+    x >= planOffsetX &&
+
+    x <=
+      planOffsetX +
+      planImageWidth &&
+
+    y >= planOffsetY &&
+
+    y <=
+      planOffsetY +
+      planImageHeight
+
+  );
+
+}
+
+
+/* =====================================================
+   TROUVER REPERE
+===================================================== */
+
+function trouverReperePlan(
+  x,
+  y
+) {
+
+  for (
+    let i =
+      planReperes.length - 1;
+    i >= 0;
+    i--
+  ) {
+
+    const rep =
+      planReperes[i];
+
+
+    const rx =
+      planOffsetX +
+      rep.x *
+      planImageWidth;
+
+
+    const ry =
+      planOffsetY +
+      rep.y *
+      planImageHeight;
+
+
+    if (
+      Math.hypot(
+        x - rx,
+        y - ry
+      ) <= 23
+    ) {
+
+      return rep;
+
+    }
+
+  }
+
+
+  return null;
+
+}
+
+
+/* =====================================================
+   DISTANCE
+===================================================== */
+
+function distancePlan(
+  a,
+  b
+) {
+
+  return Math.hypot(
+    a.x - b.x,
+    a.y - b.y
+  );
+
+}
+
+
+/* =====================================================
+   LIMITER DEPLACEMENT
+===================================================== */
+
+function limiterDeplacementPlan() {
+
+  if (
+    !planImage ||
+    !planZone
+  ) {
+
+    return;
+
+  }
+
+
+  const largeur =
+    planZone.clientWidth;
+
+
+  const hauteur =
+    planZone.clientHeight;
+
+
+  planImageWidth =
+    planImage.width *
+    planScale;
+
+
+  planImageHeight =
+    planImage.height *
+    planScale;
+
+
+  if (
+    planImageWidth <= largeur
+  ) {
+
+    planOffsetX =
+      (
+        largeur -
+        planImageWidth
+      ) / 2;
+
+  }
+
+  else {
+
+    planOffsetX =
+      Math.min(
+        0,
+        Math.max(
+          largeur -
+          planImageWidth,
+          planOffsetX
+        )
+      );
+
+  }
+
+
+  if (
+    planImageHeight <= hauteur
+  ) {
+
+    planOffsetY =
+      (
+        hauteur -
+        planImageHeight
+      ) / 2;
+
+  }
+
+  else {
+
+    planOffsetY =
+      Math.min(
+        0,
+        Math.max(
+          hauteur -
+          planImageHeight,
+          planOffsetY
+        )
+      );
+
+  }
+
+}
+
+
+/* =====================================================
+   POPUP
+===================================================== */
+
+function afficherPlanPopup(
+  x,
+  y
+) {
+
+  if (!planPopup) {
+    return;
+  }
+
+
+  planPopup.style.display =
+    "block";
+
+
+  let left =
+    x + 15;
+
+
+  let top =
+    y + 15;
+
+
+  if (
+    left + 150 >
+    planZone.clientWidth
+  ) {
+
+    left =
+      x - 160;
+
+  }
+
+
+  if (
+    top + 55 >
+    planZone.clientHeight
+  ) {
+
+    top =
+      y - 60;
+
+  }
+
+
+  planPopup.style.left =
+    left + "px";
+
+
+  planPopup.style.top =
+    top + "px";
+
+}
+
+
+function fermerPlanPopup() {
+
+  if (planPopup) {
+
+    planPopup.style.display =
+      "none";
+
+  }
+
+}
+
+
+/* =====================================================
+   SUPPRIMER REPERE
+===================================================== */
+
+function supprimerRepereSelectionne() {
+
+  if (
+    !planLastSelectedMarker
+  ) {
+
+    fermerPlanPopup();
+
+    return;
+
+  }
+
+
+  const index =
+    planReperes.indexOf(
+      planLastSelectedMarker
+    );
+
+
+  if (index !== -1) {
+
+    planReperes.splice(
+      index,
+      1
+    );
+
+  }
+
+
+  planLastSelectedMarker = null;
+
+  planSelectedMarker = null;
+
+
+  fermerPlanPopup();
+
+
+  sauvegarderPlanDansDossier();
+
+  mettreAJourPlanStatus();
+
+  dessinerPlan();
+
+}
+
+
+/* =====================================================
+   REINITIALISER PLAN
+===================================================== */
+
+function reinitialiserPlan() {
+
+  if (
+    !planImageData &&
+    planReperes.length === 0
+  ) {
+
+    return;
+
+  }
+
+
+  if (
+    !confirm(
+      "Supprimer le plan et tous ses repères ?"
+    )
+  ) {
+
+    return;
+
+  }
+
+
+  planImageData = "";
+
+  planImage = null;
+
+  planReperes = [];
+
+  planSelectedMarker = null;
+
+  planLastSelectedMarker = null;
+
+  planScale = 1;
+
+  planOffsetX = 0;
+
+  planOffsetY = 0;
+
+
+  fermerPlanPopup();
+
+
+  if (planVide) {
+
+    planVide.style.display =
+      "block";
+
+  }
+
+
+  sauvegarderPlanDansDossier();
+
+  redimensionnerPlanCanvas();
+
+  dessinerPlan();
+
+  mettreAJourPlanStatus();
+
+}
+
+
+/* =====================================================
+   SVG PDF PLAN
+===================================================== */
+
+function genererSVGPlanPDF() {
+
+  if (
+    !planImageData ||
+    !planImage
+  ) {
+
+    return `
+
+      <div
+        style="
+          color:#777;
+          font-size:12px;
+          text-align:center;
+          padding-top:250px;
+        ">
+
+        Aucun plan importé pour ce dossier.
+
+      </div>
+
+    `;
+
+  }
+
+
+  const largeur =
+    planImage.naturalWidth ||
+    planImage.width;
+
+
+  const hauteur =
+    planImage.naturalHeight ||
+    planImage.height;
+
+
+  if (
+    !largeur ||
+    !hauteur
+  ) {
+
+    return "";
+
+  }
+
+
+  let contenu = "";
+
+
+  contenu += `
+
+    <image
+
+      href="${planImageData}"
+
+      x="0"
+
+      y="0"
+
+      width="${largeur}"
+
+      height="${hauteur}"
+
+      preserveAspectRatio="none">
+
+    </image>
+
+  `;
+
+
+  planReperes.forEach(
+    function(rep) {
+
+      const x =
+        rep.x *
+        largeur;
+
+
+      const y =
+        rep.y *
+        hauteur;
+
+
+      const taille =
+        Math.min(
+          largeur,
+          hauteur
+        );
+
+
+      const rayon =
+        Math.max(
+          8,
+          Math.min(
+            15,
+            taille * 0.014
+          )
+        );
+
+
+      const couleur =
+        rep.plomb === "Positif"
+        ?
+        "#ff0000"
+        :
+        "#0066ff";
+
+
+      const tailleTexte =
+        Math.max(
+          7,
+          Math.min(
+            11,
+            rayon * .95
+          )
+        );
+
+
+      contenu += `
+
+        <circle
+
+          cx="${x}"
+
+          cy="${y}"
+
+          r="${rayon + 2}"
+
+          fill="white">
+
+        </circle>
+
+
+        <circle
+
+          cx="${x}"
+
+          cy="${y}"
+
+          r="${rayon}"
+
+          fill="${couleur}"
+
+          stroke="white"
+
+          stroke-width="1.5">
+
+        </circle>
+
+
+        <text
+
+          x="${x}"
+
+          y="${y}"
+
+          fill="white"
+
+          font-family="Arial"
+
+          font-size="${tailleTexte}px"
+
+          font-weight="bold"
+
+          text-anchor="middle"
+
+          dominant-baseline="central">
+
+          ${rep.numero}
+
+        </text>
+
+      `;
+
+    }
+  );
+
+
+  return `
+
+    <svg
+
+      class="pdf-plan-svg"
+
+      viewBox="
+        0
+        0
+        ${largeur}
+        ${hauteur}
+      "
+
+      preserveAspectRatio="xMidYMid meet"
+
+      xmlns="http://www.w3.org/2000/svg">
+
+      ${contenu}
+
+    </svg>
+
+  `;
+
+}
+
+
+/* =====================================================
+   LIGNES PDF
+===================================================== */
+
+function genererLignesPDF() {
 
   let lignes = "";
 
 
   mesures.forEach(
-    function(mesure) {
-
+    function(m) {
 
       let resultat =
-        "Non renseigné";
+        "NON RENSEIGNÉ";
 
 
       let classe = "";
 
 
       if (
-        mesure.plomb ===
-        "Positif"
+        m.plomb === "Positif"
       ) {
 
         resultat =
           "POSITIF";
 
         classe =
-          "presence";
+          "pdf-presence";
 
       }
 
-
       else if (
-        mesure.plomb ===
-        "Négatif"
+        m.plomb === "Négatif"
       ) {
 
         resultat =
           "NÉGATIF";
 
         classe =
-          "absence";
+          "pdf-absence";
 
       }
 
 
-      let photo = "";
-
-
-      if (mesure.photo) {
-
-        photo = `
-
-          <img
+      const photo =
+        m.photo
+        ?
+        `
+        <img
           class="photo-pdf"
-          src="${mesure.photo}"
+          src="${m.photo}"
           alt="Photo">
-
-        `;
-
-      }
+        `
+        :
+        "—";
 
 
       lignes += `
@@ -2641,26 +7312,35 @@ function genererPDF() {
         <tr>
 
           <td>
-            Mesure n°${mesure.numero}
+            n°${m.numero}
           </td>
 
           <td>
-            ${mesure.piece}
+            ${echapperHTML(
+              m.piece
+            )}
           </td>
 
           <td>
-            ${mesure.materiau}
+            ${echapperHTML(
+              m.materiau
+            )}
           </td>
 
           <td>
-            ${mesure.surface} ${mesure.unite}
+            ${echapperHTML(
+              m.surface
+            )}
+            ${echapperHTML(
+              m.unite
+            )}
           </td>
 
           <td class="${classe}">
             ${resultat}
           </td>
 
-          <td class="cellule-photo-pdf">
+          <td>
             ${photo}
           </td>
 
@@ -2672,111 +7352,273 @@ function genererPDF() {
   );
 
 
-  const contenuApplication =
-    document.body.innerHTML;
+  return lignes;
+
+}
 
 
-  document.body.innerHTML = `
+/* =====================================================
+   GENERER PDF
+===================================================== */
 
-    <div id="documentPDF">
+function genererPDF() {
+
+  if (!dossierActuel) {
+    return;
+  }
 
 
-      <h1>
+  sauvegarderReleveDansDossier();
+
+  sauvegarderPlanDansDossier();
+
+
+  if (
+    mesures.length === 0
+  ) {
+
+    alert(
+      "Il n'y a aucune mesure à mettre dans le document."
+    );
+
+    return;
+
+  }
+
+
+  if (
+    planImageData &&
+    !planImage
+  ) {
+
+    const img =
+      new Image();
+
+
+    img.onload =
+      function() {
+
+        planImage =
+          img;
+
+        afficherApercuPDF();
+
+      };
+
+
+    img.onerror =
+      function() {
+
+        afficherApercuPDF();
+
+      };
+
+
+    img.src =
+      planImageData;
+
+    return;
+
+  }
+
+
+  afficherApercuPDF();
+
+}
+
+
+/* =====================================================
+   APERCU PDF
+===================================================== */
+
+function afficherApercuPDF() {
+
+  const zone =
+    document.getElementById(
+      "pdfPreviewZone"
+    );
+
+
+  if (!zone) {
+    return;
+  }
+
+
+  const appareil =
+    document
+      .getElementById(
+        "appareil"
+      )
+      ?.value
+      ||
+      dossierActuel.appareil
+      ||
+      "Non sélectionné";
+
+
+  const A =
+    document
+      .getElementById(
+        "etalonnageA"
+      )
+      ?.value
+      ||
+      dossierActuel.etalonnage?.A
+      ||
+      "—";
+
+
+  const B =
+    document
+      .getElementById(
+        "etalonnageB"
+      )
+      ?.value
+      ||
+      dossierActuel.etalonnage?.B
+      ||
+      "—";
+
+
+  const C =
+    document
+      .getElementById(
+        "etalonnageC"
+      )
+      ?.value
+      ||
+      dossierActuel.etalonnage?.C
+      ||
+      "—";
+
+
+  const date =
+    new Date().toLocaleDateString(
+      "fr-FR"
+    );
+
+
+  const lignes =
+    genererLignesPDF();
+
+
+  const svgPlan =
+    genererSVGPlanPDF();
+
+
+  zone.innerHTML = `
+
+    <!-- PAGE 1 -->
+
+    <div class="pdf-page pdf-page-1">
+
+      <div class="pdf-document-titre">
+
         RELEVÉ DES MESURES
-      </h1>
 
+      </div>
 
-      <div class="date-pdf">
+      <div class="pdf-document-sous-titre">
 
         Relevé de présence de plomb
 
-        <br><br>
+        ·
 
         Date :
-        ${new Date().toLocaleDateString("fr-FR")}
+        ${date}
 
       </div>
 
 
-      <div class="bloc-info-pdf">
+      <div class="pdf-info-grid">
 
-        <strong>
-          APPAREIL
-        </strong>
+        <div class="pdf-info-box">
 
-        <br>
+          <div class="pdf-info-titre">
+            Dossier
+          </div>
 
-        ${appareil}
+          N°${dossierActuel.numero}
+
+          <br>
+
+          ${echapperHTML(
+            dossierActuel.designation
+          )}
+
+        </div>
+
+
+        <div class="pdf-info-box">
+
+          <div class="pdf-info-titre">
+            Date
+          </div>
+
+          ${date}
+
+        </div>
+
+
+        <div class="pdf-info-box large">
+
+          <div class="pdf-info-titre">
+            Appareil
+          </div>
+
+          ${echapperHTML(
+            appareil
+          )}
+
+        </div>
+
+
+        <div class="pdf-info-box large">
+
+          <div class="pdf-info-titre">
+            Étalonnage
+          </div>
+
+          A — 0 mg/kg :
+          ${echapperHTML(A)}
+
+          &nbsp; · &nbsp;
+
+          B — 0,5 mg/kg :
+          ${echapperHTML(B)}
+
+          &nbsp; · &nbsp;
+
+          C — 1 mg/kg :
+          ${echapperHTML(C)}
+
+        </div>
 
       </div>
 
 
-      <div class="bloc-info-pdf">
-
-        <strong>
-          ÉTALONNAGE
-        </strong>
-
-        <br>
-
-        Mesure A — 0 mg/kg :
-        ${A}
-
-        <br>
-
-        Mesure B — 0,5 mg/kg :
-        ${B}
-
-        <br>
-
-        Mesure C — 1 mg/kg :
-        ${C}
-
-      </div>
-
-
-      <table class="table-pdf">
-
+      <table class="pdf-table">
 
         <thead>
 
           <tr>
 
-            <th>
-              Mesure
-            </th>
-
-            <th>
-              Pièce
-            </th>
-
-            <th>
-              Matériau
-            </th>
-
-            <th>
-              Surface
-            </th>
-
-            <th>
-              Résultat
-            </th>
-
-            <th>
-              Photo
-            </th>
+            <th>Mesure</th>
+            <th>Pièce</th>
+            <th>Matériau</th>
+            <th>Surface</th>
+            <th>Résultat</th>
+            <th>Photo</th>
 
           </tr>
 
         </thead>
-
 
         <tbody>
 
           ${lignes}
 
         </tbody>
-
 
       </table>
 
@@ -2791,315 +7633,256 @@ function genererPDF() {
 
       </div>
 
+    </div>
+
+
+    <!-- PAGE 2 -->
+
+    <div class="pdf-page pdf-page-plan">
+
+      <div class="pdf-plan-entete">
+
+        <div class="pdf-plan-titre">
+
+          CROQUIS / PLAN
+
+        </div>
+
+        <div class="pdf-plan-sous-titre">
+
+          Dossier n°${dossierActuel.numero}
+
+          ·
+
+          ${echapperHTML(
+            dossierActuel.designation
+          )}
+
+        </div>
+
+      </div>
+
+
+      <div class="pdf-croquis-cartouche">
+
+        <div class="pdf-plan-zone">
+
+          <div class="pdf-plan-image-wrap">
+
+            ${svgPlan}
+
+          </div>
+
+        </div>
+
+
+        <div class="pdf-cartouche-bas">
+
+          <div class="pdf-legende">
+
+            <div class="pdf-legende-titre">
+              LÉGENDE
+            </div>
+
+            <div class="pdf-legende-ligne">
+
+              <span
+                class="pdf-rond-rouge">
+              </span>
+
+              Présence de plomb
+              — Positif
+
+            </div>
+
+            <div class="pdf-legende-ligne">
+
+              <span
+                class="pdf-rond-bleu">
+              </span>
+
+              Absence de plomb
+              — Négatif
+
+            </div>
+
+          </div>
+
+
+          <div class="pdf-cartouche-infos">
+
+            <strong>
+              CARTOUCHE CROQUIS
+            </strong>
+
+            <br>
+
+            Dossier :
+            n°${dossierActuel.numero}
+
+            <br>
+
+            Mesures :
+            ${mesures.length}
+
+            <br>
+
+            Repères placés :
+            ${planReperes.length}
+
+            <br>
+
+            Date :
+            ${date}
+
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 
   `;
 
 
-  const stylePDF =
-    document.createElement("style");
+  cacherPages();
 
 
-  stylePDF.id =
-    "stylePDF";
+  document
+    .getElementById(
+      "pagePDF"
+    )
+    .classList.add(
+      "active"
+    );
 
 
-  stylePDF.innerHTML = `
-
-    body {
-
-      background: white !important;
-
-      margin: 0 !important;
-
-      padding: 15px !important;
-
-      font-family: Arial, sans-serif;
-
-      color: #222;
-
-    }
-
-
-    #documentPDF {
-
-      width: 100%;
-
-    }
-
-
-    #documentPDF h1 {
-
-      font-size: 22px;
-
-      margin:
-        0
-        0
-        6px
-        0;
-
-    }
-
-
-    .date-pdf {
-
-      font-size: 11px;
-
-      color: #666;
-
-      margin-bottom: 15px;
-
-    }
-
-
-    .bloc-info-pdf {
-
-      border:
-        1px
-        solid
-        #999;
-
-      padding: 7px;
-
-      margin-bottom: 8px;
-
-      font-size: 10px;
-
-      line-height: 1.5;
-
-    }
-
-
-    .table-pdf {
-
-      width: 100%;
-
-      border-collapse: collapse;
-
-      font-size: 10px;
-
-      table-layout: fixed;
-
-    }
-
-
-    .table-pdf th {
-
-      background: #111111;
-
-      color: white;
-
-      font-weight: bold;
-
-    }
-
-
-    .table-pdf th,
-    .table-pdf td {
-
-      border:
-        1px
-        solid
-        #777;
-
-      padding: 5px;
-
-      text-align: left;
-
-      vertical-align: middle;
-
-      overflow-wrap: anywhere;
-
-    }
-
-
-    .table-pdf th:nth-child(1),
-    .table-pdf td:nth-child(1) {
-
-      width: 17%;
-
-    }
-
-
-    .table-pdf th:nth-child(2),
-    .table-pdf td:nth-child(2) {
-
-      width: 14%;
-
-    }
-
-
-    .table-pdf th:nth-child(3),
-    .table-pdf td:nth-child(3) {
-
-      width: 17%;
-
-    }
-
-
-    .table-pdf th:nth-child(4),
-    .table-pdf td:nth-child(4) {
-
-      width: 11%;
-
-    }
-
-
-    .table-pdf th:nth-child(5),
-    .table-pdf td:nth-child(5) {
-
-      width: 28%;
-
-    }
-
-
-    .table-pdf th:nth-child(6),
-    .table-pdf td:nth-child(6) {
-
-      width: 13%;
-
-    }
-
-
-    .cellule-photo-pdf {
-
-      text-align: center !important;
-
-      padding: 3px !important;
-
-      overflow: hidden !important;
-
-    }
-
-
-    .photo-pdf {
-
-      display: block;
-
-      width: 45px !important;
-
-      height: 45px !important;
-
-      max-width: 45px !important;
-
-      max-height: 45px !important;
-
-      object-fit: cover;
-
-      margin: 0 auto;
-
-      border:
-        1px
-        solid
-        #999;
-
-    }
-
-
-    .presence {
-
-      color: #e00000;
-
-      font-weight: bold;
-
-    }
-
-
-    .absence {
-
-      color: #1769aa;
-
-      font-weight: bold;
-
-    }
-
-
-    .total-pdf {
-
-      margin-top: 15px;
-
-      font-size: 11px;
-
-    }
-
-
-    @media print {
-
-      body {
-
-        padding: 10mm !important;
-
-      }
-
-
-      .photo-pdf {
-
-        width: 45px !important;
-
-        height: 45px !important;
-
-        max-width: 45px !important;
-
-        max-height: 45px !important;
-
-      }
-
-    }
-
-  `;
-
-
-  document.head.appendChild(
-    stylePDF
-  );
-
-
-  setTimeout(
-    function() {
-
-      window.print();
-
-    },
-    400
-  );
-
-
-  setTimeout(
-    function() {
-
-      if (
-        document.head.contains(stylePDF)
-      ) {
-
-        document.head.removeChild(
-          stylePDF
-        );
-
-      }
-
-
-      document.body.innerHTML =
-        contenuApplication;
-
-
-      afficherTableau();
-
-      mettreAJourInformations();
-
-
-    },
-    2500
+  window.scrollTo(
+    0,
+    0
   );
 
 }
 
 
 /* =====================================================
-   INITIALISATION
+   IMPRIMER
 ===================================================== */
 
-mettreAJourInformations();
+function imprimerPDF() {
+
+  window.print();
+
+}
+
+
+/* =====================================================
+   FERMER APERCU
+===================================================== */
+
+function fermerApercuPDF() {
+
+  if (!dossierActuel) {
+
+    afficherAccueil();
+
+    return;
+
+  }
+
+
+  afficherDetailDossier();
+
+}
+
+
+/* =====================================================
+   ECHAPPER HTML
+===================================================== */
+
+function echapperHTML(
+  texte
+) {
+
+  if (
+    texte === undefined ||
+    texte === null
+  ) {
+
+    return "";
+
+  }
+
+
+  return String(texte)
+
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+
+    .replace(
+      /</g,
+      "&lt;"
+    )
+
+    .replace(
+      />/g,
+      "&gt;"
+    )
+
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
+/* =====================================================
+   RESIZE
+===================================================== */
+
+window.addEventListener(
+  "resize",
+  function() {
+
+    const page =
+      document.getElementById(
+        "pagePlan"
+      );
+
+
+    if (
+      page &&
+      page.classList.contains(
+        "active"
+      )
+    ) {
+
+      redimensionnerPlanCanvas();
+
+      dessinerPlan();
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   DEMARRAGE
+===================================================== */
+
+initialiserReferencesPlan();
+
+afficherDossiers();
 
 </script>
 
