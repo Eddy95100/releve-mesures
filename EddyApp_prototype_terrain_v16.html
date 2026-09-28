@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>EddyApp — Test terrain</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:#f2f2f7;color:#111;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+body{padding-bottom:24px}button,select,input{font:inherit}button{cursor:pointer}.header{height:72px;padding-top:env(safe-area-inset-top);box-sizing:content-box;background:#ff0000;color:#fff;display:flex;align-items:center;justify-content:center;position:sticky;top:0;z-index:50;box-shadow:0 1px 5px #0002}.logo{font-family:ui-rounded,-apple-system,BlinkMacSystemFont,"Arial Rounded MT Bold","Helvetica Neue",sans-serif;font-size:21px;font-weight:700;letter-spacing:-.3px}.back{position:absolute;left:10px;bottom:10px;width:48px;height:48px;border:0;background:transparent;color:#fff;font-size:38px;line-height:1}.container{max-width:650px;margin:auto;padding:15px}.page{display:none}.page.active{display:block}.card{background:#fff;border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 2px 7px #00000012}.title{font-size:20px;font-weight:750;margin-bottom:12px}.sub{font-size:13px;color:#666;margin-bottom:14px;line-height:1.4}.primary,.secondary{width:100%;min-height:52px;border-radius:13px;font-weight:700;font-size:16px}.primary{border:0;background:#111;color:#fff}.blue{background:#007aff}.green{background:#188038}.secondary{border:1px solid #ccc;background:#fff;color:#111}.danger{background:#fff0f0;color:#c00;border-color:#ffb3b3}.sp{margin-top:10px}label{display:block;font-size:13px;font-weight:650;color:#666;margin-bottom:6px}select{width:100%;height:48px;border:1px solid #ccc;border-radius:11px;background:#fff;padding:0 10px;font-size:16px;margin-bottom:13px}.measure-no{text-align:center;margin:7px 0 17px}.measure-no small{display:block;color:#777}.measure-no strong{font-size:36px}.measure-btn{width:100%;height:88px;border:0;border-radius:19px;background:#111;color:#fff;font-size:24px;font-weight:850;box-shadow:0 4px 0 #0003;letter-spacing:.2px}.measure-btn:active{transform:translateY(2px);box-shadow:0 2px 0 #0003}.quick-elements{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:4px 0 8px}.quick-element{min-height:50px;border:1px solid #d7d7dc;border-radius:11px;background:#fff;color:#111;font-size:10px;font-weight:750;padding:5px 3px;line-height:1.08}.quick-element .qe-icon{display:block;font-size:15px;line-height:16px;margin-bottom:2px}.quick-element.active{background:#111;color:#fff;border-color:#111;transform:scale(.98)}.quick-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px}.quick-meta select{margin-bottom:9px;height:44px}.surface-quick{height:44px!important;margin-bottom:9px!important}.result-quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.result-quick .result-btn{height:54px;font-size:10.5px;line-height:1.1;padding:3px}.result-btn.result-neg{background:#eaf2ff;border-color:#007aff;color:#0066cc}.result-btn.result-presence{background:#fff0df;border-color:#ff9500;color:#c96f00}.result-btn.result-pos{background:#ffe8e8;border-color:#ff0000;color:#d00000}.result-btn.result-null{background:#eee;color:#555;border-color:#888}.result-btn.selected-result.result-neg{background:#007aff;color:#fff;border-color:#007aff}.result-btn.selected-result.result-presence{background:#ff9500;color:#fff;border-color:#ff9500}.result-btn.selected-result.result-pos{background:#ff0000;color:#fff;border-color:#ff0000}.result-btn.selected-result.result-null{background:#888;color:#fff;border-color:#888}.result-hint{font-size:13px;color:#666;text-align:center;margin:8px 0 10px}.measure-next{font-size:12px;color:#777;text-align:center;margin-top:9px}.measure-btn.ready{background:#007aff}.result{display:none;margin-top:14px}.result.show{display:block}.result-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}.result-btn{height:52px;border:1px solid #ccc;border-radius:11px;background:#fff;font-weight:750}.result-btn.active-neg{background:#e8f7ed;border-color:#188038;color:#188038}.result-btn.active-pos{background:#ffe8e8;border-color:#ff0000;color:#d00000}.result-btn.active-presence{background:#fff0df;border-color:#ff9500;color:#c96f00}.result-btn.active-later{background:#fff6dc;border-color:#d59a00;color:#8a6200}.result-btn.active-null{background:#eee;color:#555;border-color:#888}.table-wrap{overflow-x:auto}.table{width:100%;border-collapse:collapse;font-size:13px}.table th{padding:7px 5px;text-align:left;background:#f5f5f5;font-size:12px}.table td{padding:7px 5px;border-bottom:1px solid #eee;vertical-align:middle}.num{font-weight:800}.badge{padding:3px 7px;border-radius:10px;font-size:11px;font-weight:750;white-space:nowrap}.pos{background:#ffe4e4;color:#c00000}.presence{background:#fff0df;color:#c96f00}.neg{background:#e5f6ea;color:#187638}.later{background:#fff1c7;color:#8a6200}.null{background:#e9e9e9;color:#555}.open{border:1px solid #ccc;background:#fff;border-radius:7px;padding:5px 7px;font-size:11px;font-weight:700}.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.photo-slot{position:relative;aspect-ratio:1;border-radius:11px;overflow:hidden;background:#eee;border:1px solid #ddd}.photo-slot img{width:100%;height:100%;object-fit:cover}.add{display:flex;align-items:center;justify-content:center;text-align:center;border:2px dashed #aaa;background:#fff;color:#666;font-size:13px}.del{position:absolute;right:4px;top:4px;width:30px;height:30px;border:0;border-radius:50%;background:#000b;color:#fff;font-size:20px}.dossier{padding:12px 0;border-bottom:1px solid #eee}.dossier:last-child{border-bottom:0}.dossier-head{display:flex;justify-content:space-between;gap:10px;align-items:center}.dossier-title{font-weight:750}.dossier-info{font-size:13px;color:#666;margin-top:4px}.small{border:1px solid #ccc;background:#fff;border-radius:8px;padding:8px 9px;font-size:12px;font-weight:650}.interpret-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #eee;font-size:13px}.interpret-row:last-child{border-bottom:0}.marker-photo{position:relative;width:100%;border-radius:13px;overflow:hidden;background:#111;touch-action:none}.marker-photo img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}.marker{position:absolute;transform:translate(-50%,-85%);width:42px;height:42px;background:transparent;border:0;color:#ff0000;box-shadow:none;display:flex;align-items:center;justify-content:center;font-size:0;z-index:5;touch-action:none;user-select:none}.marker::after{content:"➤";display:block;color:#ff0000;font-size:34px;line-height:1;transform:rotate(90deg);text-shadow:0 1px 2px #fff}.marker.selected{background:transparent}.marker.selected::after{color:#ff0000}.empty{text-align:center;color:#888;padding:14px}.notice{padding:11px 12px;border-radius:11px;background:#fff8df;color:#6f5500;font-size:13px;line-height:1.4;margin-top:10px}.room-menu-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #eee}.room-menu-item:last-child{border-bottom:0}.room-menu-name{font-size:16px;font-weight:750}.room-menu-info{font-size:12px;color:#777;margin-top:4px}.room-used{background:#fafafa;border-radius:10px;padding-left:10px;padding-right:10px;margin-bottom:5px}.hidden{display:none!important}.photo-loading{opacity:.5;pointer-events:none}.plan-marker{box-shadow:0 2px 6px #0006}.plan-marker.waiting{background:#777!important}
+</style>
+</head>
+<body>
+<header class="header"><button id="back" class="back" aria-label="Retour">‹</button><div class="logo">EddyApp</div></header>
+<div class="container">
+<section id="home" class="page active"><h1 style="font-size:28px;margin:8px 0 4px">Accueil</h1><div class="sub">Dossiers d'expertise</div><div class="card"><button id="new" class="primary">+ Nouvelle expertise</button></div><div class="card"><div class="title">Dossiers en cours</div><div id="dossiers"></div></div></section>
+<section id="dossier" class="page">
+<div class="card"><div class="title">Dossier d'expertise</div><div id="dossierInfo" class="sub"></div></div>
+<div class="card"><div class="title">Pièces du dossier</div><div class="sub">Crée uniquement les pièces dont tu as besoin pour ce dossier. Chaque pièce possède ses propres mesures et ses propres photos.</div><div style="display:flex;gap:8px;margin-bottom:12px"><select id="newRoomSelect" style="flex:1;margin:0"><option value="">Choisir une pièce...</option><option>Hall d'entrée</option><option>Séjour</option><option>Cuisine</option><option>Salle de bains</option><option>WC</option><option>Couloir</option><option>Réduit</option><option>Chambre 1</option><option>Chambre 2</option><option>Chambre 3</option></select><button id="addRoom" class="small" style="min-width:105px">+ Ajouter</button></div><div id="roomMenu"></div></div>
+<div class="card"><div class="title">Rapport</div><button id="dossierInterpret" class="primary blue">Interprétation & localisation</button><button id="dossierConclusions" class="primary sp">Conclusions du rapport</button><button id="dossierPlan" class="secondary sp">Plan / croquis</button><button id="dossierPdf" class="primary sp">Générer le PDF</button><button id="dossierHome" class="secondary sp">Retour aux dossiers</button></div>
+</section>
+<section id="calibration" class="page">
+<div class="card"><div class="title">Mesures de calibrage</div><div class="sub">Saisis les numéros utilisés pour les trois mesures de calibrage. La première mesure réelle commencera automatiquement après le plus grand numéro saisi, normalement celui de C.</div>
+<label>Mesure calibrage A</label><input id="calA" type="number" inputmode="numeric" placeholder="Ex. 4421" style="width:100%;height:48px;border:1px solid #ccc;border-radius:11px;padding:0 10px;font-size:16px;margin-bottom:13px">
+<label>Mesure calibrage B</label><input id="calB" type="number" inputmode="numeric" placeholder="Ex. 4422" style="width:100%;height:48px;border:1px solid #ccc;border-radius:11px;padding:0 10px;font-size:16px;margin-bottom:13px">
+<label>Mesure calibrage C</label><input id="calC" type="number" inputmode="numeric" placeholder="Ex. 4423" style="width:100%;height:48px;border:1px solid #ccc;border-radius:11px;padding:0 10px;font-size:16px;margin-bottom:13px">
+<button id="saveCalibration" class="primary blue">Enregistrer les calibrages</button></div></section>
+<section id="room" class="page"><div class="card"><div class="title">Prise de mesures</div><div id="roomInfo" class="sub"></div><button id="roomBackDossier" class="secondary sp" style="margin-bottom:14px">‹ Retour au dossier</button><label>1 · Choisir l’élément</label><select id="element" style="display:none"><option>Cadre de porte</option><option>Porte</option><option>Mur</option><option>Plinthe</option><option>Bâti de placard</option><option>Placard</option><option>Radiateur</option><option>Coffre de volet</option><option>Bâti de fenêtre</option><option>Fenêtre</option><option>Plafond</option><option>Autre</option></select><div id="quickElements" class="quick-elements"></div><div id="autreElementWrap" class="hidden" style="margin:0 0 8px"><input id="autreElement" type="text" placeholder="Écrire l’élément" style="width:100%;height:42px;border:1px solid #ccc;border-radius:10px;padding:0 10px;font-size:15px"></div><div class="quick-meta"><div><label>Surface <span style="font-weight:400;color:#999">— facultatif</span></label><input id="surface" class="surface-quick" type="number" inputmode="decimal" min="0" step="0.01" placeholder="m²"></div><div><label>Couleur</label><select id="couleur"><option selected>Blanc</option><option>Gris</option><option>Noir</option><option>Rouge</option><option>Jaune</option><option>Orange</option><option>Vert</option><option>Bleu</option><option>Violet</option><option>Marron</option><option>Rose</option></select></div></div><label>État</label><select id="etat"><option selected>État d’usage</option><option>État dégradé</option></select><div class="measure-no"><small>Mesure n°</small><strong id="number">4424</strong></div><button id="measure" class="measure-btn">MESURER</button><div id="result" class="result"><div class="result-hint">Mesure prise · touche directement le résultat</div><div class="result-buttons result-quick"><button id="negative" class="result-btn result-neg">NÉGATIF</button><button id="presence" class="result-btn result-presence">PRÉSENCE</button><button id="positive" class="result-btn result-pos">POSITIF</button><button id="nullMeasure" class="result-btn result-null">MESURE NULLE</button></div><div class="measure-next">Le résultat enregistre automatiquement la mesure et passe au numéro suivant.</div></div></div><div class="card"><div class="title">Récapitulatif de la pièce</div><div class="table-wrap"><table class="table"><thead><tr><th>N°</th><th>Élément</th><th>Couleur</th><th>État</th><th>Surface</th><th>Résultat</th></tr></thead><tbody id="roomTable"></tbody></table></div></div><div class="card"><div class="title">Photos de la pièce</div><div class="sub">Jusqu'à 3 photos générales. Elles sont liées à la pièce et pourront servir plus tard à localiser les mesures positives.</div><div id="photos" class="photo-grid"></div><input id="photoInput" type="file" accept="image/*" capture="environment" style="display:none"><button id="finish" class="primary green sp">Enregistrer et revenir au dossier</button><button id="nextRoom" class="secondary sp">Choisir une autre pièce</button></div></section>
+<section id="summary" class="page"><div class="card"><div class="title">Expertise enregistrée</div><div id="summaryText"></div><button id="summaryInterpret" class="primary blue sp">Interprétation & localisation</button><button id="summaryConclusions" class="primary sp">Conclusions du rapport</button><button id="summaryPdf" class="primary sp">Générer le PDF</button><button id="summaryHome" class="secondary sp">Retour à l'accueil</button></div></section>
+<section id="interpret" class="page"><div class="card"><div class="title">Interprétation & localisation</div><label>Pièce</label><select id="interpretRoom"></select><div class="sub">Vous pouvez modifier l'interprétation. Les mesures positives peuvent ensuite être localisées sur les photos de la pièce.</div></div><div class="card"><div id="interpretTable"></div></div></section>
+<section id="plan" class="page"><div class="card"><div class="title">Plan / croquis</div><div class="sub">Importe le plan du logement puis touche simplement le plan pour placer les numéros dans l'ordre. Rouge = positif · bleu = négatif · gris = à interpréter.</div><div id="planNext" class="notice">Aucun plan importé.</div><input id="planInput" type="file" accept="image/*" style="display:none"><button id="importPlan" class="secondary">Importer un plan</button><button id="removePlan" class="secondary sp">Supprimer le plan</button><div id="planWrap" class="marker-photo" style="margin-top:12px;display:none"><img id="planImg"><div id="planMarkers"></div></div><div id="planMeasures" style="margin-top:12px"></div></div><button id="planBack" class="secondary">‹ Retour au dossier</button></section>
+<section id="conclusions" class="page">
+<div class="card">
+  <div class="title">Conclusions</div>
+  <div class="sub">Sélectionne uniquement les éléments positifs que tu souhaites retenir dans les conclusions. Le texte est ensuite proposé automatiquement et reste modifiable.</div>
+  <div style="display:flex;gap:8px;margin-bottom:14px">
+    <button id="conclusionTabPiece" class="primary blue" style="flex:1">Par pièce</button>
+    <button id="conclusionTabLogement" class="secondary" style="flex:1">Logement entier</button>
+  </div>
+  <div id="conclusionModeContent"></div>
+</div>
+<div class="card"><button id="conclusionPdf" class="primary blue">Générer le PDF</button><button id="conclusionHome" class="secondary sp">Retour à l'accueil</button></div>
+</section>
+<section id="localize" class="page"><div class="card"><div class="title">Localiser la mesure</div><div id="locInfo" class="sub"></div><div class="sub">Touchez l'endroit correspondant sur une photo. La pastille peut ensuite être déplacée au doigt.</div><div id="locPhotos"></div></div><button id="backInterpret" class="secondary">‹ Retour à l'interprétation</button></section>
+</div>
+<script>
+const KEY="eddy_prototype_terrain_v4";
+const OLD_KEYS=["eddy_prototype_v3","eddy_prototype_v2","eddy_prototype_v1"];
+let dossiers=[];let dossier=null;let piece="";let nextNo=4424;let result="";let selectedPositive=null;let currentPage="home";let dragState=null;
+function formatSurface(v){const n=parseFloat(String(v).replace(",","."));return Number.isFinite(n)?n.toFixed(2).replace(".",","):"—"}
+const MEDIA_DB="eddyapp_media_v1";
+let mediaDbPromise=null;
+function openMediaDB(){
+  if(mediaDbPromise)return mediaDbPromise;
+  mediaDbPromise=new Promise((resolve,reject)=>{
+    if(!window.indexedDB){resolve(null);return}
+    const req=indexedDB.open(MEDIA_DB,1);
+    req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains("media"))db.createObjectStore("media")};
+    req.onsuccess=()=>resolve(req.result);
+    req.onerror=()=>resolve(null);
+  });
+  return mediaDbPromise;
+}
+function mediaKey(dossierId,roomName,index){return `photo|${dossierId}|${roomName}|${index}`}
+function planKey(dossierId){return `plan|${dossierId}`}
+async function idbPut(key,value){const db=await openMediaDB();if(!db)return false;return new Promise(resolve=>{try{const tx=db.transaction("media","readwrite");tx.objectStore("media").put(value,key);tx.oncomplete=()=>resolve(true);tx.onerror=()=>resolve(false)}catch(e){resolve(false)}})}
+async function idbGet(key){const db=await openMediaDB();if(!db)return null;return new Promise(resolve=>{try{const tx=db.transaction("media","readonly");const req=tx.objectStore("media").get(key);req.onsuccess=()=>resolve(req.result||null);req.onerror=()=>resolve(null)}catch(e){resolve(null)}})}
+async function idbDelete(key){const db=await openMediaDB();if(!db)return;try{const tx=db.transaction("media","readwrite");tx.objectStore("media").delete(key)}catch(e){}}
+function dossierSansMedias(){
+  return dossiers.map(d=>{
+    const copy=JSON.parse(JSON.stringify(d));
+    Object.values(copy.rooms||{}).forEach(r=>{r.photos=[]});
+    if(copy.plan)copy.plan.image="";
+    return copy;
+  });
+}
+async function persistMedia(){
+  const db=await openMediaDB();
+  if(!db)return;
+  for(const d of dossiers){
+    for(const r of Object.values(d.rooms||{})){
+      (r.photos||[]).forEach((photo,i)=>{if(photo)idbPut(mediaKey(d.id,r.nom,i),photo)});
+    }
+    if(d.plan?.image)idbPut(planKey(d.id),d.plan.image);
+  }
+}
+function save(){
+  try{
+    // Les photos et le plan ne sont plus écrits dans localStorage : cela évite
+    // le dépassement de quota iPhone/HTML Runner. Ils sont conservés dans IndexedDB.
+    localStorage.setItem(KEY,JSON.stringify(dossierSansMedias()));
+    persistMedia();
+    return true;
+  }catch(e){
+    return false;
+  }
+}
+async function hydrateMedia(){
+  for(const d of dossiers){
+    d.rooms=d.rooms||{};
+    for(const r of Object.values(d.rooms)){
+      const count=Math.min(3,Number(r.photoCount)||3);
+      const photos=[];
+      for(let i=0;i<count;i++){
+        const v=await idbGet(mediaKey(d.id,r.nom,i));
+        if(v)photos.push(v);
+      }
+      r.photos=photos;
+    }
+    d.plan=d.plan||{image:"",reperes:[]};
+    const pl=await idbGet(planKey(d.id));
+    if(pl)d.plan.image=pl;
+  }
+}
+async function loadData(){
+  try{
+    let raw=localStorage.getItem(KEY);
+    if(!raw){for(const k of OLD_KEYS){const old=localStorage.getItem(k);if(old){raw=old;break}}}
+    if(raw)dossiers=JSON.parse(raw)||[];
+  }catch(e){dossiers=[]}
+  // Anciennes versions pouvaient encore contenir les photos directement dans le JSON.
+  // On les garde en mémoire puis on les migre vers IndexedDB au prochain enregistrement.
+  await hydrateMedia();
+  dossiers.forEach(d=>{Object.values(d.rooms||{}).forEach(r=>{r.photos=r.photos||[]})});
+}
+function show(id){currentPage=id;document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));const el=document.getElementById(id);if(el)el.classList.add("active");document.getElementById("back").style.display=id==="home"?"none":"block";window.scrollTo(0,0)}
+function goHome(){save();renderHome();show("home")}
+function goBack(){save();if(currentPage==="calibration"){renderDossier();show("dossier");return}if(currentPage==="room"){renderDossier();show("dossier");return}if(currentPage==="dossier"||currentPage==="summary"){renderHome();show("home");return}if(currentPage==="localize"){renderInterpretation();show("interpret");return}if(currentPage==="interpret"||currentPage==="conclusions"){renderDossier();show("dossier");return}goHome()}
+function roomData(){if(!dossier.rooms)dossier.rooms={};if(!dossier.rooms[piece])dossier.rooms[piece]={nom:piece,mesures:[],photos:[],photoCount:0};return dossier.rooms[piece]}
+function newExpertise(){dossier={id:Date.now().toString(),date:new Date().toLocaleString("fr-FR"),nextNo:4424,calibrages:{A:4421,B:4422,C:4423},rooms:{},plan:{image:"",reperes:[]}};dossiers.push(dossier);piece="";nextNo=4424;result="";save();document.getElementById("calA").value="";document.getElementById("calB").value="";document.getElementById("calC").value="";show("calibration")}
+function renderHome(){const z=document.getElementById("dossiers");if(!dossiers.length){z.innerHTML='<div class="empty">Aucun dossier en cours</div>';return}z.innerHTML=dossiers.slice().reverse().map(d=>{const rooms=d.rooms||{};const total=Object.values(rooms).reduce((a,r)=>a+(r.mesures||[]).length,0);const photos=Object.values(rooms).reduce((a,r)=>a+(r.photos||[]).length,0);const roomCount=Object.keys(rooms).length;return `<div class="dossier"><div class="dossier-head"><div><div class="dossier-title">Expertise du ${esc(d.date)}</div><div class="dossier-info">${roomCount} pièce(s) · ${total} mesure(s) · ${photos} photo(s)</div></div><div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end"><button class="small" onclick="openDossier('${d.id}')">Ouvrir le dossier</button><button class="small danger" onclick="deleteDossier('${d.id}')">Supprimer</button></div></div></div>`}).join("")}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
+function openDossier(id){dossier=dossiers.find(d=>d.id===id);if(!dossier)return;dossier.rooms=dossier.rooms||{};nextNo=Number(dossier.nextNo)||4424;piece=Object.keys(dossier.rooms)[0]||"Cuisine";renderDossier();show("dossier")}
+function renderDossier(){if(!dossier)return;const rooms=dossier.rooms||{};const names=Object.keys(rooms);const total=Object.values(rooms).reduce((a,r)=>a+(r.mesures||[]).length,0);const photos=Object.values(rooms).reduce((a,r)=>a+(r.photos||[]).length,0);document.getElementById("dossierInfo").innerHTML=`Créé le ${esc(dossier.date)}<br>${names.length} pièce(s) · ${total} mesure(s) · ${photos} photo(s)`;document.getElementById("newRoomSelect").value="";document.getElementById("roomMenu").innerHTML=names.length?names.map(r=>{const rd=rooms[r];const mc=(rd.mesures||[]).length;const pc=(rd.photos||[]).length;return `<div class="room-menu-item room-used"><div><div class="room-menu-name">${esc(r)}</div><div class="room-menu-info">${mc} mesure(s) · ${pc} photo(s)</div></div><button class="small room-open-btn" data-room="${esc(r)}">Ouvrir</button></div>`}).join(""):"<div class=\"empty\">Aucune pièce dans ce dossier.<br>Ajoute une pièce ci-dessus pour commencer.</div>"}
+function addRoom(){if(!dossier)return;const select=document.getElementById("newRoomSelect");const nom=select.value.trim();if(!nom){alert("Choisis une pièce dans la liste.");select.focus();return}if(Object.keys(dossier.rooms||{}).some(k=>k.toLowerCase()===nom.toLowerCase())){alert("Cette pièce existe déjà dans ce dossier.");return}dossier.rooms[nom]={nom,mesures:[],photos:[],photoCount:0};piece=nom;save();renderDossier();openRoom(nom)}
+function deleteDossier(id){const d=dossiers.find(x=>x.id===id);if(!d)return;if(!confirm("Supprimer définitivement ce dossier et toutes ses photos, son plan et ses mesures ?"))return;deleteDossierMedia(d).then(()=>{dossiers=dossiers.filter(x=>x.id!==id);if(dossier?.id===id)dossier=null;save();renderHome();show("home")})}
+async function deleteDossierMedia(d){const db=await openMediaDB();if(!db)return;const keys=[];Object.values(d.rooms||{}).forEach(r=>{const count=Math.max(Number(r.photoCount)||0,(r.photos||[]).length);for(let i=0;i<count;i++)keys.push(mediaKey(d.id,r.nom,i))});keys.push(planKey(d.id));for(const key of keys)await idbDelete(key)}
+function openRoom(nom){if(!nom)return;piece=nom;roomData();result="";resetResultUI();renderQuickElements();renderRoom();show("room")}
+function renderRoom(){const r=roomData();document.getElementById("roomInfo").textContent=`Dossier du ${dossier?.date||""} · Pièce : ${piece}`;document.getElementById("number").textContent=nextNo;document.getElementById("roomTable").innerHTML=r.mesures.length?r.mesures.map(m=>{let b=m.resultat==="Positif"?'<span class="badge pos">Positif</span>':m.resultat==="Présence"?'<span class="badge presence">Présence</span>':m.resultat==="Négatif"?'<span class="badge neg">Négatif</span>':m.resultat==="À interpréter"?'<span class="badge later">À interpréter</span>':'<span class="badge null">Mesure nulle</span>';return `<tr><td class="num">${m.numero}</td><td>${m.resultat==="Mesure nulle"?"—":esc(m.element)}</td><td>${esc(m.couleur||"Blanc")}</td><td>${esc(m.etat||"État d’usage")}</td><td>${m.surface?formatSurface(m.surface)+" m²":"—"}</td><td>${b}${m.resultat==="Positif"?` <button class="open" onclick="openLocalization(${m.numero})">Ouvrir</button>`:""}</td></tr>`}).join(""):'<tr><td colspan="6" class="empty">Aucune mesure effectuée</td></tr>';document.getElementById("photos").innerHTML=r.photos.map((p,i)=>`<div class="photo-slot"><img src="${p}"><button class="del" onclick="deletePhoto(${i})" aria-label="Supprimer">×</button></div>`).join("")+(r.photos.length<3?'<button id="addPhotoBtn" class="photo-slot add" onclick="addPhoto()">＋<br>Ajouter une photo</button>':"")}
+function resetResultUI(){document.getElementById("result").classList.remove("show");["negative","presence","positive","nullMeasure"].forEach(id=>document.getElementById(id).className="result-btn")}
+["calA","calB","calC"].forEach((id,i)=>{document.getElementById(id).addEventListener("keydown",e=>{if(e.key!=="Enter")return;e.preventDefault();const next=["calB","calC","quickElements"][i];document.getElementById(next)?.focus()})});
+document.getElementById("saveCalibration").onclick=()=>{const A=parseInt(document.getElementById("calA").value,10)||0;const B=parseInt(document.getElementById("calB").value,10)||0;const C=parseInt(document.getElementById("calC").value,10)||0;if(!A||!B||!C){alert("Renseigne les trois numéros de calibrage.");return}dossier.calibrages={A,B,C};nextNo=Math.max(A,B,C)+1;dossier.nextNo=nextNo;save();renderDossier();show("dossier")};
+document.getElementById("new").onclick=newExpertise;document.getElementById("addRoom").onclick=addRoom;document.getElementById("roomMenu").addEventListener("click",e=>{const btn=e.target.closest(".room-open-btn");if(!btn)return;const nom=btn.dataset.room;if(!nom)return;openRoom(nom)});document.getElementById("back").onclick=goBack;document.getElementById("roomBackDossier").onclick=()=>{save();renderDossier();show("dossier")};document.getElementById("dossierHome").onclick=()=>{save();renderHome();show("home")};document.getElementById("dossierInterpret").onclick=()=>openInterpretation();document.getElementById("dossierConclusions").onclick=()=>openConclusions();document.getElementById("dossierPdf").onclick=()=>generatePdf();
+const quickElementDefs=[
+  ["Cadre de porte","🚪"],["Porte","▣"],["Mur","▰"],["Plinthe","▬"],
+  ["Bâti de placard","▤"],["Placard","▥"],["Radiateur","♨"],["Coffre de volet","▣"],
+  ["Bâti de fenêtre","▦"],["Fenêtre","▣"],["Plafond","⬜"],["Autre","＋"]
+];
+function renderQuickElements(){const wrap=document.getElementById("quickElements"),current=document.getElementById("element").value;wrap.innerHTML=quickElementDefs.map(([name,icon])=>`<button type="button" class="quick-element ${name===current?"active":""}" data-element="${esc(name)}"><span class="qe-icon">${icon}</span>${esc(name)}</button>`).join("");document.getElementById("autreElementWrap").classList.toggle("hidden",current!=="Autre");if(current==="Autre")document.getElementById("autreElement").focus()}
+document.getElementById("quickElements").addEventListener("click",e=>{const b=e.target.closest(".quick-element");if(!b)return;const value=b.dataset.element;document.getElementById("element").value=value;document.querySelectorAll(".quick-element").forEach(x=>x.classList.toggle("active",x===b));const wrap=document.getElementById("autreElementWrap");wrap.classList.toggle("hidden",value!=="Autre");if(value==="Autre")setTimeout(()=>document.getElementById("autreElement").focus(),50)});
+
+function resetResultUI(){document.getElementById("result").classList.remove("show");["negative","presence","positive","nullMeasure"].forEach(id=>document.getElementById(id).className="result-btn")}
+function saveQuickMeasurement(v){const r=roomData();const surface=(document.getElementById("surface").value||"").replace(",",".");let element=document.getElementById("element").value;if(element==="Autre"){element=(document.getElementById("autreElement").value||"").trim();if(!element){alert("Écris l’élément à mesurer.");document.getElementById("autreElement").focus();return}}if(v==="Mesure nulle")element="";r.mesures.push({numero:nextNo,element,couleur:document.getElementById("couleur").value||"Blanc",etat:document.getElementById("etat").value||"État d’usage",resultat:v,surface:v==="Mesure nulle"?null:(surface?parseFloat(surface):null),localisations:[],date:new Date().toLocaleString("fr-FR")});document.getElementById("surface").value="";document.getElementById("couleur").value="Blanc";document.getElementById("etat").value="État d’usage";document.getElementById("element").value="Cadre de porte";document.getElementById("autreElement").value="";document.getElementById("autreElementWrap").classList.add("hidden");nextNo++;dossier.nextNo=nextNo;save();result="";resetResultUI();renderQuickElements();renderRoom();document.getElementById("measure").classList.add("ready");setTimeout(()=>document.getElementById("measure")?.classList.remove("ready"),180)}
+document.getElementById("measure").onclick=()=>{document.getElementById("result").classList.add("show");document.getElementById("result").scrollIntoView({behavior:"smooth",block:"nearest"})};
+function choose(v){result=v;const id=v==="Négatif"?"negative":v==="Présence"?"presence":v==="Positif"?"positive":"nullMeasure";const btn=document.getElementById(id);btn.classList.add("selected-result");const cls=v==="Négatif"?"active-neg":v==="Présence"?"active-presence":v==="Positif"?"active-pos":"active-null";btn.classList.add(cls);saveQuickMeasurement(v)}
+document.getElementById("negative").onclick=()=>choose("Négatif");document.getElementById("presence").onclick=()=>choose("Présence");document.getElementById("positive").onclick=()=>choose("Positif");document.getElementById("nullMeasure").onclick=()=>choose("Mesure nulle");
+function addPhoto(){const input=document.getElementById("photoInput");input.value="";input.click()}
+function compressImage(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=()=>reject(new Error("Lecture impossible"));reader.onload=()=>{const img=new Image();img.onerror=()=>reject(new Error("Image impossible à charger"));img.onload=()=>{const max=1200;const scale=Math.min(1,max/Math.max(img.naturalWidth,img.naturalHeight));const w=Math.max(1,Math.round(img.naturalWidth*scale));const h=Math.max(1,Math.round(img.naturalHeight*scale));const c=document.createElement("canvas");c.width=w;c.height=h;const ctx=c.getContext("2d");ctx.drawImage(img,0,0,w,h);resolve(c.toDataURL("image/jpeg",.65))};img.src=reader.result};reader.readAsDataURL(file)})}
+document.getElementById("photoInput").onchange=async function(){const f=this.files&&this.files[0];if(!f)return;const btn=document.getElementById("addPhotoBtn");if(btn)btn.classList.add("photo-loading");try{const r=roomData();if(r.photos.length>=3){alert("Maximum 3 photos par pièce.");return}const data=await compressImage(f);r.photos.push(data);r.photoCount=r.photos.length;save();renderRoom()}catch(e){alert("La photo n'a pas pu être ajoutée. Essayez à nouveau.")}finally{this.value="";const b=document.getElementById("addPhotoBtn");if(b)b.classList.remove("photo-loading")}}
+function deletePhoto(i){const r=roomData();r.photos.splice(i,1);r.photoCount=r.photos.length;(r.mesures||[]).forEach(m=>{m.localisations=(m.localisations||[]).filter(l=>l.photo!==i).map(l=>({...l,photo:l.photo>i?l.photo-1:l.photo}))});save();renderRoom()}
+document.getElementById("finish").onclick=()=>{save();renderDossier();show("dossier")};
+document.getElementById("nextRoom").onclick=()=>{save();renderDossier();show("dossier")};
+function renderSummary(){const rooms=Object.values(dossier.rooms||{}),m=rooms.reduce((a,r)=>a+(r.mesures||[]).length,0),p=rooms.reduce((a,r)=>a+(r.photos||[]).length,0),pos=rooms.reduce((a,r)=>a+(r.mesures||[]).filter(x=>x.resultat==="Positif").length,0);document.getElementById("summaryText").innerHTML=`<p><b>${rooms.length}</b> pièce(s)</p><p><b>${m}</b> mesure(s), dont <b>${pos}</b> positive(s)</p><p><b>${p}</b> photo(s)</p><div class="notice">Les photos sont conservées au niveau de la pièce. L'interprétation et la localisation peuvent être faites plus tard.</div>`}
+function openInterpretation(id){if(id)dossier=dossiers.find(d=>d.id===id);if(!dossier){alert("Aucun dossier.");return}const rooms=Object.keys(dossier.rooms||{});if(!rooms.length){alert("Aucune pièce enregistrée.");return}piece=rooms[0];document.getElementById("interpretRoom").innerHTML=rooms.map(r=>`<option>${esc(r)}</option>`).join("");document.getElementById("interpretRoom").value=piece;renderInterpretation();show("interpret")}
+document.getElementById("interpretRoom").onchange=e=>{piece=e.target.value;renderInterpretation()};
+function setInterpretation(numero,valeur){const r=roomData();const m=r.mesures.find(x=>x.numero===numero);if(!m)return;m.resultat=valeur;if(valeur!=="Positif")m.localisations=[];save();renderInterpretation()}
+function renderInterpretation(){const r=roomData();document.getElementById("interpretTable").innerHTML=r.mesures.length?r.mesures.map(m=>{let b=m.resultat==="Positif"?'<span class="badge pos">Positif</span>':m.resultat==="Présence"?'<span class="badge presence">Présence</span>':m.resultat==="Négatif"?'<span class="badge neg">Négatif</span>':m.resultat==="À interpréter"?'<span class="badge later">À interpréter</span>':'<span class="badge null">Mesure nulle</span>';let actions="";if(m.resultat==="À interpréter"){actions=`<button class="open" onclick='setInterpretation(${m.numero},"Négatif")'>Négatif</button><button class="open" onclick='setInterpretation(${m.numero},"Positif")'>Positif</button>`}else if(m.resultat==="Positif"){actions=`<button class="open" onclick="openLocalization(${m.numero})">Localiser</button>`}return `<div class="interpret-row"><div><b>${m.numero}</b> — ${esc(m.element)}${m.surface?`<div style="color:#666;margin-top:3px">Surface : ${formatSurface(m.surface)} m²</div>`:""}</div><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end">${b}${actions}</div></div>`}).join(""):'<div class="empty">Aucune mesure</div>'}
+function openLocalization(numero){const r=roomData(),m=r.mesures.find(x=>x.numero===numero);if(!m||m.resultat!=="Positif")return;selectedPositive=numero;document.getElementById("locInfo").textContent=`${piece} — mesure ${numero}`;renderLocalization();show("localize")}
+function markers(photoIndex){let r=roomData(),out="";(r.mesures||[]).filter(m=>m.resultat==="Positif").forEach(m=>(m.localisations||[]).filter(l=>l.photo===photoIndex).forEach(l=>{out+=`<div class="marker ${m.numero===selectedPositive?"selected":""}" data-num="${m.numero}" data-photo="${photoIndex}" style="left:${l.x}%;top:${l.y}%"></div>`}));return out}
+function renderLocalization(){const r=roomData(),z=document.getElementById("locPhotos");if(!r.photos.length){z.innerHTML='<div class="empty">Aucune photo dans cette pièce.</div>';return}z.innerHTML=r.photos.map((p,i)=>`<div class="card"><div style="font-weight:700;margin-bottom:8px">Photo ${i+1}</div><div class="marker-photo" data-photo="${i}"><img src="${p}">${markers(i)}</div></div>`).join("")}
+function placeMarker(photo,e){const img=photo.querySelector("img"),rect=img.getBoundingClientRect();if(!rect.width||!rect.height)return;const x=Math.max(0,Math.min(100,(e.clientX-rect.left)/rect.width*100)),y=Math.max(0,Math.min(100,(e.clientY-rect.top)/rect.height*100));const m=roomData().mesures.find(x=>x.numero===selectedPositive);if(!m)return;m.localisations=(m.localisations||[]).filter(l=>l.photo!==Number(photo.dataset.photo));m.localisations.push({photo:Number(photo.dataset.photo),x,y});save();renderLocalization()}
+document.addEventListener("pointerdown",e=>{const marker=e.target.closest(".marker");if(!marker)return;dragState={marker,pointerId:e.pointerId};try{marker.setPointerCapture(e.pointerId)}catch(_){}e.preventDefault();e.stopPropagation()});
+document.addEventListener("pointermove",e=>{if(!dragState||dragState.pointerId!==e.pointerId)return;const m=dragState.marker,p=m.closest(".marker-photo"),img=p.querySelector("img"),r=img.getBoundingClientRect();m.style.left=Math.max(0,Math.min(100,(e.clientX-r.left)/r.width*100))+"%";m.style.top=Math.max(0,Math.min(100,(e.clientY-r.top)/r.height*100))+"%";e.preventDefault()});
+document.addEventListener("pointerup",e=>{if(!dragState||dragState.pointerId!==e.pointerId)return;const m=dragState.marker,p=m.closest(".marker-photo"),img=p.querySelector("img"),r=img.getBoundingClientRect();const x=Math.max(0,Math.min(100,(e.clientX-r.left)/r.width*100)),y=Math.max(0,Math.min(100,(e.clientY-r.top)/r.height*100));const mm=roomData().mesures.find(x=>x.numero===Number(m.dataset.num));if(mm){const l=(mm.localisations||[]).find(x=>x.photo===Number(m.dataset.photo));if(l){l.x=x;l.y=y;save()}}dragState=null});
+document.addEventListener("click",e=>{const photo=e.target.closest(".marker-photo");if(!photo||e.target.closest(".marker")||!selectedPositive)return;if(e.detail===0)return;placeMarker(photo,e)});
+const labelsPluriel={
+  "Cadre de porte":"cadres de portes",
+  "Porte":"portes",
+  "Mur":"murs",
+  "Peinture":"revêtements peints",
+  "Cadre de placard":"cadres de placards",
+  "Placard":"placards",
+  "Cadre de fenêtre":"cadres de fenêtres",
+  "Fenêtre":"fenêtres",
+  "Plafond":"plafonds"
+};
+function conclusionStore(){
+  dossier.conclusions=dossier.conclusions||{pieces:{},logement:{}};
+  return dossier.conclusions;
+}
+function positiveElementStats(room){
+  const groups={};
+  (room?.mesures||[]).forEach(m=>{
+    if(!groups[m.element])groups[m.element]={element:m.element,total:0,pos:0,neg:0,later:0,surface:0};
+    const g=groups[m.element];
+    g.total++;
+    if(m.resultat==="Positif"){g.pos++;g.surface+=Number(m.surface)||0;}
+    else if(m.resultat==="Négatif")g.neg++;
+    else if(m.resultat==="À interpréter")g.later++;
+  });
+  return Object.values(groups).filter(g=>g.pos>0);
+}
+function positiveElementStatsLogement(){
+  const groups={};
+  Object.values(dossier.rooms||{}).forEach(r=>{
+    positiveElementStats(r).forEach(g=>{
+      if(!groups[g.element])groups[g.element]={element:g.element,total:0,pos:0,neg:0,later:0,surface:0,rooms:[]};
+      const all=(r.mesures||[]).filter(m=>m.element===g.element);
+      const x=groups[g.element];
+      x.total+=all.length;x.pos+=g.pos;x.neg+=all.filter(m=>m.resultat==="Négatif").length;x.later+=all.filter(m=>m.resultat==="À interpréter").length;x.surface+=g.surface;
+      x.rooms.push({nom:r.nom,pos:g.pos,total:all.length});
+    });
+  });
+  return Object.values(groups);
+}
+function defaultConclusionText(scope, g, roomName){
+  const label=labelsPluriel[g.element]||g.element.toLowerCase();
+  let text="";
+  if(scope==="piece"){
+    if(g.pos===g.total && g.total>0) text=`L'ensemble des ${label} investigués dans la pièce ${roomName} présente un résultat positif au plomb.`;
+    else text=`Des résultats positifs au plomb ont été relevés sur ${g.pos} des ${g.total} ${label} investigués dans la pièce ${roomName}.`;
+  }else{
+    if(g.pos===g.total && g.total>0) text=`L'ensemble des ${label} investigués dans le logement présente un résultat positif au plomb.`;
+    else text=`Des résultats positifs au plomb ont été relevés sur ${g.pos} des ${g.total} ${label} investigués dans le logement.`;
+  }
+  if(g.surface>0) text+=` Surface quantifiée correspondant aux mesures positives : ${formatSurface(g.surface)} m².`;
+  return text;
+}
+function renderConclusionPiece(){
+  const root=document.getElementById("conclusionModeContent");
+  const rooms=Object.keys(dossier.rooms||{});
+  if(!rooms.length){root.innerHTML='<div class="empty">Aucune pièce dans ce dossier.</div>';return}
+  const store=conclusionStore();
+  if(!store.pieces)store.pieces={};
+  const selectedRoom=document.getElementById("conclusionPieceSelect")?.value || rooms[0];
+  const stats=positiveElementStats(dossier.rooms[selectedRoom]);
+  let html=`<label>Pièce</label><select id="conclusionPieceSelect">${rooms.map(r=>`<option ${r===selectedRoom?'selected':''}>${esc(r)}</option>`).join("")}</select>`;
+  html+=`<div class="sub">Éléments ayant au moins une mesure positive dans cette pièce :</div>`;
+  if(!stats.length){html+='<div class="empty">Aucun élément positif dans cette pièce.</div>';root.innerHTML=html;document.getElementById("conclusionPieceSelect").onchange=renderConclusionPiece;return}
+  const saved=store.pieces[selectedRoom]||{};
+  html+=stats.map(g=>{
+    const checked=!!saved[g.element];
+    const txt=checked?(saved[g.element].text||defaultConclusionText("piece",g,selectedRoom)):defaultConclusionText("piece",g,selectedRoom);
+    return `<div class="card" style="background:#f7f7f9;margin-top:10px"><label style="display:flex;align-items:center;gap:9px;font-size:15px;color:#111;margin:0"><input type="checkbox" class="piece-conclusion-check" data-element="${esc(g.element)}" ${checked?'checked':''} style="width:20px;height:20px"> <b>${esc(labelsPluriel[g.element]||g.element)}</b></label><div class="sub" style="margin:8px 0 4px">${g.pos}/${g.total} positif(s)${g.later?` · ${g.later} à interpréter`:''}${g.surface>0?` · ${formatSurface(g.surface)} m²`:''}</div><textarea class="piece-conclusion-text ${checked?'':'hidden'}" data-element="${esc(g.element)}" style="width:100%;min-height:90px;border:1px solid #ccc;border-radius:10px;padding:10px;font:inherit;line-height:1.4">${esc(txt)}</textarea></div>`;
+  }).join("");
+  root.innerHTML=html;
+  document.getElementById("conclusionPieceSelect").onchange=renderConclusionPiece;
+  root.querySelectorAll('.piece-conclusion-check').forEach(cb=>cb.onchange=()=>{const el=cb.dataset.element;store.pieces[selectedRoom]=store.pieces[selectedRoom]||{};if(cb.checked){const g=stats.find(x=>x.element===el);store.pieces[selectedRoom][el]={text:defaultConclusionText("piece",g,selectedRoom)};}else delete store.pieces[selectedRoom][el];save();renderConclusionPiece();});
+  root.querySelectorAll('.piece-conclusion-text').forEach(t=>t.oninput=()=>{store.pieces[selectedRoom]=store.pieces[selectedRoom]||{};store.pieces[selectedRoom][t.dataset.element]={text:t.value};save();});
+}
+function renderConclusionLogement(){
+  const root=document.getElementById("conclusionModeContent");
+  const stats=positiveElementStatsLogement();
+  const store=conclusionStore();
+  if(!stats.length){root.innerHTML='<div class="empty">Aucun élément positif dans le logement.</div>';return}
+  let html='<div class="sub">Éléments ayant au moins une mesure positive dans l’ensemble du logement :</div>';
+  html+=stats.map(g=>{
+    const checked=!!store.logement[g.element];
+    const txt=checked?(store.logement[g.element].text||defaultConclusionText("logement",g)):defaultConclusionText("logement",g);
+    const details=g.rooms.map(r=>`${esc(r.nom)} : ${r.pos}/${r.total}`).join(' · ');
+    return `<div class="card" style="background:#f7f7f9;margin-top:10px"><label style="display:flex;align-items:center;gap:9px;font-size:15px;color:#111;margin:0"><input type="checkbox" class="logement-conclusion-check" data-element="${esc(g.element)}" ${checked?'checked':''} style="width:20px;height:20px"> <b>${esc(labelsPluriel[g.element]||g.element)}</b></label><div class="sub" style="margin:8px 0 4px">${g.pos}/${g.total} positif(s) · ${details}${g.later?` · ${g.later} à interpréter`:''}${g.surface>0?` · ${formatSurface(g.surface)} m²`:''}</div><textarea class="logement-conclusion-text ${checked?'':'hidden'}" data-element="${esc(g.element)}" style="width:100%;min-height:90px;border:1px solid #ccc;border-radius:10px;padding:10px;font:inherit;line-height:1.4">${esc(txt)}</textarea></div>`;
+  }).join("");
+  root.innerHTML=html;
+  root.querySelectorAll('.logement-conclusion-check').forEach(cb=>cb.onchange=()=>{const el=cb.dataset.element;if(cb.checked){const g=stats.find(x=>x.element===el);store.logement[el]={text:defaultConclusionText("logement",g)};}else delete store.logement[el];save();renderConclusionLogement();});
+  root.querySelectorAll('.logement-conclusion-text').forEach(t=>t.oninput=()=>{store.logement[t.dataset.element]={text:t.value};save();});
+}
+function buildConclusions(){
+  const out=[];const store=conclusionStore();
+  Object.entries(store.pieces||{}).forEach(([roomName,items])=>Object.entries(items||{}).forEach(([element,v])=>{if(v?.text?.trim())out.push({piece:roomName,element,text:v.text,scope:"piece"})}));
+  Object.entries(store.logement||{}).forEach(([element,v])=>{if(v?.text?.trim())out.push({piece:"Logement",element,text:v.text,scope:"logement"})});
+  return out;
+}
+function renderConclusions(){
+  const root=document.getElementById("conclusionModeContent");
+  document.getElementById("conclusionTabPiece").className="primary blue";
+  document.getElementById("conclusionTabLogement").className="secondary";
+  renderConclusionPiece();
+}
+function openConclusions(){if(!dossier){alert("Aucun dossier.");return}conclusionStore();renderConclusions();show("conclusions")}
+document.getElementById("conclusionTabPiece").onclick=()=>{document.getElementById("conclusionTabPiece").className="primary blue";document.getElementById("conclusionTabLogement").className="secondary";renderConclusionPiece()};
+document.getElementById("conclusionTabLogement").onclick=()=>{document.getElementById("conclusionTabPiece").className="secondary";document.getElementById("conclusionTabLogement").className="primary blue";renderConclusionLogement()};
+function getEditedConclusions(){return buildConclusions();}
+async function loadPdfLib(){
+  if(window.jspdf?.jsPDF)return true;
+  return new Promise(resolve=>{const s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";s.onload=()=>resolve(!!window.jspdf?.jsPDF);s.onerror=()=>resolve(false);document.head.appendChild(s)})
+}
+function addPdfHeader(doc,title){doc.setFillColor(255,0,0);doc.rect(0,0,210,18,"F");doc.setTextColor(255,255,255);doc.setFontSize(14);doc.setFont(undefined,"bold");doc.text("EddyApp",10,12);doc.setTextColor(0,0,0);doc.setFontSize(16);doc.text(title,10,30);doc.setFontSize(9);doc.setFont(undefined,"normal")}
+function splitText(doc,text,x,y,max){return doc.splitTextToSize(text,max)}
+async function generatePdf(){
+  if(!dossier){alert("Aucun dossier.");return}
+  const ok=await loadPdfLib();if(!ok){alert("La bibliothèque PDF n'a pas pu être chargée. Vérifiez la connexion internet de HTML Runner puis réessayez.");return}
+  const {jsPDF}=window.jspdf;const doc=new jsPDF({unit:"mm",format:"a4"});
+  addPdfHeader(doc,"Rapport d'expertise");doc.setFontSize(10);doc.text(`Date : ${dossier.date}`,10,39);doc.text(`Mesures : ${Object.values(dossier.rooms||{}).reduce((a,r)=>a+(r.mesures||[]).length,0)}`,10,46);
+  let y=58;
+  // Plan / croquis dans le PDF
+  if(dossier.plan?.image){
+    doc.addPage();
+    addPdfHeader(doc,"PLAN / CROQUIS");
+    const planImg=new Image();
+    await new Promise(res=>{planImg.onload=res;planImg.onerror=res;planImg.src=dossier.plan.image});
+    let pw=190, ph=250;
+    const iw=planImg.naturalWidth||1200, ih=planImg.naturalHeight||900;
+    const psc=Math.min(pw/iw,ph/ih);
+    pw=iw*psc; ph=ih*psc;
+    const px=(210-pw)/2, py=42;
+    doc.addImage(dossier.plan.image,"JPEG",px,py,pw,ph);
+    const candidates=getAllPlanMeasures();
+    (dossier.plan.reperes||[]).forEach(rp=>{
+      const current=candidates.find(m=>String(m.numero)===String(rp.numero));
+      const resultat=current?.resultat||rp.resultat||"À interpréter";
+      const color=resultat==="Positif"?[255,0,0]:resultat==="Négatif"?[0,122,255]:[119,119,119];
+      const mx=px+(Number(rp.x)||0)/100*pw, my=py+(Number(rp.y)||0)/100*ph;
+      doc.setFillColor(...color);
+      doc.setDrawColor(255,255,255);
+      doc.setLineWidth(.6);
+      doc.circle(mx,my,4,"FD");
+      doc.setTextColor(255,255,255);
+      doc.setFontSize(8);
+      doc.setFont(undefined,"bold");
+      doc.text(String(rp.numero),mx,my+2.5,{align:"center"});
+    });
+    doc.setTextColor(0,0,0);
+    // Le croquis occupe sa propre page : aucune table de pièce ne doit se superposer dessus.
+    doc.addPage();
+    addPdfHeader(doc,"Rapport d'expertise");
+    y=40;
+  }
+  const roomList=Object.values(dossier.rooms||{});
+  // Bloc 1 : toutes les pièces (tableaux + conclusions) se suivent.
+  // Les planches photographiques sont générées ensuite, afin de ne jamais couper
+  // la lecture des tableaux par une planche photo d'une pièce précédente.
+  for(const r of roomList){
+    const rows=(r.mesures||[]).map(m=>[String(m.numero),m.element,m.couleur||"Blanc",m.etat||"État d’usage",m.surface?formatSurface(m.surface)+" m²":"—",m.resultat]);
+    const roomTitle=r.nom.toUpperCase();
+
+    // Garder le titre + l'en-tête du tableau ensemble lorsque la place restante est faible.
+    if(y>245){doc.addPage();addPdfHeader(doc,"Rapport d'expertise");y=40}
+    doc.setFont(undefined,"bold");doc.setFontSize(13);doc.text(roomTitle,10,y);y+=8;doc.setFontSize(9);
+
+    doc.setFillColor(245,245,245);doc.rect(10,y-6,190,8,"F");
+    doc.setFont(undefined,"bold");
+    doc.text("N°",12,y);doc.text("Élément",24,y);doc.text("Couleur",72,y);doc.text("État",101,y);doc.text("Surface",140,y);doc.text("Résultat",168,y);
+    y+=7;doc.setFont(undefined,"normal");
+
+    rows.forEach(row=>{
+      if(y>275){doc.addPage();addPdfHeader(doc,"Rapport d'expertise — "+roomTitle);y=40;doc.setFillColor(245,245,245);doc.rect(10,y-6,190,8,"F");doc.setFont(undefined,"bold");doc.text("N°",12,y);doc.text("Élément",24,y);doc.text("Couleur",72,y);doc.text("État",101,y);doc.text("Surface",140,y);doc.text("Résultat",168,y);y+=7;doc.setFont(undefined,"normal")}
+      let bg=[245,245,245];
+      if(row[5]==="Positif")bg=[255,235,235];
+      else if(row[5]==="Négatif")bg=[235,248,238];
+      else if(row[5]==="À interpréter")bg=[255,248,225];
+      else if(row[5]==="Mesure nulle")bg=[242,242,242];
+      doc.setFillColor(...bg);doc.rect(10,y-4.5,190,6,"F");doc.setTextColor(0,0,0);
+      doc.text(row[0],12,y);doc.text(doc.splitTextToSize(row[1],43)[0],24,y);doc.text(row[2],72,y);doc.text(row[3].replace("État ",""),101,y);doc.text(row[4],140,y);doc.text(row[5],168,y);y+=6
+    });
+
+    const conclusions=buildConclusions().filter(x=>x.piece===r.nom);
+    if(conclusions.length){
+      if(y>258){doc.addPage();addPdfHeader(doc,"Rapport d'expertise");y=40}
+      doc.setFont(undefined,"bold");doc.setFontSize(13);doc.text("Conclusions",10,y+8);y+=17;doc.setFont(undefined,"normal");doc.setFontSize(9);
+      conclusions.forEach(c=>{
+        if(y>270){doc.addPage();addPdfHeader(doc,roomTitle+" — conclusions");y=40}
+        doc.setFont(undefined,"bold");doc.text(c.element,10,y);y+=5;doc.setFont(undefined,"normal");
+        const lines=doc.splitTextToSize(c.text,185);doc.text(lines,10,y);y+=lines.length*4+6
+      });
+    }
+  }
+
+  // Bloc 2 : toutes les planches photographiques après les tableaux des pièces.
+  for(const r of roomList){
+    if(!(r.photos||[]).length)continue;
+    doc.addPage();addPdfHeader(doc,"PLANCHE PHOTOGRAPHIQUE — "+r.nom.toUpperCase());
+    let py=42;
+    for(let i=0;i<r.photos.length;i++){
+      const data=r.photos[i];const img=new Image();
+      await new Promise(res=>{img.onload=res;img.onerror=res;img.src=data});
+      const maxW=88,maxH=105;let w=img.naturalWidth||800,h=img.naturalHeight||600;const sc=Math.min(maxW/w,maxH/h);w*=sc;h*=sc;
+      let x=i%2===0?10:108;
+      if(i%2===0&&i>0)py+=115;
+      if(py+h>285){doc.addPage();addPdfHeader(doc,"PLANCHE PHOTOGRAPHIQUE — "+r.nom.toUpperCase());py=42}
+      doc.addImage(data,"JPEG",x,py,w,h);doc.setFontSize(8);doc.setFont(undefined,"bold");doc.text(`Photo ${i+1}`,x,py+h+4);
+      const markerMeasures=(r.mesures||[]).filter(m=>m.resultat==="Positif").flatMap(m=>(m.localisations||[]).filter(l=>l.photo===i).map(l=>({m,l})));
+      markerMeasures.forEach(({m,l})=>{const mx=x+(l.x/100)*w,my=py+(l.y/100)*h;doc.setDrawColor(255,0,0);doc.setFillColor(255,0,0);doc.setLineWidth(1.2);doc.line(mx,my+7,mx,my-4);doc.triangle(mx,my-7,mx-3,my-2,mx+3,my-2,"F")});
+      doc.setFontSize(8);doc.setFont(undefined,"normal")
+    }
+  }
+  const general=buildConclusions().filter(x=>x.scope==="logement");
+  if(general.length){
+    doc.addPage();addPdfHeader(doc,"CONCLUSION GÉNÉRALE DU LOGEMENT");let gy=42;doc.setFontSize(9);
+    general.forEach(c=>{if(gy>270){doc.addPage();addPdfHeader(doc,"CONCLUSION GÉNÉRALE DU LOGEMENT");gy=42}doc.setFont(undefined,"bold");doc.text(c.element,10,gy);gy+=5;doc.setFont(undefined,"normal");const lines=doc.splitTextToSize(c.text,185);doc.text(lines,10,gy);gy+=lines.length*4+8});
+  }
+  const filename=`EddyApp_${dossier.id}.pdf`;doc.save(filename)
+}
+document.getElementById("dossierPlan").onclick=openPlan;document.getElementById("planBack").onclick=()=>{renderDossier();show("dossier")};document.getElementById("importPlan").onclick=()=>document.getElementById("planInput").click();document.getElementById("removePlan").onclick=()=>{if(dossier){dossier.plan={image:"",reperes:[]};save();renderPlan()}};document.getElementById("planInput").onchange=async function(){const f=this.files&&this.files[0];if(!f)return;try{dossier.plan=dossier.plan||{image:"",reperes:[]};dossier.plan.image=await compressImage(f);dossier.plan.reperes=dossier.plan.reperes||[];save();renderPlan()}catch(e){alert("Impossible d'importer ce plan.")}this.value=""};
+function openPlan(){if(!dossier)return;renderPlan();show("plan")}
+function getAllPlanMeasures(){const candidates=[];Object.values(dossier.rooms||{}).forEach(r=>(r.mesures||[]).forEach(m=>candidates.push({numero:m.numero,piece:r.nom,element:m.element,resultat:m.resultat})));return candidates.sort((a,b)=>Number(a.numero)-Number(b.numero))}
+function resultColor(resultat){if(resultat==="Positif")return "#ff0000";if(resultat==="Présence")return "#ff9500";if(resultat==="Négatif")return "#007aff";return "#777"}
+function renderPlan(){const wrap=document.getElementById("planWrap"),img=document.getElementById("planImg"),pm=document.getElementById("planMarkers"),list=document.getElementById("planMeasures"),next=document.getElementById("planNext");dossier.plan=dossier.plan||{image:"",reperes:[]};const candidates=getAllPlanMeasures();const placed=new Set((dossier.plan.reperes||[]).map(r=>String(r.numero)));const nextMeasure=candidates.find(m=>!placed.has(String(m.numero)));if(!dossier.plan.image){wrap.style.display="none";next.textContent=nextMeasure?`Importe un plan. Le premier numéro à placer sera ${nextMeasure.numero}.`:'Aucune mesure à placer.';list.innerHTML='<div class="empty">Aucun plan importé.</div>';return}wrap.style.display="block";img.src=dossier.plan.image;pm.innerHTML=(dossier.plan.reperes||[]).map((r,i)=>{const current=candidates.find(m=>String(m.numero)===String(r.numero));const resultat=current?.resultat||r.resultat||"À interpréter";return `<div class="plan-marker ${resultat==="À interpréter"?"waiting":""}" data-index="${i}" style="position:absolute;left:${r.x}%;top:${r.y}%;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:${resultColor(resultat)};border:2px solid #fff;color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center">${r.numero}</div>`}).join("");next.textContent=nextMeasure?`Prochain numéro : ${nextMeasure.numero} — touche le plan pour le placer.`:'Tous les numéros ont été placés sur le plan.';list.innerHTML=(dossier.plan.reperes||[]).map((r,i)=>{const current=candidates.find(m=>String(m.numero)===String(r.numero));const resultat=current?.resultat||r.resultat||"À interpréter";return `<div class="interpret-row"><div><b>${r.numero}</b> — ${esc(r.piece||"")} — ${esc(r.element||"")} <span class="badge ${resultat==="Positif"?"pos":resultat==="Présence"?"presence":resultat==="Négatif"?"neg":"later"}">${esc(resultat)}</span></div><button class="open" onclick="removePlanMarker(${i})">Supprimer</button></div>`}).join("")||'<div class="empty">Aucun repère placé.</div>'}
+function addPlanMarker(e){if(!dossier?.plan?.image)return;const img=document.getElementById("planImg"),rect=img.getBoundingClientRect();if(!rect.width)return;const candidates=getAllPlanMeasures();const placed=new Set((dossier.plan.reperes||[]).map(r=>String(r.numero)));const m=candidates.find(x=>!placed.has(String(x.numero)));if(!m){alert("Tous les numéros de mesure ont déjà été placés sur le plan.");return}const x=Math.max(0,Math.min(100,(e.clientX-rect.left)/rect.width*100)),y=Math.max(0,Math.min(100,(e.clientY-rect.top)/rect.height*100));dossier.plan.reperes=(dossier.plan.reperes||[]).filter(r=>String(r.numero)!==String(m.numero));dossier.plan.reperes.push({numero:m.numero,piece:m.piece,element:m.element,resultat:m.resultat,x,y});save();renderPlan()}
+function removePlanMarker(i){dossier.plan.reperes.splice(i,1);save();renderPlan()}
+document.getElementById("planWrap").addEventListener("click",e=>{if(e.target.closest(".plan-marker"))return;addPlanMarker(e)});
+document.getElementById("summaryInterpret").onclick=()=>openInterpretation();document.getElementById("summaryConclusions").onclick=openConclusions;document.getElementById("summaryPdf").onclick=generatePdf;document.getElementById("conclusionPdf").onclick=generatePdf;document.getElementById("conclusionHome").onclick=()=>{renderDossier();show("dossier")};document.getElementById("summaryHome").onclick=()=>{renderDossier();show("dossier")};document.getElementById("backInterpret").onclick=()=>{renderInterpretation();show("interpret")};
+renderQuickElements();
+(async()=>{await loadData();renderHome();show("home")})();
+</script>
+</body>
+</html>
